@@ -84,7 +84,7 @@ begin
     -- default statements (hold current value)
     next_count     <= count;
     next_fsm_state <= fsm_state;
- write_o                   <= '0';
+	 write_o                   <= '0';
   --------------------------------------------------
 	 
     case fsm_state is
