@@ -8,23 +8,23 @@ vcom -2008 -explicit -work work ../../support/user_driver_pkg.vhd
 vcom -2008 -explicit -work work ../../support/reg_table_pkg.vhd
 
 
-vcom -2008 -explicit -work work ../../../source/baud_tick.vhd
-vcom -2008 -explicit -work work ../../../source/bit_counter.vhd
-vcom -2008 -explicit -work work ../../../source/bus_hex2sevseg.vhd
-vcom -2008 -explicit -work work ../../../source/clock_sync.vhd
+vcom -2008 -explicit -work work ../../../../midi/baud_tick.vhd
+vcom -2008 -explicit -work work ../../../../midi/bit_counter.vhd
+vcom -2008 -explicit -work work ../../../../midi/bus_hex2sevseg.vhd
+vcom -2008 -explicit -work work ../../../../infrastructure/clock_sync.vhd
 vcom -2008 -explicit -work work ../../../source/count_down.vhd
 vcom -2008 -explicit -work work ../../../source/codec_controller.vhd
-vcom -2008 -explicit -work work ../../../source/flanken_detekt_vhdl.vhd
-vcom -2008 -explicit -work work ../../../source/i2c_slave_bfm.vhd
-vcom -2008 -explicit -work work ../../../source/i2c_master.vhd
+vcom -2008 -explicit -work work ../../../../midi/flanken_detekt_vhdl.vhd
+vcom -2008 -explicit -work work ../../../../i2c/i2c_slave_bfm.vhd
+vcom -2008 -explicit -work work ../../../../i2c/i2c_master.vhd
 vcom -2008 -explicit -work work ../../../source/infrastructure.vhd
-vcom -2008 -explicit -work work ../../../source/modulo_divider.vhd
-vcom -2008 -explicit -work work ../../../source/output_register.vhd
-vcom -2008 -explicit -work work ../../../source/shiftreg_uart.vhd
-vcom -2008 -explicit -work work ../../../source/signal_checker.vhd
+vcom -2008 -explicit -work work ../../../../infrastructure/modulo_divider.vhd
+vcom -2008 -explicit -work work ../../../../midi/output_register.vhd
+vcom -2008 -explicit -work work ../../../../midi/shiftreg_uart.vhd
+vcom -2008 -explicit -work work ../../../../infrastructure/signal_checker.vhd
 vcom -2008 -explicit -work work ../../../source/synthi_top_tb.vhd
 vcom -2008 -explicit -work work ../../../source/synthi_top.vhd
-vcom -2008 -explicit -work work ../../../source/uart_controller_fsm.vhd
+vcom -2008 -explicit -work work ../../../../midi/uart_controller_fsm.vhd
 vcom -2008 -explicit -work work ../../../source/uart_top.vhd
 
 
