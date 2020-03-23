@@ -1,5 +1,5 @@
 Analysis & Synthesis report for synthi_top
-Mon Mar 23 11:55:48 2020
+Mon Mar 23 17:28:20 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -55,7 +55,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Mar 23 11:55:46 2020       ;
+; Analysis & Synthesis Status        ; Successful - Mon Mar 23 17:28:20 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; synthi_top                                  ;
 ; Top-level Entity Name              ; synthi_top                                  ;
@@ -166,42 +166,42 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                     ;
-+---------------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path            ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                   ; Library ;
-+---------------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------+---------+
-; ../source/i2c/i2c_slave_bfm.vhd             ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/i2c/i2c_slave_bfm.vhd             ;         ;
-; ../source/i2c/i2c_master.vhd                ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/i2c/i2c_master.vhd                ;         ;
-; ../source/infrastructure/signal_checker.vhd ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/infrastructure/signal_checker.vhd ;         ;
-; ../source/infrastructure/modulo_divider.vhd ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/infrastructure/modulo_divider.vhd ;         ;
-; ../source/infrastructure/clock_sync.vhd     ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/infrastructure/clock_sync.vhd     ;         ;
-; ../source/midi/uart_controller_fsm.vhd      ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/midi/uart_controller_fsm.vhd      ;         ;
-; ../source/midi/shiftreg_uart.vhd            ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/midi/shiftreg_uart.vhd            ;         ;
-; ../source/midi/output_register.vhd          ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/midi/output_register.vhd          ;         ;
-; ../source/midi/flanken_detekt_vhdl.vhd      ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/midi/flanken_detekt_vhdl.vhd      ;         ;
-; ../source/midi/bus_hex2sevseg.vhd           ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/midi/bus_hex2sevseg.vhd           ;         ;
-; ../source/midi/bit_counter.vhd              ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/midi/bit_counter.vhd              ;         ;
-; ../source/midi/baud_tick.vhd                ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/midi/baud_tick.vhd                ;         ;
-; ../source/uart_top.vhd                      ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/uart_top.vhd                      ;         ;
-; ../source/synthi_top.vhd                    ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd                    ;         ;
-; ../source/reg_table_pkg.vhd                 ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/reg_table_pkg.vhd                 ;         ;
-; ../source/infrastructure.vhd                ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/infrastructure.vhd                ;         ;
-; ../source/count_down.vhd                    ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/count_down.vhd                    ;         ;
-; ../source/codec_controller.vhd              ; yes             ; User VHDL File  ; C:/Users/cyril/Desktop/synthi_project/source/codec_controller.vhd              ;         ;
-+---------------------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                         ;
++---------------------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path            ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                       ; Library ;
++---------------------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------+---------+
+; ../source/i2c/i2c_slave_bfm.vhd             ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2c/i2c_slave_bfm.vhd             ;         ;
+; ../source/i2c/i2c_master.vhd                ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2c/i2c_master.vhd                ;         ;
+; ../source/infrastructure/signal_checker.vhd ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure/signal_checker.vhd ;         ;
+; ../source/infrastructure/modulo_divider.vhd ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure/modulo_divider.vhd ;         ;
+; ../source/infrastructure/clock_sync.vhd     ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure/clock_sync.vhd     ;         ;
+; ../source/midi/uart_controller_fsm.vhd      ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/uart_controller_fsm.vhd      ;         ;
+; ../source/midi/shiftreg_uart.vhd            ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/shiftreg_uart.vhd            ;         ;
+; ../source/midi/output_register.vhd          ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/output_register.vhd          ;         ;
+; ../source/midi/flanken_detekt_vhdl.vhd      ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/flanken_detekt_vhdl.vhd      ;         ;
+; ../source/midi/bus_hex2sevseg.vhd           ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/bus_hex2sevseg.vhd           ;         ;
+; ../source/midi/bit_counter.vhd              ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/bit_counter.vhd              ;         ;
+; ../source/midi/baud_tick.vhd                ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/baud_tick.vhd                ;         ;
+; ../source/uart_top.vhd                      ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd                      ;         ;
+; ../source/synthi_top.vhd                    ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd                    ;         ;
+; ../source/reg_table_pkg.vhd                 ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/reg_table_pkg.vhd                 ;         ;
+; ../source/infrastructure.vhd                ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure.vhd                ;         ;
+; ../source/count_down.vhd                    ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/count_down.vhd                    ;         ;
+; ../source/codec_controller.vhd              ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/codec_controller.vhd              ;         ;
++---------------------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------------------------------------------------------------------+
@@ -466,7 +466,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:08     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -476,118 +476,118 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Mar 23 11:53:39 2020
+    Info: Processing started: Mon Mar 23 17:28:09 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off synthi_top -c synthi_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/i2c/i2c_slave_bfm.vhd
-    Info (12022): Found design unit 1: i2c_slave_bfm-bfm File: C:/Users/cyril/Desktop/synthi_project/source/i2c/i2c_slave_bfm.vhd Line: 32
-    Info (12023): Found entity 1: i2c_slave_bfm File: C:/Users/cyril/Desktop/synthi_project/source/i2c/i2c_slave_bfm.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/i2c/i2c_master.vhd
-    Info (12022): Found design unit 1: i2c_master-rtl File: C:/Users/cyril/Desktop/synthi_project/source/i2c/i2c_master.vhd Line: 40
-    Info (12023): Found entity 1: i2c_master File: C:/Users/cyril/Desktop/synthi_project/source/i2c/i2c_master.vhd Line: 22
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/infrastructure/signal_checker.vhd
-    Info (12022): Found design unit 1: signal_checker-rtl File: C:/Users/cyril/Desktop/synthi_project/source/infrastructure/signal_checker.vhd Line: 29
-    Info (12023): Found entity 1: signal_checker File: C:/Users/cyril/Desktop/synthi_project/source/infrastructure/signal_checker.vhd Line: 19
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/infrastructure/modulo_divider.vhd
-    Info (12022): Found design unit 1: modulo_divider-rtl File: C:/Users/cyril/Desktop/synthi_project/source/infrastructure/modulo_divider.vhd Line: 27
-    Info (12023): Found entity 1: modulo_divider File: C:/Users/cyril/Desktop/synthi_project/source/infrastructure/modulo_divider.vhd Line: 18
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/infrastructure/clock_sync.vhd
-    Info (12022): Found design unit 1: clock_sync-rtl File: C:/Users/cyril/Desktop/synthi_project/source/infrastructure/clock_sync.vhd Line: 23
-    Info (12023): Found entity 1: clock_sync File: C:/Users/cyril/Desktop/synthi_project/source/infrastructure/clock_sync.vhd Line: 14
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/midi/uart_controller_fsm.vhd
-    Info (12022): Found design unit 1: uart_controller_fsm-rtl File: C:/Users/cyril/Desktop/synthi_project/source/midi/uart_controller_fsm.vhd Line: 34
-    Info (12023): Found entity 1: uart_controller_fsm File: C:/Users/cyril/Desktop/synthi_project/source/midi/uart_controller_fsm.vhd Line: 18
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/midi/shiftreg_uart.vhd
-    Info (12022): Found design unit 1: shiftreg_uart-rtl File: C:/Users/cyril/Desktop/synthi_project/source/midi/shiftreg_uart.vhd Line: 37
-    Info (12023): Found entity 1: shiftreg_uart File: C:/Users/cyril/Desktop/synthi_project/source/midi/shiftreg_uart.vhd Line: 21
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/midi/output_register.vhd
-    Info (12022): Found design unit 1: output_register-rtl File: C:/Users/cyril/Desktop/synthi_project/source/midi/output_register.vhd Line: 38
-    Info (12023): Found entity 1: output_register File: C:/Users/cyril/Desktop/synthi_project/source/midi/output_register.vhd Line: 25
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/midi/flanken_detekt_vhdl.vhd
-    Info (12022): Found design unit 1: flanken_detekt_vhdl-rtl File: C:/Users/cyril/Desktop/synthi_project/source/midi/flanken_detekt_vhdl.vhd Line: 26
-    Info (12023): Found entity 1: flanken_detekt_vhdl File: C:/Users/cyril/Desktop/synthi_project/source/midi/flanken_detekt_vhdl.vhd Line: 15
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/midi/bus_hex2sevseg.vhd
-    Info (12022): Found design unit 1: bus_hex2sevseg-rtl File: C:/Users/cyril/Desktop/synthi_project/source/midi/bus_hex2sevseg.vhd Line: 38
-    Info (12023): Found entity 1: bus_hex2sevseg File: C:/Users/cyril/Desktop/synthi_project/source/midi/bus_hex2sevseg.vhd Line: 27
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/midi/bit_counter.vhd
-    Info (12022): Found design unit 1: bit_counter-rtl File: C:/Users/cyril/Desktop/synthi_project/source/midi/bit_counter.vhd Line: 37
-    Info (12023): Found entity 1: bit_counter File: C:/Users/cyril/Desktop/synthi_project/source/midi/bit_counter.vhd Line: 25
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/midi/baud_tick.vhd
-    Info (12022): Found design unit 1: baud_tick-rtl File: C:/Users/cyril/Desktop/synthi_project/source/midi/baud_tick.vhd Line: 36
-    Info (12023): Found entity 1: baud_tick File: C:/Users/cyril/Desktop/synthi_project/source/midi/baud_tick.vhd Line: 25
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/uart_top.vhd
-    Info (12022): Found design unit 1: uart_top-bdf_type File: C:/Users/cyril/Desktop/synthi_project/source/uart_top.vhd Line: 37
-    Info (12023): Found entity 1: uart_top File: C:/Users/cyril/Desktop/synthi_project/source/uart_top.vhd Line: 24
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/synthi_top.vhd
-    Info (12022): Found design unit 1: synthi_top-str File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 58
-    Info (12023): Found entity 1: synthi_top File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 30
-Info (12021): Found 1 design units, including 0 entities, in source file /users/cyril/desktop/synthi_project/source/reg_table_pkg.vhd
-    Info (12022): Found design unit 1: reg_table_pkg File: C:/Users/cyril/Desktop/synthi_project/source/reg_table_pkg.vhd Line: 26
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/infrastructure.vhd
-    Info (12022): Found design unit 1: infrastructure-str File: C:/Users/cyril/Desktop/synthi_project/source/infrastructure.vhd Line: 43
-    Info (12023): Found entity 1: infrastructure File: C:/Users/cyril/Desktop/synthi_project/source/infrastructure.vhd Line: 29
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/count_down.vhd
-    Info (12022): Found design unit 1: count_down-rtl File: C:/Users/cyril/Desktop/synthi_project/source/count_down.vhd Line: 36
-    Info (12023): Found entity 1: count_down File: C:/Users/cyril/Desktop/synthi_project/source/count_down.vhd Line: 25
-Info (12021): Found 2 design units, including 1 entities, in source file /users/cyril/desktop/synthi_project/source/codec_controller.vhd
-    Info (12022): Found design unit 1: codec_controller-rtl File: C:/Users/cyril/Desktop/synthi_project/source/codec_controller.vhd Line: 43
-    Info (12023): Found entity 1: codec_controller File: C:/Users/cyril/Desktop/synthi_project/source/codec_controller.vhd Line: 27
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/i2c/i2c_slave_bfm.vhd
+    Info (12022): Found design unit 1: i2c_slave_bfm-bfm File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2c/i2c_slave_bfm.vhd Line: 32
+    Info (12023): Found entity 1: i2c_slave_bfm File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2c/i2c_slave_bfm.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/i2c/i2c_master.vhd
+    Info (12022): Found design unit 1: i2c_master-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2c/i2c_master.vhd Line: 40
+    Info (12023): Found entity 1: i2c_master File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2c/i2c_master.vhd Line: 22
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/infrastructure/signal_checker.vhd
+    Info (12022): Found design unit 1: signal_checker-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure/signal_checker.vhd Line: 29
+    Info (12023): Found entity 1: signal_checker File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure/signal_checker.vhd Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/infrastructure/modulo_divider.vhd
+    Info (12022): Found design unit 1: modulo_divider-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure/modulo_divider.vhd Line: 27
+    Info (12023): Found entity 1: modulo_divider File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure/modulo_divider.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/infrastructure/clock_sync.vhd
+    Info (12022): Found design unit 1: clock_sync-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure/clock_sync.vhd Line: 23
+    Info (12023): Found entity 1: clock_sync File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure/clock_sync.vhd Line: 14
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/midi/uart_controller_fsm.vhd
+    Info (12022): Found design unit 1: uart_controller_fsm-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/uart_controller_fsm.vhd Line: 34
+    Info (12023): Found entity 1: uart_controller_fsm File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/uart_controller_fsm.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/midi/shiftreg_uart.vhd
+    Info (12022): Found design unit 1: shiftreg_uart-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/shiftreg_uart.vhd Line: 37
+    Info (12023): Found entity 1: shiftreg_uart File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/shiftreg_uart.vhd Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/midi/output_register.vhd
+    Info (12022): Found design unit 1: output_register-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/output_register.vhd Line: 38
+    Info (12023): Found entity 1: output_register File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/output_register.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/midi/flanken_detekt_vhdl.vhd
+    Info (12022): Found design unit 1: flanken_detekt_vhdl-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/flanken_detekt_vhdl.vhd Line: 26
+    Info (12023): Found entity 1: flanken_detekt_vhdl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/flanken_detekt_vhdl.vhd Line: 15
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/midi/bus_hex2sevseg.vhd
+    Info (12022): Found design unit 1: bus_hex2sevseg-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/bus_hex2sevseg.vhd Line: 38
+    Info (12023): Found entity 1: bus_hex2sevseg File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/bus_hex2sevseg.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/midi/bit_counter.vhd
+    Info (12022): Found design unit 1: bit_counter-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/bit_counter.vhd Line: 37
+    Info (12023): Found entity 1: bit_counter File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/bit_counter.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/midi/baud_tick.vhd
+    Info (12022): Found design unit 1: baud_tick-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/baud_tick.vhd Line: 36
+    Info (12023): Found entity 1: baud_tick File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/midi/baud_tick.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/uart_top.vhd
+    Info (12022): Found design unit 1: uart_top-bdf_type File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 37
+    Info (12023): Found entity 1: uart_top File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 24
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/synthi_top.vhd
+    Info (12022): Found design unit 1: synthi_top-str File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 58
+    Info (12023): Found entity 1: synthi_top File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 30
+Info (12021): Found 1 design units, including 0 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/reg_table_pkg.vhd
+    Info (12022): Found design unit 1: reg_table_pkg File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/reg_table_pkg.vhd Line: 26
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/infrastructure.vhd
+    Info (12022): Found design unit 1: infrastructure-str File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure.vhd Line: 43
+    Info (12023): Found entity 1: infrastructure File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure.vhd Line: 29
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/count_down.vhd
+    Info (12022): Found design unit 1: count_down-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/count_down.vhd Line: 36
+    Info (12023): Found entity 1: count_down File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/count_down.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/codec_controller.vhd
+    Info (12022): Found design unit 1: codec_controller-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/codec_controller.vhd Line: 43
+    Info (12023): Found entity 1: codec_controller File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/codec_controller.vhd Line: 27
 Info (12127): Elaborating entity "synthi_top" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(41): used implicit default value for signal "AUD_XCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 41
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(42): used implicit default value for signal "AUD_DACDAT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 42
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(43): used implicit default value for signal "AUD_BCLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 43
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(44): used implicit default value for signal "AUD_DACLRCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 44
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(45): used implicit default value for signal "AUD_ADCLRCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 45
-Info (12128): Elaborating entity "uart_top" for hierarchy "uart_top:uart_top_1" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 128
-Info (12128): Elaborating entity "output_register" for hierarchy "uart_top:uart_top_1|output_register:b2v_inst" File: C:/Users/cyril/Desktop/synthi_project/source/uart_top.vhd Line: 145
-Info (12128): Elaborating entity "shiftreg_uart" for hierarchy "uart_top:uart_top_1|shiftreg_uart:b2v_inst11" File: C:/Users/cyril/Desktop/synthi_project/source/uart_top.vhd Line: 155
-Info (12128): Elaborating entity "bus_hex2sevseg" for hierarchy "uart_top:uart_top_1|bus_hex2sevseg:b2v_inst14" File: C:/Users/cyril/Desktop/synthi_project/source/uart_top.vhd Line: 166
-Info (12128): Elaborating entity "uart_controller_fsm" for hierarchy "uart_top:uart_top_1|uart_controller_fsm:b2v_inst3" File: C:/Users/cyril/Desktop/synthi_project/source/uart_top.vhd Line: 175
-Info (12128): Elaborating entity "baud_tick" for hierarchy "uart_top:uart_top_1|baud_tick:b2v_inst5" File: C:/Users/cyril/Desktop/synthi_project/source/uart_top.vhd Line: 188
-Info (12128): Elaborating entity "bit_counter" for hierarchy "uart_top:uart_top_1|bit_counter:b2v_inst6" File: C:/Users/cyril/Desktop/synthi_project/source/uart_top.vhd Line: 196
-Info (12128): Elaborating entity "flanken_detekt_vhdl" for hierarchy "uart_top:uart_top_1|flanken_detekt_vhdl:b2v_inst7" File: C:/Users/cyril/Desktop/synthi_project/source/uart_top.vhd Line: 205
-Info (12128): Elaborating entity "infrastructure" for hierarchy "infrastructure:infrastructure_1" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 137
-Info (12128): Elaborating entity "modulo_divider" for hierarchy "infrastructure:infrastructure_1|modulo_divider:modulo_divider_1" File: C:/Users/cyril/Desktop/synthi_project/source/infrastructure.vhd Line: 81
-Warning (10540): VHDL Signal Declaration warning at modulo_divider.vhd(30): used explicit default value for signal "width" because signal was never assigned a value File: C:/Users/cyril/Desktop/synthi_project/source/infrastructure/modulo_divider.vhd Line: 30
-Info (12128): Elaborating entity "clock_sync" for hierarchy "infrastructure:infrastructure_1|clock_sync:clock_sync_1" File: C:/Users/cyril/Desktop/synthi_project/source/infrastructure.vhd Line: 86
-Info (12128): Elaborating entity "signal_checker" for hierarchy "infrastructure:infrastructure_1|signal_checker:signal_checker_1" File: C:/Users/cyril/Desktop/synthi_project/source/infrastructure.vhd Line: 98
-Info (12128): Elaborating entity "i2c_master" for hierarchy "i2c_master:i2c_master_1" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 148
-Info (12128): Elaborating entity "codec_controller" for hierarchy "codec_controller:codec_controller_1" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 160
-Info (13000): Registers with preset signals will power-up high File: C:/Users/cyril/Desktop/synthi_project/source/i2c/i2c_master.vhd Line: 300
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(41): used implicit default value for signal "AUD_XCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 41
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(42): used implicit default value for signal "AUD_DACDAT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 42
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(43): used implicit default value for signal "AUD_BCLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 43
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(44): used implicit default value for signal "AUD_DACLRCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 44
+Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(45): used implicit default value for signal "AUD_ADCLRCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 45
+Info (12128): Elaborating entity "uart_top" for hierarchy "uart_top:uart_top_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 128
+Info (12128): Elaborating entity "output_register" for hierarchy "uart_top:uart_top_1|output_register:b2v_inst" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 145
+Info (12128): Elaborating entity "shiftreg_uart" for hierarchy "uart_top:uart_top_1|shiftreg_uart:b2v_inst11" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 155
+Info (12128): Elaborating entity "bus_hex2sevseg" for hierarchy "uart_top:uart_top_1|bus_hex2sevseg:b2v_inst14" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 166
+Info (12128): Elaborating entity "uart_controller_fsm" for hierarchy "uart_top:uart_top_1|uart_controller_fsm:b2v_inst3" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 175
+Info (12128): Elaborating entity "baud_tick" for hierarchy "uart_top:uart_top_1|baud_tick:b2v_inst5" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 188
+Info (12128): Elaborating entity "bit_counter" for hierarchy "uart_top:uart_top_1|bit_counter:b2v_inst6" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 196
+Info (12128): Elaborating entity "flanken_detekt_vhdl" for hierarchy "uart_top:uart_top_1|flanken_detekt_vhdl:b2v_inst7" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 205
+Info (12128): Elaborating entity "infrastructure" for hierarchy "infrastructure:infrastructure_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 137
+Info (12128): Elaborating entity "modulo_divider" for hierarchy "infrastructure:infrastructure_1|modulo_divider:modulo_divider_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure.vhd Line: 81
+Warning (10540): VHDL Signal Declaration warning at modulo_divider.vhd(30): used explicit default value for signal "width" because signal was never assigned a value File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure/modulo_divider.vhd Line: 30
+Info (12128): Elaborating entity "clock_sync" for hierarchy "infrastructure:infrastructure_1|clock_sync:clock_sync_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure.vhd Line: 86
+Info (12128): Elaborating entity "signal_checker" for hierarchy "infrastructure:infrastructure_1|signal_checker:signal_checker_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure.vhd Line: 98
+Info (12128): Elaborating entity "i2c_master" for hierarchy "i2c_master:i2c_master_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 148
+Info (12128): Elaborating entity "codec_controller" for hierarchy "codec_controller:codec_controller_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 160
+Info (13000): Registers with preset signals will power-up high File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2c/i2c_master.vhd Line: 300
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "AUD_XCK" is stuck at GND File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 41
-    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 42
-    Warning (13410): Pin "AUD_BCLK" is stuck at GND File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 43
-    Warning (13410): Pin "AUD_DACLRCK" is stuck at GND File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 44
-    Warning (13410): Pin "AUD_ADCLRCK" is stuck at GND File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 45
+    Warning (13410): Pin "AUD_XCK" is stuck at GND File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 41
+    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 42
+    Warning (13410): Pin "AUD_BCLK" is stuck at GND File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 43
+    Warning (13410): Pin "AUD_DACLRCK" is stuck at GND File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 44
+    Warning (13410): Pin "AUD_ADCLRCK" is stuck at GND File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 45
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 13 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY_1" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 34
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "USB_RXD" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 36
-    Warning (15610): No output dependent on input pin "BT_RXD" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "BT_TXD" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 39
-    Warning (15610): No output dependent on input pin "BT_RST_N" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 40
-    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 46
+    Warning (15610): No output dependent on input pin "KEY_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 34
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Warning (15610): No output dependent on input pin "USB_RXD" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "BT_RXD" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 38
+    Warning (15610): No output dependent on input pin "BT_TXD" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "BT_RST_N" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 40
+    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 46
 Info (21057): Implemented 320 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 19 input pins
     Info (21059): Implemented 21 output pins
     Info (21060): Implemented 1 bidirectional pins
     Info (21061): Implemented 279 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 27 warnings
-    Info: Peak virtual memory: 4797 megabytes
-    Info: Processing ended: Mon Mar 23 11:55:48 2020
-    Info: Elapsed time: 00:02:09
-    Info: Total CPU time (on all processors): 00:03:00
+    Info: Peak virtual memory: 4801 megabytes
+    Info: Processing ended: Mon Mar 23 17:28:20 2020
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:21
 
 

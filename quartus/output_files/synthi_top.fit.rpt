@@ -1,5 +1,5 @@
 Fitter report for synthi_top
-Mon Mar 23 11:57:43 2020
+Mon Mar 23 17:28:31 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -69,7 +69,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Mon Mar 23 11:57:43 2020       ;
+; Fitter Status                      ; Successful - Mon Mar 23 17:28:31 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; synthi_top                                  ;
 ; Top-level Entity Name              ; synthi_top                                  ;
@@ -152,15 +152,17 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.04        ;
-; Maximum used               ; 2           ;
+; Average used               ; 1.06        ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   4.0%      ;
+;     Processor 2            ;   1.9%      ;
+;     Processor 3            ;   1.9%      ;
+;     Processor 4            ;   1.9%      ;
 +----------------------------+-------------+
 
 
@@ -860,7 +862,7 @@ refer to the applicable agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/cyril/Desktop/synthi_project/quartus/output_files/synthi_top.pin.
+The pin-out file can be found in C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/quartus/output_files/synthi_top.pin.
 
 
 +----------------------------------------------------------------------+
@@ -2127,7 +2129,7 @@ Note: This table only shows the top 2 path(s) that have the largest delay added 
 ; Fitter Messages ;
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (119006): Selected device 10M50DAF484C7G for design "synthi_top"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -2164,12 +2166,12 @@ Info (332144): No user constrained base clocks found in the design
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
-Info (176353): Automatically promoted node CLOCK_50~input (placed in PIN P11 (CLK7p, DIFFIO_TX_RX_B20p, DIFFOUT_B20p, High_Speed)) File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 32
+Info (176353): Automatically promoted node CLOCK_50~input (placed in PIN P11 (CLK7p, DIFFIO_TX_RX_B20p, DIFFOUT_B20p, High_Speed)) File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 32
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G19
-Info (176353): Automatically promoted node infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1]  File: C:/Users/cyril/Desktop/synthi_project/source/infrastructure/modulo_divider.vhd Line: 52
+Info (176353): Automatically promoted node infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1]  File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure/modulo_divider.vhd Line: 52
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1]~0 File: C:/Users/cyril/Desktop/synthi_project/source/infrastructure/modulo_divider.vhd Line: 52
+        Info (176357): Destination node infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1]~0 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure/modulo_divider.vhd Line: 52
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
@@ -2499,58 +2501,58 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "VGA_R_2" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_R_3" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_VS" is assigned to location or region, but does not exist in design
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:11
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:15
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X45_Y44 to location X55_Y54
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:08
-Info (11888): Total time spent on timing analysis during the Fitter is 2.08 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
+Info (11888): Total time spent on timing analysis during the Fitter is 0.22 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:12
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169177): 20 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing MAX 10 Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
-    Info (169178): Pin KEY_1 uses I/O standard 3.3 V Schmitt Trigger at A7 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 34
-    Info (169178): Pin SW[3] uses I/O standard 3.3-V LVTTL at C12 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Info (169178): Pin SW[4] uses I/O standard 3.3-V LVTTL at A12 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Info (169178): Pin SW[5] uses I/O standard 3.3-V LVTTL at B12 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Info (169178): Pin SW[6] uses I/O standard 3.3-V LVTTL at A13 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Info (169178): Pin SW[7] uses I/O standard 3.3-V LVTTL at A14 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Info (169178): Pin SW[8] uses I/O standard 3.3-V LVTTL at B14 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Info (169178): Pin SW[9] uses I/O standard 3.3-V LVTTL at F15 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Info (169178): Pin USB_RXD uses I/O standard 3.3-V LVTTL at AB17 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 36
-    Info (169178): Pin BT_RXD uses I/O standard 3.3-V LVTTL at AB19 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 38
-    Info (169178): Pin BT_TXD uses I/O standard 3.3-V LVTTL at AA19 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 39
-    Info (169178): Pin BT_RST_N uses I/O standard 3.3-V LVTTL at Y19 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 40
-    Info (169178): Pin AUD_ADCDAT uses I/O standard 3.3-V LVTTL at AA11 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 46
-    Info (169178): Pin AUD_SDAT uses I/O standard 3.3-V LVTTL at AB7 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 48
-    Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at P11 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 32
-    Info (169178): Pin KEY_0 uses I/O standard 3.3 V Schmitt Trigger at B8 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 33
-    Info (169178): Pin USB_TXD uses I/O standard 3.3-V LVTTL at AA17 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 37
-    Info (169178): Pin SW[2] uses I/O standard 3.3-V LVTTL at D12 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Info (169178): Pin SW[1] uses I/O standard 3.3-V LVTTL at C11 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-    Info (169178): Pin SW[0] uses I/O standard 3.3-V LVTTL at C10 File: C:/Users/cyril/Desktop/synthi_project/source/synthi_top.vhd Line: 35
-Info (144001): Generated suppressed messages file C:/Users/cyril/Desktop/synthi_project/quartus/output_files/synthi_top.fit.smsg
+    Info (169178): Pin KEY_1 uses I/O standard 3.3 V Schmitt Trigger at A7 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 34
+    Info (169178): Pin SW[3] uses I/O standard 3.3-V LVTTL at C12 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Info (169178): Pin SW[4] uses I/O standard 3.3-V LVTTL at A12 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Info (169178): Pin SW[5] uses I/O standard 3.3-V LVTTL at B12 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Info (169178): Pin SW[6] uses I/O standard 3.3-V LVTTL at A13 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Info (169178): Pin SW[7] uses I/O standard 3.3-V LVTTL at A14 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Info (169178): Pin SW[8] uses I/O standard 3.3-V LVTTL at B14 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Info (169178): Pin SW[9] uses I/O standard 3.3-V LVTTL at F15 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Info (169178): Pin USB_RXD uses I/O standard 3.3-V LVTTL at AB17 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 36
+    Info (169178): Pin BT_RXD uses I/O standard 3.3-V LVTTL at AB19 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 38
+    Info (169178): Pin BT_TXD uses I/O standard 3.3-V LVTTL at AA19 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 39
+    Info (169178): Pin BT_RST_N uses I/O standard 3.3-V LVTTL at Y19 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 40
+    Info (169178): Pin AUD_ADCDAT uses I/O standard 3.3-V LVTTL at AA11 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 46
+    Info (169178): Pin AUD_SDAT uses I/O standard 3.3-V LVTTL at AB7 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 48
+    Info (169178): Pin CLOCK_50 uses I/O standard 3.3-V LVTTL at P11 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 32
+    Info (169178): Pin KEY_0 uses I/O standard 3.3 V Schmitt Trigger at B8 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 33
+    Info (169178): Pin USB_TXD uses I/O standard 3.3-V LVTTL at AA17 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 37
+    Info (169178): Pin SW[2] uses I/O standard 3.3-V LVTTL at D12 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Info (169178): Pin SW[1] uses I/O standard 3.3-V LVTTL at C11 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Info (169178): Pin SW[0] uses I/O standard 3.3-V LVTTL at C10 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+Info (144001): Generated suppressed messages file C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/quartus/output_files/synthi_top.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 332 warnings
-    Info: Peak virtual memory: 5412 megabytes
-    Info: Processing ended: Mon Mar 23 11:57:50 2020
-    Info: Elapsed time: 00:01:57
-    Info: Total CPU time (on all processors): 00:01:43
+    Info: Peak virtual memory: 5649 megabytes
+    Info: Processing ended: Mon Mar 23 17:28:31 2020
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:12
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/cyril/Desktop/synthi_project/quartus/output_files/synthi_top.fit.smsg.
+The suppressed messages can be found in C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/quartus/output_files/synthi_top.fit.smsg.
 
 
