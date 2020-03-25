@@ -6,7 +6,7 @@
 -- Author     :   <Cyrill@DESKTOP-MRJOR86>
 -- Company    : 
 -- Created    : 2020-02-21
--- Last update: 2020-03-11
+-- Last update: 2020-03-25
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -23,7 +23,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-
+use work.all;
+use work.reg_table_pkg.all;
 -------------------------------------------------------------------------------
 
 entity synthi_top is
@@ -31,7 +32,7 @@ entity synthi_top is
    port (  CLOCK_50 : in std_logic;            -- DE2 clock from xtal 50MHz
     KEY_0    : in std_logic;            -- DE2 low_active input buttons
     KEY_1    : in std_logic;            -- DE2 low_active input buttons
-    SW       : in std_logic_vector(31 downto 0);  -- DE2 input switches
+    SW       : in std_logic_vector(9 downto 0);  -- DE2 input switches
     USB_RXD : in std_logic;             -- USB (midi) serial_input
     USB_TXD : in std_logic;             -- USB (midi) serial_output
     BT_RXD : in std_logic;             -- Bluetooth serial_input
@@ -67,8 +68,6 @@ architecture str of synthi_top is
   signal sig_write_data_o : std_logic_vector(15 downto 0);
   signal sig_write_done_i : std_logic;
   signal sig_ack_error : std_logic;
-  
-		  
   
   -----------------------------------------------------------------------------
   -- Component declarations
@@ -118,9 +117,32 @@ architecture str of synthi_top is
       write_o      : out std_logic;
       write_data_o : out std_logic_vector(15 downto 0));
   end component codec_controller;
-  
-  
 
+  component path_control is
+    port (
+      sw_sync_3   : in  std_logic;
+      dds_l_i     : in  std_logic_vector(15 downto 0);
+      dds_r_i     : in  std_logic_vector(15 downto 0);
+      adcdat_pl_i : in  std_logic_vector(15 downto 0);
+      adcdat_pr_i : in  std_logic_vector(15 downto 0);
+      dacdat_pl_o : out std_logic_vector(15 downto 0);
+      dacdat_pr_o : out std_logic_vector(15 downto 0));
+  end component path_control;
+
+  component i2s_master is
+    port (
+      clk_12m     : in  std_logic;
+      reset_n     : in  std_logic;
+      load_o      : out std_logic;
+      adcdat_pl_o : out std_logic_vector(15 downto 0);
+      adcdat_pr_o : out std_logic_vector(15 downto 0);
+      dacdat_pl_i : in  std_logic_vector(15 downto 0);
+      dacdat_pr_i : in  std_logic_vector(15 downto 0);
+      dacdat_s_o  : out std_logic;
+      bclk_o      : out std_logic;
+      ws_o        : out std_logic;
+      adcdat_s_i  : in  std_logic);
+  end component i2s_master;
 
 begin  -- architecture str
 
@@ -171,8 +193,32 @@ begin  -- architecture str
       write_o      => sig_write_o,
       write_data_o => sig_write_data_o);
 
+  -- instance "path_control_1"
+  path_control_1: path_control
+    port map (
+      sw_sync_3   => sw_sync_3,
+      dds_l_i     => dds_l_i,
+      dds_r_i     => dds_r_i,
+      adcdat_pl_i => adcdat_pl_i,
+      adcdat_pr_i => adcdat_pr_i,
+      dacdat_pl_o => dacdat_pl_o,
+      dacdat_pr_o => dacdat_pr_o);
 
-
+  -- instance "i2s_master_1"
+  i2s_master_1: i2s_master
+    port map (
+      clk_12m     => clk_12m,
+      reset_n     => reset_n,
+      load_o      => load_o,
+      adcdat_pl_o => adcdat_pl_o,
+      adcdat_pr_o => adcdat_pr_o,
+      dacdat_pl_i => dacdat_pl_i,
+      dacdat_pr_i => dacdat_pr_i,
+      dacdat_s_o  => dacdat_s_o,
+      bclk_o      => bclk_o,
+      ws_o        => ws_o,
+      adcdat_s_i  => adcdat_s_i);
+  
 end architecture str;
 
 -------------------------------------------------------------------------------
