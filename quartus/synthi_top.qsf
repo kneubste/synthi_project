@@ -785,6 +785,9 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_TXD
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BT_RXD
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BT_TXD
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BT_RST_N
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VHDL_FILE ../source/i2s_master.vhd
+set_global_assignment -name VHDL_FILE ../source/path_control.vhd
 set_global_assignment -name VHDL_FILE ../source/i2c/i2c_slave_bfm.vhd
 set_global_assignment -name VHDL_FILE ../source/i2c/i2c_master.vhd
 set_global_assignment -name VHDL_FILE ../source/infrastructure/signal_checker.vhd
@@ -803,4 +806,3 @@ set_global_assignment -name VHDL_FILE ../source/reg_table_pkg.vhd
 set_global_assignment -name VHDL_FILE ../source/infrastructure.vhd
 set_global_assignment -name VHDL_FILE ../source/count_down.vhd
 set_global_assignment -name VHDL_FILE ../source/codec_controller.vhd
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
