@@ -1,5 +1,5 @@
 Analysis & Synthesis report for synthi_top
-Sun Mar 29 12:23:34 2020
+Sun Mar 29 12:41:49 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -56,7 +56,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Mar 29 12:23:34 2020       ;
+; Analysis & Synthesis Status        ; Successful - Sun Mar 29 12:41:49 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; synthi_top                                  ;
 ; Top-level Entity Name              ; synthi_top                                  ;
@@ -175,7 +175,8 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -184,10 +185,10 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path            ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                       ; Library ;
 +---------------------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------+---------+
-; ../source/shiftreg_S2P.vhd                  ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/shiftreg_S2P.vhd                  ;         ;
-; ../source/shiftreg_P2S.vhd                  ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/shiftreg_P2S.vhd                  ;         ;
-; ../source/i2s_frame_generator.vhd           ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2s_frame_generator.vhd           ;         ;
-; ../source/i2s_master.vhd                    ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2s_master.vhd                    ;         ;
+; ../source/I2s/shiftreg_S2P.vhd              ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/shiftreg_S2P.vhd              ;         ;
+; ../source/I2s/shiftreg_P2S.vhd              ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/shiftreg_P2S.vhd              ;         ;
+; ../source/I2s/i2s_master.vhd                ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/i2s_master.vhd                ;         ;
+; ../source/I2s/i2s_frame_generator.vhd       ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/i2s_frame_generator.vhd       ;         ;
 ; ../source/path_control.vhd                  ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/path_control.vhd                  ;         ;
 ; ../source/i2c/i2c_slave_bfm.vhd             ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2c/i2c_slave_bfm.vhd             ;         ;
 ; ../source/i2c/i2c_master.vhd                ; yes             ; User VHDL File  ; C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2c/i2c_master.vhd                ;         ;
@@ -500,22 +501,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Mar 29 12:23:23 2020
+    Info: Processing started: Sun Mar 29 12:41:39 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off synthi_top -c synthi_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/shiftreg_s2p.vhd
-    Info (12022): Found design unit 1: shiftreg_S2P-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/shiftreg_S2P.vhd Line: 37
-    Info (12023): Found entity 1: shiftreg_S2P File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/shiftreg_S2P.vhd Line: 25
-Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/shiftreg_p2s.vhd
-    Info (12022): Found design unit 1: shiftreg_P2S-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/shiftreg_P2S.vhd Line: 39
-    Info (12023): Found entity 1: shiftreg_P2S File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/shiftreg_P2S.vhd Line: 26
-Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/i2s_frame_generator.vhd
-    Info (12022): Found design unit 1: i2s_frame_generator-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2s_frame_generator.vhd Line: 30
-    Info (12023): Found entity 1: i2s_frame_generator File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2s_frame_generator.vhd Line: 17
-Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/i2s_master.vhd
-    Info (12022): Found design unit 1: i2s_master-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2s_master.vhd Line: 44
-    Info (12023): Found entity 1: i2s_master File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2s_master.vhd Line: 22
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/i2s/shiftreg_s2p.vhd
+    Info (12022): Found design unit 1: shiftreg_S2P-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/shiftreg_S2P.vhd Line: 37
+    Info (12023): Found entity 1: shiftreg_S2P File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/shiftreg_S2P.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/i2s/shiftreg_p2s.vhd
+    Info (12022): Found design unit 1: shiftreg_P2S-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/shiftreg_P2S.vhd Line: 39
+    Info (12023): Found entity 1: shiftreg_P2S File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/shiftreg_P2S.vhd Line: 26
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/i2s/i2s_master.vhd
+    Info (12022): Found design unit 1: i2s_master-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/i2s_master.vhd Line: 44
+    Info (12023): Found entity 1: i2s_master File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/i2s_master.vhd Line: 22
+Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/i2s/i2s_frame_generator.vhd
+    Info (12022): Found design unit 1: i2s_frame_generator-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/i2s_frame_generator.vhd Line: 30
+    Info (12023): Found entity 1: i2s_frame_generator File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/i2s_frame_generator.vhd Line: 17
 Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/path_control.vhd
     Info (12022): Found design unit 1: path_control-comb File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/path_control.vhd Line: 39
     Info (12023): Found entity 1: path_control File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/path_control.vhd Line: 24
@@ -577,12 +578,12 @@ Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(76): used imp
 Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(77): used implicit default value for signal "dds_l_i" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 77
 Info (12128): Elaborating entity "path_control" for hierarchy "path_control:path_control_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 161
 Info (12128): Elaborating entity "i2s_master" for hierarchy "i2s_master:i2s_master_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 172
-Info (12128): Elaborating entity "shiftreg_P2S" for hierarchy "i2s_master:i2s_master_1|shiftreg_P2S:P2S_left" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2s_master.vhd Line: 96
-Warning (10540): VHDL Signal Declaration warning at shiftreg_P2S.vhd(41): used explicit default value for signal "shift_enable" because signal was never assigned a value File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/shiftreg_P2S.vhd Line: 41
-Info (12128): Elaborating entity "shiftreg_S2P" for hierarchy "i2s_master:i2s_master_1|shiftreg_S2P:S2P_left" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2s_master.vhd Line: 116
-Warning (10540): VHDL Signal Declaration warning at shiftreg_S2P.vhd(39): used explicit default value for signal "shift_enable" because signal was never assigned a value File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/shiftreg_S2P.vhd Line: 39
-Info (12128): Elaborating entity "i2s_frame_generator" for hierarchy "i2s_master:i2s_master_1|i2s_frame_generator:frame_generator" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2s_master.vhd Line: 134
-Warning (10540): VHDL Signal Declaration warning at i2s_frame_generator.vhd(33): used explicit default value for signal "width" because signal was never assigned a value File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2s_frame_generator.vhd Line: 33
+Info (12128): Elaborating entity "shiftreg_P2S" for hierarchy "i2s_master:i2s_master_1|shiftreg_P2S:P2S_left" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/i2s_master.vhd Line: 96
+Warning (10540): VHDL Signal Declaration warning at shiftreg_P2S.vhd(41): used explicit default value for signal "shift_enable" because signal was never assigned a value File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/shiftreg_P2S.vhd Line: 41
+Info (12128): Elaborating entity "shiftreg_S2P" for hierarchy "i2s_master:i2s_master_1|shiftreg_S2P:S2P_left" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/i2s_master.vhd Line: 116
+Warning (10540): VHDL Signal Declaration warning at shiftreg_S2P.vhd(39): used explicit default value for signal "shift_enable" because signal was never assigned a value File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/shiftreg_S2P.vhd Line: 39
+Info (12128): Elaborating entity "i2s_frame_generator" for hierarchy "i2s_master:i2s_master_1|i2s_frame_generator:frame_generator" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/i2s_master.vhd Line: 134
+Warning (10540): VHDL Signal Declaration warning at i2s_frame_generator.vhd(33): used explicit default value for signal "width" because signal was never assigned a value File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/i2s_frame_generator.vhd Line: 33
 Info (12128): Elaborating entity "uart_top" for hierarchy "uart_top:uart_top_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 189
 Info (12128): Elaborating entity "output_register" for hierarchy "uart_top:uart_top_1|output_register:b2v_inst" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 145
 Info (12128): Elaborating entity "shiftreg_uart" for hierarchy "uart_top:uart_top_1|shiftreg_uart:b2v_inst11" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 155
@@ -621,9 +622,9 @@ Info (21057): Implemented 404 device resources after synthesis - the final resou
     Info (21060): Implemented 1 bidirectional pins
     Info (21061): Implemented 363 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
-    Info: Peak virtual memory: 4802 megabytes
-    Info: Processing ended: Sun Mar 29 12:23:34 2020
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Peak virtual memory: 4804 megabytes
+    Info: Processing ended: Sun Mar 29 12:41:49 2020
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:20
 
 
