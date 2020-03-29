@@ -122,10 +122,10 @@ architecture struct of synthi_top_tb is
   signal reg_data9    : std_logic_vector(31 downto 0);
   signal AUD_XCK_in   : std_logic;
   signal SW_32b       : std_logic_vector(31 downto 0);
-  
+
   signal switch       : std_logic_vector(31 downto 0);
   signal dacdat_check : std_logic_vector(31 downto 0);
-  
+
   constant clock_freq   : natural := 50_000_000;
   constant clock_period : time    := 1000 ms/clock_freq;
 
@@ -155,8 +155,9 @@ begin  -- architecture struct
       HEX0        => HEX0,
       HEX1        => HEX1);
 
-  SW    <= SW_32b(9 downto 0);
-  SW(3) <= gpi_signal(3);
+  -- SW(9 downto 0) <= SWITCH(9 downto 0);  
+
+
 
   source : i2c_slave_bfm
     port map (
@@ -234,15 +235,17 @@ begin  -- architecture struct
       if cmd = string'("rst_sim") then
         rst_sim(tv, key_0);             --Reset der Simulation
       elsif cmd = string'("run_sim") then
-        run_sim(tv);  --Simulation wird für bestimmte Anz.Clk-cycles betrieben
+        run_sim(tv);                    --Simulation wird für bestimmte Anz.Clk-cycles betrieben
       elsif cmd = string'("uar_sim") then
-        uar_sim(tv, usb_txd);    --Serielles Eingangssignal wird angelegt
-      elsif cmd = string'("uar_ch0") then
-        uar_chk(tv, hex0);       --Check von 7-Segment-Anzeige mit Testvektor
-      elsif cmd = string'("uar_ch1") then
-        uar_chk(tv, hex1);       --Check von 7-Segment-Anzeige mit Testvektor
+        uar_sim(tv, usb_txd);           --Serielles Eingangssignal wird angelegt
       elsif cmd = string'("ini_cod") then
-        gpi_sim(tv, SW_32b);     --Paralleles Signal wird in SW_32b geladen
+        ini_cod(tv, SWITCH(2 downto 0), key_1);  --Paralleles Signal wird in SWITCH geladen
+      elsif cmd = string'("gpi_sim") then
+        gpi_sim(tv, SWITCH);
+      elsif cmd = string'("uar_ch0") then
+        uar_chk(tv, hex0);              --Check von 7-Segment-Anzeige mit Testvektor
+      elsif cmd = string'("uar_ch1") then
+        uar_chk(tv, hex1);              --Check von 7-Segment-Anzeige mit Testvektor
       elsif cmd = string'("i2c_ch0") then
         gpo_chk(tv, reg_data0);         --Check data-register0
       elsif cmd = string'("i2c_ch1") then
@@ -263,14 +266,14 @@ begin  -- architecture struct
         gpo_chk(tv, reg_data8);         --Check data-register8
       elsif cmd = string'("i2c_ch9") then
         gpo_chk(tv, reg_data9);         --Check data-register9
-        
-       -- Generiet serielles Signal wie nach Umwandlung
-      elsif cmd = string'("i2s_sim") then
-        gpo_chk(tv, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT);
 
-       -- Empfängt serielles Signal und vergleicht mit Argument im Testcase   
       elsif cmd = string'("i2s_chk") then
-        gpo_chk(tv, AUD_DACLRCK, AUD_BCLK, AUD_DACDAT, dacdat_check);            
+        i2s_chk(tv, AUD_DACLRCK, AUD_BCLK, AUD_DACDAT, dacdat_check);
+
+      elsif cmd = string'("i2s_sim") then
+        i2s_sim(tv, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT);
+
+
 
 -- add further test commands below here
 
