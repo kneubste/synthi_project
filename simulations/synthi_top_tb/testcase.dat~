@@ -140,9 +140,3 @@ i2c_ch6 00 00 00 00
 i2c_ch7 00 00 00 02
 i2c_ch8 00 00 00 00
 i2c_ch9 00 00 00 01
-
-#Digital Loop Test
-rst_sim
-gpi_sim 00 00 00 08
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44

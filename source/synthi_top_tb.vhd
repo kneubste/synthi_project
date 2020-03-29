@@ -6,7 +6,7 @@
 -- Author     : lussimat
 -- Company    : 
 -- Created    : 2020-03-09
--- Last update: 2020-03-19
+-- Last update: 2020-03-29
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -122,7 +122,10 @@ architecture struct of synthi_top_tb is
   signal reg_data9    : std_logic_vector(31 downto 0);
   signal AUD_XCK_in   : std_logic;
   signal SW_32b       : std_logic_vector(31 downto 0);
-
+  
+  signal switch       : std_logic_vector(31 downto 0);
+  signal dacdat_check : std_logic_vector(31 downto 0);
+  
   constant clock_freq   : natural := 50_000_000;
   constant clock_period : time    := 1000 ms/clock_freq;
 
@@ -152,7 +155,8 @@ begin  -- architecture struct
       HEX0        => HEX0,
       HEX1        => HEX1);
 
-  SW <= SW_32b(9 downto 0);
+  SW    <= SW_32b(9 downto 0);
+  SW(3) <= gpi_signal(3);
 
   source : i2c_slave_bfm
     port map (
@@ -258,7 +262,15 @@ begin  -- architecture struct
       elsif cmd = string'("i2c_ch8") then
         gpo_chk(tv, reg_data8);         --Check data-register8
       elsif cmd = string'("i2c_ch9") then
-        gpo_chk(tv, reg_data9);         --Check data-register9 
+        gpo_chk(tv, reg_data9);         --Check data-register9
+        
+       -- Generiet serielles Signal wie nach Umwandlung
+      elsif cmd = string'("i2s_sim") then
+        gpo_chk(tv, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT);
+
+       -- Empfängt serielles Signal und vergleicht mit Argument im Testcase   
+      elsif cmd = string'("i2s_chk") then
+        gpo_chk(tv, AUD_DACLRCK, AUD_BCLK, AUD_DACDAT, dacdat_check);            
 
 -- add further test commands below here
 
