@@ -38,12 +38,23 @@ end path_control;
 
 architecture comb of path_control is
 
-
-
 begin
 
-
-
-
+	mux_logic : process(all)
+	 
+	 begin
+	 --loop back mode (Testbetrieb)
+	 if sw_sync_3 = '1' then
+		dacdat_pl_o <= adcdat_pl_i;
+		dacdat_pr_o <= adcdat_pr_i;
+	 --dds mode (Synthesizer-/normaler Betrieb)
+	 else
+		dacdat_pl_o <= dds_l_i;
+		dacdat_pr_o <= dds_r_i;
+		
+	 end if;
+	 
+	end process mux_logic;
+		
 end comb;
 
