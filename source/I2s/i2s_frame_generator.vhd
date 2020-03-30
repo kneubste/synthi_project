@@ -68,7 +68,7 @@ begin
   modul_counter : process(all)
   begin
     --counter from 0 to 128 - increment by rising edge of clk_12m and low bclk
-    if rising_edge(clk_12m) and div_next_count(1) = '0' then
+    if falling_edge(div_count(1)) then
       bit_counter <= bit_counter + 1;
     end if;
 
