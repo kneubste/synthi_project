@@ -63,7 +63,6 @@ architecture rtl of i2s_master is
   component i2s_frame_generator is
     port (
       clk_12m : in  std_logic;
-		rst_n_12m : in std_logic;
       bclk    : out std_logic;
       load    : out std_logic;
       shift_l : out std_logic;
@@ -139,7 +138,6 @@ architecture rtl of i2s_master is
          load => load_int,
          shift_l => shift_l_int,
          shift_r => shift_r_int,
-			rst_n_12m => reset_n_int,
          ws => ws_int);
 
  -------------------------------------------------------------------------------

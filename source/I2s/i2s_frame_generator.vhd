@@ -16,6 +16,7 @@ use ieee.numeric_std.all;
 -------------------------------------------
 entity i2s_frame_generator is
   port(clk_12m : in  std_logic;
+		 rst_n_12m : in  std_logic;
        bclk    : out std_logic;
        load    : out std_logic;
        shift_l : out std_logic;
@@ -80,7 +81,7 @@ begin
  modul_counter : process(all)
   begin
     --counter from 0 to 128 - increment by rising edge of clk_12m and low bclk
-    if rst_n = '0' then
+    if rst_n_12m = '0' then
       bit_counter <= (others => '0');
    elsif rising_edge(clk_12m) then
       bit_counter <= next_bit_counter;

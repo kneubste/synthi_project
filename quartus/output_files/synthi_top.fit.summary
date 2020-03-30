@@ -1,14 +1,14 @@
-Fitter Status : Successful - Sun Mar 29 14:16:21 2020
+Fitter Status : Successful - Mon Mar 30 12:41:12 2020
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : synthi_top
 Top-level Entity Name : synthi_top
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 353 / 49,760 ( < 1 % )
+Total logic elements : 344 / 49,760 ( < 1 % )
     Total combinational functions : 296 / 49,760 ( < 1 % )
-    Dedicated logic registers : 216 / 49,760 ( < 1 % )
-Total registers : 216
+    Dedicated logic registers : 215 / 49,760 ( < 1 % )
+Total registers : 215
 Total pins : 41 / 360 ( 11 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )
