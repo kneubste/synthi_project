@@ -6,7 +6,7 @@
 -- Author     : lussimat
 -- Company    : 
 -- Created    : 2020-03-09
--- Last update: 2020-03-29
+-- Last update: 2020-03-30
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -121,7 +121,6 @@ architecture struct of synthi_top_tb is
   signal reg_data8    : std_logic_vector(31 downto 0);
   signal reg_data9    : std_logic_vector(31 downto 0);
   signal AUD_XCK_in   : std_logic;
-  signal SW_32b       : std_logic_vector(31 downto 0);
 
   signal switch       : std_logic_vector(31 downto 0);
   signal dacdat_check : std_logic_vector(31 downto 0);
@@ -155,7 +154,7 @@ begin  -- architecture struct
       HEX0        => HEX0,
       HEX1        => HEX1);
 
-  -- SW(9 downto 0) <= SWITCH(9 downto 0);  
+   SW(9 downto 0) <= switch(9 downto 0);  
 
 
 
@@ -239,9 +238,9 @@ begin  -- architecture struct
       elsif cmd = string'("uar_sim") then
         uar_sim(tv, usb_txd);           --Serielles Eingangssignal wird angelegt
       elsif cmd = string'("ini_cod") then
-        ini_cod(tv, SWITCH(2 downto 0), key_1);  --Paralleles Signal wird in SWITCH geladen
+        ini_cod(tv, switch(2 downto 0), key_1);  --Paralleles Signal wird in SWITCH geladen
       elsif cmd = string'("gpi_sim") then
-        gpi_sim(tv, SWITCH);
+        gpi_sim(tv, switch);
       elsif cmd = string'("uar_ch0") then
         uar_chk(tv, hex0);              --Check von 7-Segment-Anzeige mit Testvektor
       elsif cmd = string'("uar_ch1") then
