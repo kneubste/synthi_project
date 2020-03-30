@@ -36,7 +36,7 @@ end shiftreg_S2P;
 
 architecture rtl of shiftreg_S2P is
 
-  signal shift_enable            : std_logic := (en_1 and en_2);
+  signal shift_enable            : std_logic := (not(en_1) and en_2);
   signal shiftreg, next_shiftreg : std_logic_vector(15 downto 0);
 
 begin
