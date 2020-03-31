@@ -782,8 +782,7 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_TXD
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BT_RXD
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BT_TXD
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BT_RST_N
-set_global_assignment -name VHDL_FILE ../source/I2s/shiftreg_S2P.vhd
-set_global_assignment -name VHDL_FILE ../source/I2s/shiftreg_P2S.vhd
+set_global_assignment -name VHDL_FILE ../source/I2s/universal_shiftreg.vhd
 set_global_assignment -name VHDL_FILE ../source/I2s/i2s_master.vhd
 set_global_assignment -name VHDL_FILE ../source/I2s/i2s_frame_generator.vhd
 set_global_assignment -name VHDL_FILE ../source/path_control.vhd

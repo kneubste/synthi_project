@@ -22,3 +22,11 @@ fsm_state.st_idle 0 0 0 0
 fsm_state.st_start_bit 0 0 1 1 
 fsm_state.st_wait_rx_byte 0 1 0 1 
 fsm_state.st_check_rx 1 0 0 1 
+
+State Machine - |synthi_top|i2s_master:i2s_master_1|i2s_frame_generator:frame_generator|fsm_state
+Name fsm_state.st_shift_r fsm_state.st_shift_l fsm_state.st_right_wait fsm_state.st_left_wait fsm_state.st_load 
+fsm_state.st_load 0 0 0 0 0 
+fsm_state.st_left_wait 0 0 0 1 1 
+fsm_state.st_right_wait 0 0 1 0 1 
+fsm_state.st_shift_l 0 1 0 0 1 
+fsm_state.st_shift_r 1 0 0 0 1 

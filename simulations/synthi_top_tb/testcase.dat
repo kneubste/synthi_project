@@ -28,4 +28,32 @@ rst_sim
 gpi_sim 00 00 00 08
 i2s_sim 11 22 33 44
 i2s_chk 11 22 33 44
+i2s_sim 11 22 33 43
+i2s_chk 11 22 33 43
+i2s_sim 11 22 33 93
+i2s_chk 11 22 33 93
+i2s_sim 11 22 33 15
+i2s_chk 11 22 33 15
+i2s_sim 99 88 77 11
+i2s_chk 99 88 77 11
 
+rst_sim
+gpi_sim 00 00 00 08
+run_sim 00 00 ff ff
+i2s_sim 11 22 33 44
+i2s_chk
+
+rst_sim
+gpi_sim 00 00 00 00
+i2s_sim 11 22 33 44
+i2s_chk
+
+rst_sim
+gpi_sim 00 00 00 00
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+i2s_sim 12 34 56 78
+i2s_chk 00 00 00 00
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
