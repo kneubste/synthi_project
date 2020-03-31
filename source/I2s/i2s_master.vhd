@@ -62,84 +62,86 @@ architecture rtl of i2s_master is
  -------------------------------------------------------------------------------
   component i2s_frame_generator is
     port (
-      clk_12m : in  std_logic;
-		rst_n_12m : in std_logic;
-      bclk    : out std_logic;
-      load    : out std_logic;
-      shift_l : out std_logic;
-      shift_r : out std_logic;
-      ws      : out std_logic);
+		rst_n_12m : in  std_logic;
+      clk_12m	 : in  std_logic;
+      bclk    	 : out std_logic;
+      load   	 : out std_logic;
+      shift_l	 : out std_logic;
+      shift_r	 : out std_logic;
+      ws  	    : out std_logic);
   end component i2s_frame_generator;
 
-  component shiftreg_P2S is
-    port (
-      load      : in  std_logic;
-      en_1      : in  std_logic;
-      en_2      : in  std_logic;
-      ser_out   : out std_logic;
-      clk_12m   : in  std_logic;
-      rst_n_12m : in  std_logic;
-      par_in    : in  std_logic_vector(15 downto 0));
-  end component shiftreg_P2S;
-
-  component shiftreg_S2P is
-    port (
-      en_1      : in  std_logic;
-      en_2      : in  std_logic;
-      ser_in    : in  std_logic;
-      clk_12m   : in  std_logic;
-      rst_n_12m : in  std_logic;
-      par_out   : out std_logic_vector(15 downto 0));
-  end component shiftreg_S2P;
+ component universal_shiftreg is
+   port (
+     load      : in  std_logic;
+     en_1      : in  std_logic;
+     en_2      : in  std_logic;
+     clk_12m   : in  std_logic;
+     rst_n_12m : in  std_logic;
+     ser_out   : out std_logic;
+     ser_in    : in  std_logic;
+     par_in    : in  std_logic_vector(15 downto 0);
+     par_out   : out std_logic_vector(15 downto 0));
+ end component universal_shiftreg;
   
   begin
 	 
-    P2S_left : shiftreg_P2S
+    P2S_left : universal_shiftreg
       port map (
         load => load_int,
         en_1 => bclk_int,
         en_2 => shift_l_int,
         ser_out => ser_l_out,
+		  ser_in  => '0',
         clk_12m => clk_12m_int,
         rst_n_12m => reset_n_int,
-        par_in => dacdat_pl_i);
+        par_in => dacdat_pl_i,
+		  par_out => OPEN);
 
-    P2S_right : shiftreg_P2S
+    P2S_right : universal_shiftreg
       port map (
         load => load_int,
         en_1 => bclk_int,
         en_2 => shift_r_int,
         ser_out => ser_r_out,
+		  ser_in  => '0',
         clk_12m => clk_12m_int,
         rst_n_12m => reset_n_int,
-        par_in => dacdat_pr_i);
+        par_in => dacdat_pr_i,
+		  par_out => OPEN);
 
-    S2P_left : shiftreg_S2P
+    S2P_left : universal_shiftreg
       port map (
-        en_1 => bclk_int,
+		  load => load_int,
+        en_1 => not(bclk_int),
         en_2 => shift_l_int,
+		  ser_out => OPEN,
         ser_in => adcdat_s_int,
         clk_12m => clk_12m_int,
         rst_n_12m => reset_n_int,
+		  par_in => "0000000000000000",
         par_out => adcdat_pl_o);
 
-    S2P_right : shiftreg_S2P
+    S2P_right : universal_shiftreg
       port map (
-        en_1 => bclk_int,
+		  load => load_int,
+        en_1 => not(bclk_int),
         en_2 => shift_r_int,
+		  ser_out => OPEN,
         ser_in => adcdat_s_int,
         clk_12m => clk_12m_int,
         rst_n_12m => reset_n_int,
+		  par_in => "0000000000000000",
         par_out => adcdat_pr_o);
 
     frame_generator : i2s_frame_generator
        port map (
+			rst_n_12m => reset_n_int,
          clk_12m => clk_12m_int,
          bclk => bclk_int,
          load => load_int,
          shift_l => shift_l_int,
          shift_r => shift_r_int,
-			rst_n_12m => reset_n_int,
          ws => ws_int);
 
  -------------------------------------------------------------------------------
