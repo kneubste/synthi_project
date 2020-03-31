@@ -29,8 +29,7 @@ vcom -2008 -explicit -work work ../../../source/uart_top.vhd
 vcom -2008 -explicit -work work ../../../source/path_control.vhd
 vcom -2008 -explicit -work work ../../../source/I2s/i2s_frame_generator.vhd
 vcom -2008 -explicit -work work ../../../source/I2s/i2s_master.vhd
-vcom -2008 -explicit -work work ../../../source/I2s/shiftreg_P2S.vhd
-vcom -2008 -explicit -work work ../../../source/I2s/shiftreg_S2P.vhd
+vcom -2008 -explicit -work work ../../../source/I2s/universal_shiftreg.vhd
 vcom -2008 -explicit -work work ../../../source/synthi_top.vhd
 vcom -2008 -explicit -work work ../../../source/synthi_top_tb.vhd
 
