@@ -1,5 +1,5 @@
 Fitter report for synthi_top
-Tue Mar 31 20:35:56 2020
+Wed Apr 01 19:19:18 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -69,7 +69,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Tue Mar 31 20:35:56 2020       ;
+; Fitter Status                      ; Successful - Wed Apr 01 19:19:18 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; synthi_top                                  ;
 ; Top-level Entity Name              ; synthi_top                                  ;
@@ -155,13 +155,13 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.09        ;
+; Average used               ; 1.08        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   3.1%      ;
-;     Processors 3-4         ;   3.0%      ;
+;     Processor 2            ;   2.8%      ;
+;     Processors 3-4         ;   2.8%      ;
 +----------------------------+-------------+
 
 
@@ -2555,7 +2555,7 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169177): 20 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing MAX 10 Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
     Info (169178): Pin KEY_1 uses I/O standard 3.3 V Schmitt Trigger at A7 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 34
@@ -2580,9 +2580,9 @@ Warning (169177): 20 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 
     Info (169178): Pin SW[0] uses I/O standard 3.3-V LVTTL at C10 File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
 Info (144001): Generated suppressed messages file C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/quartus/output_files/synthi_top.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 332 warnings
-    Info: Peak virtual memory: 5647 megabytes
-    Info: Processing ended: Tue Mar 31 20:35:56 2020
-    Info: Elapsed time: 00:00:09
+    Info: Peak virtual memory: 5643 megabytes
+    Info: Processing ended: Wed Apr 01 19:19:19 2020
+    Info: Elapsed time: 00:00:11
     Info: Total CPU time (on all processors): 00:00:13
 
 
