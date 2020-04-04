@@ -15,9 +15,10 @@
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
 -- Revisions  :
--- Date        Version  Author  Description
--- 2020-02-21  1.0      Cyrill	Created
--- 2020-01-11  1.1      Cyrill  Added codec_controller and i2c_master
+-- Date        Version  Author    Description
+-- 2020-02-21  1.0      Cyrill	  Created
+-- 2020-01-11  1.1      Cyrill    Added codec_controller and i2c_master
+-- 2020-03-28  1.2      lussimat  Added i2s_master and path_control
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -163,8 +164,8 @@ begin  -- architecture str
       sw_sync_3   => SW(3),
       adcdat_pl_i => pl_master_out,
       adcdat_pr_i => pr_master_out,
-		dds_r_i     => dds_r_i,
-		dds_l_i     => dds_l_i, 
+      dds_r_i     => dds_r_i,
+      dds_l_i     => dds_l_i, 
       dacdat_pl_o => pl_pathcon_out,
       dacdat_pr_o => pr_pathcon_out);
       
@@ -181,9 +182,6 @@ begin  -- architecture str
       bclk_o      => AUD_BCLK,
       ws_o        => ws_o_int,
       adcdat_s_i  => AUD_ADCDAT);
-
-  AUD_DACLRCK <= ws_o_int;
-  AUD_ADCLRCK <= ws_o_int;
     
   -- instance "uart_top_1"
   uart_top_1: uart_top
@@ -228,7 +226,11 @@ begin  -- architecture str
       write_o      => sig_write_o,
       write_data_o => sig_write_data_o);
 
+  AUD_DACLRCK <= ws_o_int;
+  AUD_ADCLRCK <= ws_o_int;	  
   AUD_XCK <= sig_clk_12m;
+  dds_l_i <= "0000000000000000";
+  dds_r_i <= "0000000000000000";
   
 end architecture str;
 
