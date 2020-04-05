@@ -74,8 +74,8 @@ architecture str of synthi_top is
   signal pr_master_out : std_logic_vector(15 downto 0);
   signal pl_pathcon_out : std_logic_vector(15 downto 0);
   signal pr_pathcon_out : std_logic_vector(15 downto 0);
-  signal dds_r_i : std_logic_vector(15 downto 0);
-  signal dds_l_i : std_logic_vector(15 downto 0);
+  signal dds_r_i : std_logic_vector(15 downto 0) := (others => '0');
+  signal dds_l_i : std_logic_vector(15 downto 0) := (others => '0');
   
   -----------------------------------------------------------------------------
   -- Component declarations
@@ -229,8 +229,6 @@ begin  -- architecture str
   AUD_DACLRCK <= ws_o_int;
   AUD_ADCLRCK <= ws_o_int;	  
   AUD_XCK <= sig_clk_12m;
-  dds_l_i <= "0000000000000000";
-  dds_r_i <= "0000000000000000";
   
 end architecture str;
 
