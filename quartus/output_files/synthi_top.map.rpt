@@ -1,5 +1,5 @@
 Analysis & Synthesis report for synthi_top
-Wed Apr 01 19:19:07 2020
+Sat Apr 04 21:35:13 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -33,9 +33,10 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  25. Port Connectivity Checks: "i2s_master:i2s_master_1|universal_shiftreg:P2S_right"
  26. Port Connectivity Checks: "i2s_master:i2s_master_1|universal_shiftreg:P2S_left"
  27. Port Connectivity Checks: "i2s_master:i2s_master_1"
- 28. Post-Synthesis Netlist Statistics for Top Partition
- 29. Elapsed Time Per Partition
- 30. Analysis & Synthesis Messages
+ 28. Port Connectivity Checks: "path_control:path_control_1"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
 
 
 
@@ -61,13 +62,13 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Apr 01 19:19:07 2020       ;
+; Analysis & Synthesis Status        ; Successful - Sat Apr 04 21:35:13 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; synthi_top                                  ;
 ; Top-level Entity Name              ; synthi_top                                  ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 371                                         ;
-;     Total combinational functions  ; 307                                         ;
+; Total logic elements               ; 369                                         ;
+;     Total combinational functions  ; 305                                         ;
 ;     Dedicated logic registers      ; 220                                         ;
 ; Total registers                    ; 220                                         ;
 ; Total pins                         ; 41                                          ;
@@ -219,16 +220,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                    ;
 +---------------------------------------------+--------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 371                                                                      ;
+; Estimated Total logic elements              ; 369                                                                      ;
 ;                                             ;                                                                          ;
-; Total combinational functions               ; 307                                                                      ;
+; Total combinational functions               ; 305                                                                      ;
 ; Logic element usage by number of LUT inputs ;                                                                          ;
-;     -- 4 input functions                    ; 173                                                                      ;
+;     -- 4 input functions                    ; 171                                                                      ;
 ;     -- 3 input functions                    ; 45                                                                       ;
 ;     -- <=2 input functions                  ; 89                                                                       ;
 ;                                             ;                                                                          ;
 ; Logic elements by mode                      ;                                                                          ;
-;     -- normal mode                          ; 251                                                                      ;
+;     -- normal mode                          ; 249                                                                      ;
 ;     -- arithmetic mode                      ; 56                                                                       ;
 ;                                             ;                                                                          ;
 ; Total registers                             ; 220                                                                      ;
@@ -241,7 +242,7 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                          ;
 ; Maximum fan-out node                        ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ;
 ; Maximum fan-out                             ; 186                                                                      ;
-; Total fan-out                               ; 1872                                                                     ;
+; Total fan-out                               ; 1864                                                                     ;
 ; Average fan-out                             ; 3.07                                                                     ;
 +---------------------------------------------+--------------------------------------------------------------------------+
 
@@ -251,9 +252,9 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                         ; Entity Name         ; Library Name ;
 +---------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------+---------------------+--------------+
-; |synthi_top                                 ; 307 (1)             ; 220 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 41   ; 0            ; 0          ; |synthi_top                                                                 ; synthi_top          ; work         ;
+; |synthi_top                                 ; 305 (1)             ; 220 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 41   ; 0            ; 0          ; |synthi_top                                                                 ; synthi_top          ; work         ;
 ;    |codec_controller:codec_controller_1|    ; 20 (20)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|codec_controller:codec_controller_1                             ; codec_controller    ; work         ;
-;    |i2c_master:i2c_master_1|                ; 101 (101)           ; 52 (52)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|i2c_master:i2c_master_1                                         ; i2c_master          ; work         ;
+;    |i2c_master:i2c_master_1|                ; 99 (99)             ; 52 (52)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|i2c_master:i2c_master_1                                         ; i2c_master          ; work         ;
 ;    |i2s_master:i2s_master_1|                ; 65 (1)              ; 77 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|i2s_master:i2s_master_1                                         ; i2s_master          ; work         ;
 ;       |i2s_frame_generator:frame_generator| ; 25 (25)             ; 13 (13)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|i2s_master:i2s_master_1|i2s_frame_generator:frame_generator     ; i2s_frame_generator ; work         ;
 ;       |universal_shiftreg:P2S_left|         ; 19 (19)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |synthi_top|i2s_master:i2s_master_1|universal_shiftreg:P2S_left             ; universal_shiftreg  ; work         ;
@@ -371,8 +372,8 @@ Encoding Type:  One-Hot
 ; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |synthi_top|uart_top:uart_top_1|bit_counter:b2v_inst6|count[1]                             ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |synthi_top|uart_top:uart_top_1|baud_tick:b2v_inst5|count[5]                               ;
 ; 3:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |synthi_top|infrastructure:infrastructure_1|signal_checker:signal_checker_1|bit_count_i[3] ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |synthi_top|i2s_master:i2s_master_1|universal_shiftreg:P2S_left|shiftreg_P2S[6]            ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |synthi_top|i2s_master:i2s_master_1|universal_shiftreg:P2S_right|shiftreg_P2S[13]          ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |synthi_top|i2s_master:i2s_master_1|universal_shiftreg:P2S_left|shiftreg_P2S[6]            ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |synthi_top|i2s_master:i2s_master_1|universal_shiftreg:P2S_right|shiftreg_P2S[13]          ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |synthi_top|i2c_master:i2c_master_1|byte_count[0]                                          ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |synthi_top|i2c_master:i2c_master_1|bit_count[0]                                           ;
 ; 7:1                ; 13 bits   ; 52 LEs        ; 13 LEs               ; 39 LEs                 ; Yes        ; |synthi_top|i2c_master:i2c_master_1|data[17]                                               ;
@@ -512,6 +513,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++---------------------------------------------------------+
+; Port Connectivity Checks: "path_control:path_control_1" ;
++---------+-------+----------+----------------------------+
+; Port    ; Type  ; Severity ; Details                    ;
++---------+-------+----------+----------------------------+
+; dds_l_i ; Input ; Info     ; Stuck at GND               ;
+; dds_r_i ; Input ; Info     ; Stuck at GND               ;
++---------+-------+----------+----------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
@@ -526,19 +537,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA CLR SLD       ; 10                          ;
 ;     plain             ; 7                           ;
 ; cycloneiii_io_obuf    ; 1                           ;
-; cycloneiii_lcell_comb ; 311                         ;
+; cycloneiii_lcell_comb ; 309                         ;
 ;     arith             ; 56                          ;
 ;         2 data inputs ; 48                          ;
 ;         3 data inputs ; 8                           ;
-;     normal            ; 255                         ;
+;     normal            ; 253                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 13                          ;
 ;         2 data inputs ; 31                          ;
 ;         3 data inputs ; 37                          ;
-;         4 data inputs ; 173                         ;
+;         4 data inputs ; 171                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.60                        ;
-; Average LUT depth     ; 2.62                        ;
+; Average LUT depth     ; 2.67                        ;
 +-----------------------+-----------------------------+
 
 
@@ -547,7 +558,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -557,7 +568,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed Apr 01 19:18:56 2020
+    Info: Processing started: Sat Apr 04 21:35:02 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off synthi_top -c synthi_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -613,8 +624,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12022): Found design unit 1: uart_top-bdf_type File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 37
     Info (12023): Found entity 1: uart_top File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 24
 Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/synthi_top.vhd
-    Info (12022): Found design unit 1: synthi_top-str File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 58
-    Info (12023): Found entity 1: synthi_top File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 30
+    Info (12022): Found design unit 1: synthi_top-str File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 59
+    Info (12023): Found entity 1: synthi_top File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 31
 Info (12021): Found 1 design units, including 0 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/reg_table_pkg.vhd
     Info (12022): Found design unit 1: reg_table_pkg File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/reg_table_pkg.vhd Line: 26
 Info (12021): Found 2 design units, including 1 entities, in source file /users/stefan/documents/digitaltechnik 2/synthi_project/source/infrastructure.vhd
@@ -627,15 +638,13 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12022): Found design unit 1: codec_controller-rtl File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/codec_controller.vhd Line: 43
     Info (12023): Found entity 1: codec_controller File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/codec_controller.vhd Line: 27
 Info (12127): Elaborating entity "synthi_top" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(76): used implicit default value for signal "dds_r_i" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 76
-Warning (10541): VHDL Signal Declaration warning at synthi_top.vhd(77): used implicit default value for signal "dds_l_i" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 77
-Info (12128): Elaborating entity "path_control" for hierarchy "path_control:path_control_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 161
-Info (12128): Elaborating entity "i2s_master" for hierarchy "i2s_master:i2s_master_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 172
+Info (12128): Elaborating entity "path_control" for hierarchy "path_control:path_control_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 162
+Info (12128): Elaborating entity "i2s_master" for hierarchy "i2s_master:i2s_master_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 173
 Info (12128): Elaborating entity "universal_shiftreg" for hierarchy "i2s_master:i2s_master_1|universal_shiftreg:P2S_left" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/i2s_master.vhd Line: 89
 Warning (10036): Verilog HDL or VHDL warning at universal_shiftreg.vhd(45): object "shift_enable" assigned a value but never read File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/universal_shiftreg.vhd Line: 45
 Info (12128): Elaborating entity "i2s_frame_generator" for hierarchy "i2s_master:i2s_master_1|i2s_frame_generator:frame_generator" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/i2s_master.vhd Line: 137
 Warning (10540): VHDL Signal Declaration warning at i2s_frame_generator.vhd(38): used explicit default value for signal "width" because signal was never assigned a value File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/I2s/i2s_frame_generator.vhd Line: 38
-Info (12128): Elaborating entity "uart_top" for hierarchy "uart_top:uart_top_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 189
+Info (12128): Elaborating entity "uart_top" for hierarchy "uart_top:uart_top_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 187
 Info (12128): Elaborating entity "output_register" for hierarchy "uart_top:uart_top_1|output_register:b2v_inst" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 145
 Info (12128): Elaborating entity "shiftreg_uart" for hierarchy "uart_top:uart_top_1|shiftreg_uart:b2v_inst11" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 155
 Info (12128): Elaborating entity "bus_hex2sevseg" for hierarchy "uart_top:uart_top_1|bus_hex2sevseg:b2v_inst14" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 166
@@ -643,39 +652,39 @@ Info (12128): Elaborating entity "uart_controller_fsm" for hierarchy "uart_top:u
 Info (12128): Elaborating entity "baud_tick" for hierarchy "uart_top:uart_top_1|baud_tick:b2v_inst5" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 188
 Info (12128): Elaborating entity "bit_counter" for hierarchy "uart_top:uart_top_1|bit_counter:b2v_inst6" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 196
 Info (12128): Elaborating entity "flanken_detekt_vhdl" for hierarchy "uart_top:uart_top_1|flanken_detekt_vhdl:b2v_inst7" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/uart_top.vhd Line: 205
-Info (12128): Elaborating entity "infrastructure" for hierarchy "infrastructure:infrastructure_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 198
+Info (12128): Elaborating entity "infrastructure" for hierarchy "infrastructure:infrastructure_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 196
 Info (12128): Elaborating entity "modulo_divider" for hierarchy "infrastructure:infrastructure_1|modulo_divider:modulo_divider_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure.vhd Line: 81
 Warning (10540): VHDL Signal Declaration warning at modulo_divider.vhd(30): used explicit default value for signal "width" because signal was never assigned a value File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure/modulo_divider.vhd Line: 30
 Info (12128): Elaborating entity "clock_sync" for hierarchy "infrastructure:infrastructure_1|clock_sync:clock_sync_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure.vhd Line: 86
 Info (12128): Elaborating entity "signal_checker" for hierarchy "infrastructure:infrastructure_1|signal_checker:signal_checker_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/infrastructure.vhd Line: 98
-Info (12128): Elaborating entity "i2c_master" for hierarchy "i2c_master:i2c_master_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 209
-Info (12128): Elaborating entity "codec_controller" for hierarchy "codec_controller:codec_controller_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 221
+Info (12128): Elaborating entity "i2c_master" for hierarchy "i2c_master:i2c_master_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 207
+Info (12128): Elaborating entity "codec_controller" for hierarchy "codec_controller:codec_controller_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 219
 Info (13000): Registers with preset signals will power-up high File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/i2c/i2c_master.vhd Line: 300
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 11 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 34
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
-    Warning (15610): No output dependent on input pin "USB_RXD" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 36
-    Warning (15610): No output dependent on input pin "BT_RXD" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 38
-    Warning (15610): No output dependent on input pin "BT_TXD" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 39
-    Warning (15610): No output dependent on input pin "BT_RST_N" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 40
-Info (21057): Implemented 421 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "KEY_1" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 35
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 36
+    Warning (15610): No output dependent on input pin "USB_RXD" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 37
+    Warning (15610): No output dependent on input pin "BT_RXD" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 39
+    Warning (15610): No output dependent on input pin "BT_TXD" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 40
+    Warning (15610): No output dependent on input pin "BT_RST_N" File: C:/Users/Stefan/Documents/Digitaltechnik 2/synthi_project/source/synthi_top.vhd Line: 41
+Info (21057): Implemented 419 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 19 input pins
     Info (21059): Implemented 21 output pins
     Info (21060): Implemented 1 bidirectional pins
-    Info (21061): Implemented 380 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
-    Info: Peak virtual memory: 4802 megabytes
-    Info: Processing ended: Wed Apr 01 19:19:07 2020
+    Info (21061): Implemented 378 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 4801 megabytes
+    Info: Processing ended: Sat Apr 04 21:35:13 2020
     Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Total CPU time (on all processors): 00:00:20
 
 

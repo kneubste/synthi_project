@@ -6,7 +6,7 @@
 -- Author     : lussimat
 -- Company    : 
 -- Created    : 2020-03-09
--- Last update: 2020-03-30
+-- Last update: 2020-04-04
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -237,8 +237,8 @@ begin  -- architecture struct
         run_sim(tv);                    --Simulation wird für bestimmte Anz.Clk-cycles betrieben
       elsif cmd = string'("uar_sim") then
         uar_sim(tv, usb_txd);           --Serielles Eingangssignal wird angelegt
-      elsif cmd = string'("ini_cod") then
-        ini_cod(tv, switch(2 downto 0), key_1);  --Paralleles Signal wird in SWITCH geladen
+      elsif cmd = string'("sim_cod") then
+        ini_cod(tv, switch, key_1);  --Paralleles Signal wird in SWITCH geladen
       elsif cmd = string'("gpi_sim") then
         gpi_sim(tv, switch);
       elsif cmd = string'("uar_ch0") then
