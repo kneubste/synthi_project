@@ -1,0 +1,224 @@
+#-------------------------------------------------------------------------------
+#-- Title      : Template for testcases
+#-- Project    : DTP2
+#-------------------------------------------------------------------------------
+#-- File       : testcase.dat
+#-- Author     : Hans-Joachim Gelke
+#-- Company    : 
+#-- Created    : 2018-10-21
+#-- Last update: 2019-2-13
+#-- Platform   : 
+#-- Standard   : VHDL'08
+#-------------------------------------------------------------------------------
+#-- Description: Verschiedene Schalterstellungen/cases (3 Schalter/Bits) fuer den
+#--              Input "SW". Prueft diverse Outputs von i2c_slave_bfm (data_reg's) 
+#-------------------------------------------------------------------------------
+#-- Copyright (c) 2018 - 2019
+#-------------------------------------------------------------------------------
+#-- Revisions  :
+#-- Date        Version  Author          Description
+#-- 2019-02-13  1.0      Hans-Joachim    Created
+#-- 2020-03-17  1.1      Matthis Lussi   expanded
+#-- 2020-03-29  1.11	 Stefan Kneubühl changed to IS2 Testcases
+#-------------------------------------------------------------------------------
+
+#Digital Loop Test I2S
+
+
+#Schalterstellung 1000 SW3 TEST lange Laufzeit
+
+rst_sim
+gpi_sim 00 00 00 08
+run_sim 00 01 ff ff
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+i2s_sim 12 34 56 78
+i2s_chk 12 34 56 78
+i2s_sim 99 99 99 aa
+i2s_chk 99 99 99 aa
+
+#Schalterstellung 0000
+rst_sim
+gpi_sim 00 00 00 00
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+i2s_sim 12 34 56 78
+i2s_chk 00 00 00 00
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+
+#Schalterstellung 0001
+
+rst_sim
+gpi_sim 00 00 00 01
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+i2s_sim 12 34 56 78
+i2s_chk 00 00 00 00
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+
+#Schalterstellung 0010
+rst_sim
+gpi_sim 00 00 00 02
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+i2s_sim 12 34 56 78
+i2s_chk 00 00 00 00
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+
+#Schalterstellung 0011
+
+rst_sim
+gpi_sim 00 00 00 03
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+i2s_sim 12 34 56 78
+i2s_chk 00 00 00 00
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+
+#Schalterstellung 1000 SW3 aktiv
+
+rst_sim
+gpi_sim 00 00 00 04
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+i2s_sim 12 34 56 78
+i2s_chk 00 00 00 00
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+
+#Schalterstellung 0101
+rst_sim
+gpi_sim 00 00 00 05
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+i2s_sim 12 34 56 78
+i2s_chk 00 00 00 00
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+
+#Schalterstellung 0110
+rst_sim
+gpi_sim 00 00 00 06
+run_sim 00 00 9f ff
+i2s_sim 99 99 99 aa
+i2s_chk 00 00 00 00
+i2s_sim 12 34 56 78
+i2s_chk 00 00 00 00
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+
+#Schalterstellung 0111
+rst_sim
+gpi_sim 00 00 00 07
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+i2s_sim 12 34 56 78
+i2s_chk 00 00 00 00
+i2s_sim 11 22 33 44
+i2s_chk 00 00 00 00
+
+#Schalterstellung 1000
+
+rst_sim
+gpi_sim 00 00 00 08
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+i2s_sim 12 34 56 78
+i2s_chk 12 34 56 78
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+
+#Schalterstellung 1001
+rst_sim
+gpi_sim 00 00 00 09
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+i2s_sim 99 99 99 aa
+i2s_chk 99 99 99 aa
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+
+#Schalterstellung 1010
+
+rst_sim
+gpi_sim 00 00 00 0a
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+i2s_sim 12 34 56 78
+i2s_chk 12 34 56 78
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+
+
+#Schalterstellung 1011
+rst_sim
+gpi_sim 00 00 00 0b
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+i2s_sim 12 34 56 78
+i2s_chk 12 34 56 78
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+
+#Schalterstellung 1100
+
+rst_sim 
+gpi_sim 00 00 00 0c
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+i2s_sim 12 34 56 78
+i2s_chk 12 34 56 78
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+
+#Schalterstellung 1101
+rst_sim
+gpi_sim 00 00 00 0d
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+i2s_sim 12 34 56 78
+i2s_chk 12 34 56 78
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+
+#Schalterstellung 1110
+
+rst_sim
+gpi_sim 00 00 00 0e
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+i2s_sim 12 34 56 78
+i2s_chk 12 34 56 78
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+
+#Schalterstellung 1111
+
+rst_sim
+gpi_sim 00 00 00 0f
+run_sim 00 00 9f ff
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+i2s_sim 12 34 56 78
+i2s_chk 12 34 56 78
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+
