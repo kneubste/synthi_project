@@ -76,6 +76,9 @@ architecture str of synthi_top is
   signal pr_pathcon_out : std_logic_vector(15 downto 0);
   signal dds_r_i : std_logic_vector(15 downto 0) := (others => '0');
   signal dds_l_i : std_logic_vector(15 downto 0) := (others => '0');
+  signal load_int         : std_logic;
+  signal note_signal      : std_logic_vector(6 downto 0);
+  signal velocity_signal  : std_logic_vector(6 downto 0);
   
   -----------------------------------------------------------------------------
   -- Component declarations
@@ -151,13 +154,37 @@ architecture str of synthi_top is
       dacdat_pl_o : out std_logic_vector(15 downto 0);
       dacdat_pr_o : out std_logic_vector(15 downto 0));
   end component path_control;
+     
+  component tone_generator is
+    port (
+      clk_12m    : in  std_logic;
+      rst_n      : in  std_logic;
+      tone_on_i  : in  std_logic;
+      step_i     : in  std_logic;
+      note_i     : in  std_logic_vector(6 downto 0);
+      velocity_i : in  std_logic_vector(6 downto 0);
+      dds_l_o    : out std_logic_vector(15 downto 0);
+      dds_r_o    : out std_logic_vector(15 downto 0));
+  end component tone_generator;
   
 begin  -- architecture str
 
   -----------------------------------------------------------------------------
   -- Component instantiations
   -----------------------------------------------------------------------------
-
+ 
+  -- instance "tone_generator"
+  tone_generator_1 : tone_generator
+	port map (
+	   clk_12m => sig_clk_12m,
+      rst_n => sig_reset_n,
+      tone_on_i => SW(4),
+      step_i => load_int,
+      note_i => note_signal,
+      velocity_i => velocity_signal,
+      dds_l_o => dds_l_i,
+      dds_r_o => dds_r_i);
+     
   -- instance "path_control"
   path_control_1: path_control
     port map (
@@ -181,7 +208,8 @@ begin  -- architecture str
       dacdat_s_o  => AUD_DACDAT,
       bclk_o      => AUD_BCLK,
       ws_o        => ws_o_int,
-      adcdat_s_i  => AUD_ADCDAT);
+      adcdat_s_i  => AUD_ADCDAT,
+      load_o      => load_int);
     
   -- instance "uart_top_1"
   uart_top_1: uart_top
@@ -226,6 +254,8 @@ begin  -- architecture str
       write_o      => sig_write_o,
       write_data_o => sig_write_data_o);
 
+  note_signal <= SW(9 downto 8) & "00000";
+  velocity_signal <= SW(7 downto 5) & "0000";
   AUD_DACLRCK <= ws_o_int;
   AUD_ADCLRCK <= ws_o_int;	  
   AUD_XCK <= sig_clk_12m;
