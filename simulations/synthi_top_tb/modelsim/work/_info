@@ -22,9 +22,9 @@ VZ=9=RGga5nLQTChIJb6Wz3
 !s100 3^TRZD`Z5Ug8?olFPkZz13
 Z7 OV;C;10.5b;63
 33
-Z8 !s110 1586088523
+Z8 !s110 1587302756
 !i10b 1
-Z9 !s108 1586088522.000000
+Z9 !s108 1587302756.000000
 Z10 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/midi/baud_tick.vhd|
 Z11 !s107 ../../../source/midi/baud_tick.vhd|
 !i113 1
@@ -65,9 +65,9 @@ R7
 33
 R8
 !i10b 1
-Z17 !s108 1586088523.000000
-Z18 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/midi/bit_counter.vhd|
-Z19 !s107 ../../../source/midi/bit_counter.vhd|
+R9
+Z17 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/midi/bit_counter.vhd|
+Z18 !s107 ../../../source/midi/bit_counter.vhd|
 !i113 1
 R12
 R13
@@ -84,9 +84,9 @@ R7
 33
 R8
 !i10b 1
+R9
 R17
 R18
-R19
 !i113 1
 R12
 R13
@@ -95,8 +95,8 @@ R14
 R2
 R3
 R4
-Z20 8../../../source/midi/bus_hex2sevseg.vhd
-Z21 F../../../source/midi/bus_hex2sevseg.vhd
+Z19 8../../../source/midi/bus_hex2sevseg.vhd
+Z20 F../../../source/midi/bus_hex2sevseg.vhd
 l0
 L27
 Vl6ziFW<0fmG:5;d>c1nO<2
@@ -105,9 +105,9 @@ R7
 33
 R8
 !i10b 1
-R17
-Z22 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/midi/bus_hex2sevseg.vhd|
-Z23 !s107 ../../../source/midi/bus_hex2sevseg.vhd|
+R9
+Z21 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/midi/bus_hex2sevseg.vhd|
+Z22 !s107 ../../../source/midi/bus_hex2sevseg.vhd|
 !i113 1
 R12
 R13
@@ -123,9 +123,9 @@ R7
 33
 R8
 !i10b 1
-R17
+R9
+R21
 R22
-R23
 !i113 1
 R12
 R13
@@ -134,8 +134,8 @@ R0
 R2
 R3
 R4
-Z24 8../../../source/infrastructure/clock_sync.vhd
-Z25 F../../../source/infrastructure/clock_sync.vhd
+Z23 8../../../source/infrastructure/clock_sync.vhd
+Z24 F../../../source/infrastructure/clock_sync.vhd
 l0
 L14
 Vk>aTA:l;nni2@n<QzLGOB0
@@ -144,9 +144,9 @@ R7
 33
 R8
 !i10b 1
-R17
-Z26 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/infrastructure/clock_sync.vhd|
-Z27 !s107 ../../../source/infrastructure/clock_sync.vhd|
+R9
+Z25 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/infrastructure/clock_sync.vhd|
+Z26 !s107 ../../../source/infrastructure/clock_sync.vhd|
 !i113 1
 R12
 R13
@@ -162,21 +162,21 @@ R7
 33
 R8
 !i10b 1
-R17
+R9
+R25
 R26
-R27
 !i113 1
 R12
 R13
 Ecodec_controller
 R0
-Z28 DPx4 work 13 reg_table_pkg 0 22 7`T[z2hR^:A=SaFCH`N?j0
+Z27 DPx4 work 13 reg_table_pkg 0 22 7`T[z2hR^:A=SaFCH`N?j0
 R1
 R2
 R3
 R4
-Z29 8../../../source/codec_controller.vhd
-Z30 F../../../source/codec_controller.vhd
+Z28 8../../../source/codec_controller.vhd
+Z29 F../../../source/codec_controller.vhd
 l0
 L27
 V;Z?aJ=OAZiVbi8;ebjoe21
@@ -185,14 +185,14 @@ R7
 33
 R8
 !i10b 1
-R17
-Z31 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/codec_controller.vhd|
-Z32 !s107 ../../../source/codec_controller.vhd|
+R9
+Z30 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/codec_controller.vhd|
+Z31 !s107 ../../../source/codec_controller.vhd|
 !i113 1
 R12
 R13
 Artl
-R28
+R27
 R1
 R2
 R3
@@ -205,9 +205,9 @@ R7
 33
 R8
 !i10b 1
-R17
+R9
+R30
 R31
-R32
 !i113 1
 R12
 R13
@@ -217,8 +217,8 @@ R1
 R2
 R3
 R4
-Z33 8../../../source/count_down.vhd
-Z34 F../../../source/count_down.vhd
+Z32 8../../../source/count_down.vhd
+Z33 F../../../source/count_down.vhd
 l0
 L25
 VWf5Y^JZZ91CZiJcFaeClS0
@@ -227,9 +227,9 @@ R7
 33
 R8
 !i10b 1
-R17
-Z35 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/count_down.vhd|
-Z36 !s107 ../../../source/count_down.vhd|
+R9
+Z34 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/count_down.vhd|
+Z35 !s107 ../../../source/count_down.vhd|
 !i113 1
 R12
 R13
@@ -246,9 +246,52 @@ R7
 33
 R8
 !i10b 1
-R17
+R9
+R34
 R35
-R36
+!i113 1
+R12
+R13
+Edds
+Z36 w1587300004
+Z37 DPx4 work 12 tone_gen_pkg 0 22 M9e?=E6a_2BLOP<lz:;Qj2
+R1
+R2
+R3
+R4
+Z38 8../../../source/toneGenerator/dds.vhd
+Z39 F../../../source/toneGenerator/dds.vhd
+l0
+L30
+V7V9b6:@;3AgoJz5PJf1zH2
+!s100 `M?MMl=hJ@Xg9<_9`[SSn1
+R7
+33
+Z40 !s110 1587302758
+!i10b 1
+Z41 !s108 1587302758.000000
+Z42 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/toneGenerator/dds.vhd|
+Z43 !s107 ../../../source/toneGenerator/dds.vhd|
+!i113 1
+R12
+R13
+Astr
+R37
+R1
+R2
+R3
+DEx4 work 3 dds 0 22 7V9b6:@;3AgoJz5PJf1zH2
+l54
+L45
+Vol`OET<i_bWljLe1B[A9K1
+!s100 EEVS``@SokYn@NQaa0RKE2
+R7
+33
+R40
+!i10b 1
+R41
+R42
+R43
 !i113 1
 R12
 R13
@@ -257,8 +300,8 @@ R14
 R2
 R3
 R4
-Z37 8../../../source/midi/flanken_detekt_vhdl.vhd
-Z38 F../../../source/midi/flanken_detekt_vhdl.vhd
+Z44 8../../../source/midi/flanken_detekt_vhdl.vhd
+Z45 F../../../source/midi/flanken_detekt_vhdl.vhd
 l0
 L15
 V6I<PSZgCj5zo_Kbh_iNkQ2
@@ -267,9 +310,9 @@ R7
 33
 R8
 !i10b 1
-R17
-Z39 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/midi/flanken_detekt_vhdl.vhd|
-Z40 !s107 ../../../source/midi/flanken_detekt_vhdl.vhd|
+R9
+Z46 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/midi/flanken_detekt_vhdl.vhd|
+Z47 !s107 ../../../source/midi/flanken_detekt_vhdl.vhd|
 !i113 1
 R12
 R13
@@ -285,9 +328,9 @@ R7
 33
 R8
 !i10b 1
-R17
-R39
-R40
+R9
+R46
+R47
 !i113 1
 R12
 R13
@@ -297,19 +340,19 @@ R1
 R2
 R3
 R4
-Z41 8../../../source/i2c/i2c_master.vhd
-Z42 F../../../source/i2c/i2c_master.vhd
+Z48 8../../../source/i2c/i2c_master.vhd
+Z49 F../../../source/i2c/i2c_master.vhd
 l0
 L22
 V0b=a9F5b5L<NaF@Y`;k3o0
 !s100 GK@2OMSgE<_d]G9Xi;d?]3
 R7
 33
-R8
+Z50 !s110 1587302757
 !i10b 1
-R17
-Z43 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/i2c/i2c_master.vhd|
-Z44 !s107 ../../../source/i2c/i2c_master.vhd|
+Z51 !s108 1587302757.000000
+Z52 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/i2c/i2c_master.vhd|
+Z53 !s107 ../../../source/i2c/i2c_master.vhd|
 !i113 1
 R12
 R13
@@ -324,11 +367,11 @@ VUhcLbjaRbO51MlcRe:8B[2
 !s100 ZNkEGcl_MFmVJdS[Zo?DO0
 R7
 33
-R8
+R50
 !i10b 1
-R17
-R43
-R44
+R51
+R52
+R53
 !i113 1
 R12
 R13
@@ -338,8 +381,8 @@ R1
 R2
 R3
 R4
-Z45 8../../../source/i2c/i2c_slave_bfm.vhd
-Z46 F../../../source/i2c/i2c_slave_bfm.vhd
+Z54 8../../../source/i2c/i2c_slave_bfm.vhd
+Z55 F../../../source/i2c/i2c_slave_bfm.vhd
 l0
 L7
 VdodJfMb[d:Mh20VX0Q6X?1
@@ -348,9 +391,9 @@ R7
 33
 R8
 !i10b 1
-R17
-Z47 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/i2c/i2c_slave_bfm.vhd|
-Z48 !s107 ../../../source/i2c/i2c_slave_bfm.vhd|
+R9
+Z56 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/i2c/i2c_slave_bfm.vhd|
+Z57 !s107 ../../../source/i2c/i2c_slave_bfm.vhd|
 !i113 1
 R12
 R13
@@ -367,31 +410,31 @@ R7
 33
 R8
 !i10b 1
-R17
-R47
-R48
+R9
+R56
+R57
 !i113 1
 R12
 R13
 Ei2s_frame_generator
-Z49 w1585677108
+Z58 w1585677108
 R1
 R2
 R3
 R4
-Z50 8../../../source/I2s/i2s_frame_generator.vhd
-Z51 F../../../source/I2s/i2s_frame_generator.vhd
+Z59 8../../../source/I2s/i2s_frame_generator.vhd
+Z60 F../../../source/I2s/i2s_frame_generator.vhd
 l0
 L19
 VcW9WfZ[KZMDDEWz^oS:i?3
 !s100 n87ekPJKFb3fmGjznN6463
 R7
 33
-Z52 !s110 1586088525
+R40
 !i10b 1
-Z53 !s108 1586088525.000000
-Z54 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/I2s/i2s_frame_generator.vhd|
-Z55 !s107 ../../../source/I2s/i2s_frame_generator.vhd|
+R41
+Z61 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/I2s/i2s_frame_generator.vhd|
+Z62 !s107 ../../../source/I2s/i2s_frame_generator.vhd|
 !i113 1
 R12
 R13
@@ -406,33 +449,33 @@ V`LkS=b;zgf[J]i9[lk>=H3
 !s100 T]j2?Qg_WI0[5gQUinEl^2
 R7
 33
-R52
+R40
 !i10b 1
-R53
-R54
-R55
+R41
+R61
+R62
 !i113 1
 R12
 R13
 Ei2s_master
-Z56 w1585671563
+Z63 w1585671563
 R1
 R2
 R3
 R4
-Z57 8../../../source/I2s/i2s_master.vhd
-Z58 F../../../source/I2s/i2s_master.vhd
+Z64 8../../../source/I2s/i2s_master.vhd
+Z65 F../../../source/I2s/i2s_master.vhd
 l0
 L22
 V?_EVk==6e5bA9N?eJjb6E1
 !s100 E70U53Jh6:i;O[8Wbg<5<3
 R7
 33
-R52
+R40
 !i10b 1
-R53
-Z59 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/I2s/i2s_master.vhd|
-Z60 !s107 ../../../source/I2s/i2s_master.vhd|
+R41
+Z66 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/I2s/i2s_master.vhd|
+Z67 !s107 ../../../source/I2s/i2s_master.vhd|
 !i113 1
 R12
 R13
@@ -447,11 +490,11 @@ VC<9jdT]FO;o9nnzj[F7803
 !s100 NXEeL0bP6?EdCI<oQGU2A2
 R7
 33
-R52
+R40
 !i10b 1
-R53
-R59
-R60
+R41
+R66
+R67
 !i113 1
 R12
 R13
@@ -461,19 +504,19 @@ R1
 R2
 R3
 R4
-Z61 8../../../source/infrastructure.vhd
-Z62 F../../../source/infrastructure.vhd
+Z68 8../../../source/infrastructure.vhd
+Z69 F../../../source/infrastructure.vhd
 l0
 L29
 VAIB:K1;K5nL8PmJl=foTP2
 !s100 lV1PmzIUj18zW[X1XaR]H0
 R7
 33
-R8
+R50
 !i10b 1
-R17
-Z63 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/infrastructure.vhd|
-Z64 !s107 ../../../source/infrastructure.vhd|
+R51
+Z70 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/infrastructure.vhd|
+Z71 !s107 ../../../source/infrastructure.vhd|
 !i113 1
 R12
 R13
@@ -488,11 +531,11 @@ VFlJhVBilQm=FHCYHYiUAM2
 !s100 k:5NmHC<gOlQ[nKHRKUzh1
 R7
 33
-R8
+R50
 !i10b 1
-R17
-R63
-R64
+R51
+R70
+R71
 !i113 1
 R12
 R13
@@ -502,19 +545,19 @@ R1
 R2
 R3
 R4
-Z65 8../../../source/infrastructure/modulo_divider.vhd
-Z66 F../../../source/infrastructure/modulo_divider.vhd
+Z72 8../../../source/infrastructure/modulo_divider.vhd
+Z73 F../../../source/infrastructure/modulo_divider.vhd
 l0
 L18
 VFnXjR:9WiI14W05Pgc?XK0
 !s100 cf^V3]11_UR6n[?c77XF_3
 R7
 33
-Z67 !s110 1586088524
+R50
 !i10b 1
-R17
-Z68 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/infrastructure/modulo_divider.vhd|
-Z69 !s107 ../../../source/infrastructure/modulo_divider.vhd|
+R51
+Z74 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/infrastructure/modulo_divider.vhd|
+Z75 !s107 ../../../source/infrastructure/modulo_divider.vhd|
 !i113 1
 R12
 R13
@@ -529,11 +572,11 @@ V28d6Fcom;5G@YSf0@0lX83
 !s100 DZ8dc[S?FN<Bc8n4MS7[X1
 R7
 33
-R67
+R50
 !i10b 1
-R17
-R68
-R69
+R51
+R74
+R75
 !i113 1
 R12
 R13
@@ -543,19 +586,19 @@ R1
 R2
 R3
 R4
-Z70 8../../../source/midi/output_register.vhd
-Z71 F../../../source/midi/output_register.vhd
+Z76 8../../../source/midi/output_register.vhd
+Z77 F../../../source/midi/output_register.vhd
 l0
 L25
 V>hXi6CeDEOTT84jEOSYj_2
 !s100 3ecT_376fl]QQWamIoG@Y0
 R7
 33
-R67
+R50
 !i10b 1
-Z72 !s108 1586088524.000000
-Z73 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/midi/output_register.vhd|
-Z74 !s107 ../../../source/midi/output_register.vhd|
+R51
+Z78 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/midi/output_register.vhd|
+Z79 !s107 ../../../source/midi/output_register.vhd|
 !i113 1
 R12
 R13
@@ -570,32 +613,32 @@ VACGloN[>b@V3Kf9n5QBV93
 !s100 5zZ]R]KFg>lG7FMYRYCao2
 R7
 33
-R67
+R50
 !i10b 1
-R72
-R73
-R74
+R51
+R78
+R79
 !i113 1
 R12
 R13
 Epath_control
-Z75 w1586020538
+Z80 w1586020538
 R2
 R3
 R4
-Z76 8../../../source/path_control.vhd
-Z77 F../../../source/path_control.vhd
+Z81 8../../../source/path_control.vhd
+Z82 F../../../source/path_control.vhd
 l0
 L24
 VeQa?3B7hfi3KH37[`INdI2
 !s100 NnAg0kB@ZDXFYd=Tfcae[2
 R7
 33
-R67
+R40
 !i10b 1
-R72
-Z78 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/path_control.vhd|
-Z79 !s107 ../../../source/path_control.vhd|
+R41
+Z83 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/path_control.vhd|
+Z84 !s107 ../../../source/path_control.vhd|
 !i113 1
 R12
 R13
@@ -609,18 +652,18 @@ Vb?W8=C[7ePiXMX>glJiJg2
 !s100 B=8[`ZeAh92^Rd3>Vm5VK1
 R7
 33
-R67
+R40
 !i10b 1
-R72
-R78
-R79
+R41
+R83
+R84
 !i113 1
 R12
 R13
 Preg_table_pkg
 R2
 R3
-Z80 w1584978736
+Z85 w1584978736
 R4
 8../../support/reg_table_pkg.vhd
 F../../support/reg_table_pkg.vhd
@@ -630,39 +673,39 @@ V7`T[z2hR^:A=SaFCH`N?j0
 !s100 FPL5=Oj3g8>bLUKPW@b4=3
 R7
 33
-Z81 !s110 1586088522
+Z86 !s110 1587302755
 !i10b 1
-R9
+Z87 !s108 1587302755.000000
 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../support/reg_table_pkg.vhd|
 !s107 ../../support/reg_table_pkg.vhd|
 !i113 1
 R12
 R13
 Eshiftreg_p2s
-Z82 w1585484122
-R28
+Z88 w1585484122
+R27
 R1
 R2
 R3
 R4
-Z83 8../../../source/I2s/shiftreg_P2S.vhd
-Z84 F../../../source/I2s/shiftreg_P2S.vhd
+Z89 8../../../source/I2s/shiftreg_P2S.vhd
+Z90 F../../../source/I2s/shiftreg_P2S.vhd
 l0
 L26
 VbB9BYHDYI?IglgeF:7FYC2
 !s100 `MmmBikA7IGahJJc@e0oL2
 R7
 33
-Z85 !s110 1585572378
+Z91 !s110 1585572378
 !i10b 1
-Z86 !s108 1585572378.000000
-Z87 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/I2s/shiftreg_P2S.vhd|
-Z88 !s107 ../../../source/I2s/shiftreg_P2S.vhd|
+Z92 !s108 1585572378.000000
+Z93 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/I2s/shiftreg_P2S.vhd|
+Z94 !s107 ../../../source/I2s/shiftreg_P2S.vhd|
 !i113 1
 R12
 R13
 Artl
-R28
+R27
 R1
 R2
 R3
@@ -673,39 +716,39 @@ VLLcnMO6Um<mWf9k]zQZEn0
 !s100 [FI7eYk:oeWb:ionn9kFM1
 R7
 33
-R85
+R91
 !i10b 1
-R86
-R87
-R88
+R92
+R93
+R94
 !i113 1
 R12
 R13
 Eshiftreg_s2p
-Z89 w1585556189
-R28
+Z95 w1585556189
+R27
 R1
 R2
 R3
 R4
-Z90 8../../../source/I2s/shiftreg_S2P.vhd
-Z91 F../../../source/I2s/shiftreg_S2P.vhd
+Z96 8../../../source/I2s/shiftreg_S2P.vhd
+Z97 F../../../source/I2s/shiftreg_S2P.vhd
 l0
 L25
 VE2i>1?;YaADF?FQlZ3fmi3
 !s100 k_nWbchNl1oIC8:>RQX2Y1
 R7
 33
-R85
+R91
 !i10b 1
-R86
-Z92 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/I2s/shiftreg_S2P.vhd|
-Z93 !s107 ../../../source/I2s/shiftreg_S2P.vhd|
+R92
+Z98 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/I2s/shiftreg_S2P.vhd|
+Z99 !s107 ../../../source/I2s/shiftreg_S2P.vhd|
 !i113 1
 R12
 R13
 Artl
-R28
+R27
 R1
 R2
 R3
@@ -716,11 +759,11 @@ VM9WFULLO_4N=Pb89?Ei`d2
 !s100 U6;?h8`H>V5UgK0h:JD192
 R7
 33
-R85
+R91
 !i10b 1
-R86
 R92
-R93
+R98
+R99
 !i113 1
 R12
 R13
@@ -729,19 +772,19 @@ R14
 R2
 R3
 R4
-Z94 8../../../source/midi/shiftreg_uart.vhd
-Z95 F../../../source/midi/shiftreg_uart.vhd
+Z100 8../../../source/midi/shiftreg_uart.vhd
+Z101 F../../../source/midi/shiftreg_uart.vhd
 l0
 L21
 VoFm0MZGX=TZ2V?Rk6cJaG2
 !s100 ;CodXLP64a7@RGaVXJCj70
 R7
 33
-R67
+R50
 !i10b 1
-R72
-Z96 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/midi/shiftreg_uart.vhd|
-Z97 !s107 ../../../source/midi/shiftreg_uart.vhd|
+R51
+Z102 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/midi/shiftreg_uart.vhd|
+Z103 !s107 ../../../source/midi/shiftreg_uart.vhd|
 !i113 1
 R12
 R13
@@ -755,11 +798,11 @@ VT_<^n5nE9Y^Hz0]f7U@a52
 !s100 6W:Jl4aK5BTA:gM[on0Oh1
 R7
 33
-R67
+R50
 !i10b 1
-R72
-R96
-R97
+R51
+R102
+R103
 !i113 1
 R12
 R13
@@ -769,19 +812,19 @@ R1
 R2
 R3
 R4
-Z98 8../../../source/infrastructure/signal_checker.vhd
-Z99 F../../../source/infrastructure/signal_checker.vhd
+Z104 8../../../source/infrastructure/signal_checker.vhd
+Z105 F../../../source/infrastructure/signal_checker.vhd
 l0
 L19
 VDHJH]i8ceIGjb_=NS:k@W1
 !s100 PGafhMnWgTRMPdSf10[YH0
 R7
 33
-R67
+R50
 !i10b 1
-R72
-Z100 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/infrastructure/signal_checker.vhd|
-Z101 !s107 ../../../source/infrastructure/signal_checker.vhd|
+R51
+Z106 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/infrastructure/signal_checker.vhd|
+Z107 !s107 ../../../source/infrastructure/signal_checker.vhd|
 !i113 1
 R12
 R13
@@ -796,23 +839,23 @@ VZS=QBYE4YNYVemM=CKW<V0
 !s100 fMkjP>]ORDL3NJQPSWVbo0
 R7
 33
-R67
+R50
 !i10b 1
-R72
-R100
-R101
+R51
+R106
+R107
 !i113 1
 R12
 R13
 Psimulation_pkg
-Z102 DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
+Z108 DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
 R1
 R2
 R3
-R80
+R85
 R4
-Z103 8../../support/simulation_pkg.vhd
-Z104 F../../support/simulation_pkg.vhd
+Z109 8../../support/simulation_pkg.vhd
+Z110 F../../support/simulation_pkg.vhd
 l0
 L32
 V@:6f=ZPLELbLT@o`BHFG13
@@ -820,17 +863,17 @@ V@:6f=ZPLELbLT@o`BHFG13
 R7
 33
 b1
-R81
+Z111 !s110 1587302754
 !i10b 1
-R9
-Z105 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../support/simulation_pkg.vhd|
-Z106 !s107 ../../support/simulation_pkg.vhd|
+Z112 !s108 1587302754.000000
+Z113 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../support/simulation_pkg.vhd|
+Z114 !s107 ../../support/simulation_pkg.vhd|
 !i113 1
 R12
 R13
 Bbody
-Z107 DPx4 work 14 simulation_pkg 0 22 @:6f=ZPLELbLT@o`BHFG13
-R102
+Z115 DPx4 work 14 simulation_pkg 0 22 @:6f=ZPLELbLT@o`BHFG13
+R108
 R1
 R2
 R3
@@ -840,24 +883,24 @@ Vea:RNXZL6:P;^TPQIR_3l2
 !s100 =LcY=]S;=Ydm>Xo_S]BmA2
 R7
 33
-R81
+R111
 !i10b 1
-R9
-R105
-R106
+R112
+R113
+R114
 !i113 1
 R12
 R13
 Pstandard_driver_pkg
-R102
-R107
+R108
+R115
 R1
 R2
 R3
-R80
+Z116 w1587234931
 R4
-Z108 8../../support/standard_driver_pkg.vhd
-Z109 F../../support/standard_driver_pkg.vhd
+Z117 8../../support/standard_driver_pkg.vhd
+Z118 F../../support/standard_driver_pkg.vhd
 l0
 L29
 Vmk4dghhG34=fYhP^JmCjM0
@@ -865,18 +908,18 @@ Vmk4dghhG34=fYhP^JmCjM0
 R7
 33
 b1
-R81
+R86
 !i10b 1
-R9
-Z110 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../support/standard_driver_pkg.vhd|
-Z111 !s107 ../../support/standard_driver_pkg.vhd|
+R87
+Z119 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../support/standard_driver_pkg.vhd|
+Z120 !s107 ../../support/standard_driver_pkg.vhd|
 !i113 1
 R12
 R13
 Bbody
-Z112 DPx4 work 19 standard_driver_pkg 0 22 mk4dghhG34=fYhP^JmCjM0
-R102
-R107
+Z121 DPx4 work 19 standard_driver_pkg 0 22 mk4dghhG34=fYhP^JmCjM0
+R108
+R115
 R1
 R2
 R3
@@ -886,105 +929,170 @@ VY:ULo2daAOX[kcMGHV>>^2
 !s100 Szf=RlL9<BFlcUF^Y5GA]2
 R7
 33
-R81
+R86
 !i10b 1
-R9
-R110
-R111
+R87
+R119
+R120
 !i113 1
 R12
 R13
 Esynthi_top
-Z113 w1586087631
-R28
+Z122 w1587300026
+R27
 R1
 R2
 R3
 R4
-Z114 8../../../source/synthi_top.vhd
-Z115 F../../../source/synthi_top.vhd
+Z123 8../../../source/synthi_top.vhd
+Z124 F../../../source/synthi_top.vhd
 l0
 L31
 VQUK<O9X<J9?89[KjQlSz>3
 !s100 PHmKQTBI^aJ9B6jlS;KKI2
 R7
 33
-R52
+R40
 !i10b 1
-R53
-Z116 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/synthi_top.vhd|
-Z117 !s107 ../../../source/synthi_top.vhd|
+R41
+Z125 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/synthi_top.vhd|
+Z126 !s107 ../../../source/synthi_top.vhd|
 !i113 1
 R12
 R13
 Astr
-R28
+R27
 R1
 R2
 R3
 DEx4 work 10 synthi_top 0 22 QUK<O9X<J9?89[KjQlSz>3
-l155
+l170
 L59
-VJN`fQmPH71QF7H1YR3QnN1
-!s100 UNQQ<ol3[4Uh=1kdLj0c>1
+V;I:=01W19J^4<^FD3VKe02
+!s100 XGM7OK<aKmYEH9;:gb<]j1
 R7
 33
-R52
+Z127 !s110 1587302759
 !i10b 1
-R53
-R116
-R117
+R41
+R125
+R126
 !i113 1
 R12
 R13
 Esynthi_top_tb
-Z118 w1586029322
-R28
-Z119 DPx4 work 15 user_driver_pkg 0 22 o_a5lQMg7a>Xd3Zhi]Eb=3
-R112
-R102
-R107
+Z128 w1587234972
+R27
+Z129 DPx4 work 15 user_driver_pkg 0 22 o_a5lQMg7a>Xd3Zhi]Eb=3
+R121
+R108
+R115
 R1
 R2
 R3
 R4
-Z120 8../../../source/synthi_top_tb.vhd
-Z121 F../../../source/synthi_top_tb.vhd
+Z130 8../../../source/synthi_top_tb.vhd
+Z131 F../../../source/synthi_top_tb.vhd
 l0
 L39
 V^ClDmnDg^ca71>`2E?0j82
 !s100 WRMUjLW;LC78oljLYY=4J2
 R7
 33
-R52
+R127
 !i10b 1
-R53
-Z122 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/synthi_top_tb.vhd|
-Z123 !s107 ../../../source/synthi_top_tb.vhd|
+Z132 !s108 1587302759.000000
+Z133 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/synthi_top_tb.vhd|
+Z134 !s107 ../../../source/synthi_top_tb.vhd|
 !i113 1
 R12
 R13
 Astruct
-R28
-R119
-R112
-R102
-R107
+R27
+R129
+R121
+R108
+R115
 R1
 R2
 R3
-Z124 DEx4 work 13 synthi_top_tb 0 22 ^ClDmnDg^ca71>`2E?0j82
+Z135 DEx4 work 13 synthi_top_tb 0 22 ^ClDmnDg^ca71>`2E?0j82
 l131
 L45
-Z125 VhHfP@c44>Xg5Q[<RWinb91
-Z126 !s100 bQO2eLf@UZn<nbzg7B8;E1
+Z136 VfnhJcHC^MW>K<F969eNiz1
+Z137 !s100 G4OA?WY3nXhIVWTg1@SRC0
 R7
 33
-R52
+R127
 !i10b 1
-R53
-R122
-R123
+R132
+R133
+R134
+!i113 1
+R12
+R13
+Ptone_gen_pkg
+DBx4 ieee 11 numeric_std 4 body 22 I914AMN_?Qk;P<9Bm[VT=2
+R2
+R3
+w1587238393
+R4
+8../../../source/toneGenerator/tone_gen_pkg.vhd
+F../../../source/toneGenerator/tone_gen_pkg.vhd
+l0
+L25
+VM9e?=E6a_2BLOP<lz:;Qj2
+!s100 NGmMn_BI?@0zWR;MgTo1]2
+R7
+33
+R86
+!i10b 1
+R87
+!s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/toneGenerator/tone_gen_pkg.vhd|
+!s107 ../../../source/toneGenerator/tone_gen_pkg.vhd|
+!i113 1
+R12
+R13
+Etone_generator
+Z138 w1587300097
+R37
+R1
+R2
+R3
+R4
+Z139 8../../../source/toneGenerator/tone_generator.vhd
+Z140 F../../../source/toneGenerator/tone_generator.vhd
+l0
+L29
+VTLK:h;:dh:fZJ]P>R2AGH0
+!s100 5GJkVb;71J][@m>9<8UDj1
+R7
+33
+R40
+!i10b 1
+R41
+Z141 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/toneGenerator/tone_generator.vhd|
+Z142 !s107 ../../../source/toneGenerator/tone_generator.vhd|
+!i113 1
+R12
+R13
+Astr
+R37
+R1
+R2
+R3
+DEx4 work 14 tone_generator 0 22 TLK:h;:dh:fZJ]P>R2AGH0
+l66
+L44
+V?nKFk@S>m=Qk6>0>3JBn42
+!s100 a9:iPENL^1:]3T3gnbP8Y3
+R7
+33
+R40
+!i10b 1
+R41
+R141
+R142
 !i113 1
 R12
 R13
@@ -994,19 +1102,19 @@ R1
 R2
 R3
 R4
-Z127 8../../../source/midi/uart_controller_fsm.vhd
-Z128 F../../../source/midi/uart_controller_fsm.vhd
+Z143 8../../../source/midi/uart_controller_fsm.vhd
+Z144 F../../../source/midi/uart_controller_fsm.vhd
 l0
 L18
 VBHW``lQbM4K5PA_m2YnkP1
 !s100 HXXV3C7X0=0m2MdzG<F6;0
 R7
 33
-R67
+R40
 !i10b 1
-R72
-Z129 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/midi/uart_controller_fsm.vhd|
-Z130 !s107 ../../../source/midi/uart_controller_fsm.vhd|
+R41
+Z145 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/midi/uart_controller_fsm.vhd|
+Z146 !s107 ../../../source/midi/uart_controller_fsm.vhd|
 !i113 1
 R12
 R13
@@ -1021,11 +1129,11 @@ VC`0g1jB@H7E_8U]6TRLD01
 !s100 abZSeSd32i;jOd<G?ACJ@2
 R7
 33
-R67
+R40
 !i10b 1
-R72
-R129
-R130
+R41
+R145
+R146
 !i113 1
 R12
 R13
@@ -1034,19 +1142,19 @@ R0
 R2
 R3
 R4
-Z131 8../../../source/uart_top.vhd
-Z132 F../../../source/uart_top.vhd
+Z147 8../../../source/uart_top.vhd
+Z148 F../../../source/uart_top.vhd
 l0
 L24
 V>`QRn^j0o31[VKH73fnLH2
 !s100 AJUbH8cjl6SlYmVbZLi4G1
 R7
 33
-R67
+R40
 !i10b 1
-R72
-Z133 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/uart_top.vhd|
-Z134 !s107 ../../../source/uart_top.vhd|
+R41
+Z149 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/uart_top.vhd|
+Z150 !s107 ../../../source/uart_top.vhd|
 !i113 1
 R12
 R13
@@ -1060,85 +1168,85 @@ VIVSLC4[:gFH0^9N7B_6CI3
 !s100 bf>Qa?DGSR4dNMLhBY6i?3
 R7
 33
-R67
+R40
 !i10b 1
-R72
-R133
-R134
+R41
+R149
+R150
 !i113 1
 R12
 R13
 Euniversal_shiftreg
-Z135 w1585945390
-R28
+Z151 w1586369042
+R27
 R1
 R2
 R3
 R4
-Z136 8../../../source/I2s/universal_shiftreg.vhd
-Z137 F../../../source/I2s/universal_shiftreg.vhd
+Z152 8../../../source/I2s/universal_shiftreg.vhd
+Z153 F../../../source/I2s/universal_shiftreg.vhd
 l0
 L26
-VQeEmka9hN3?35cG4hozN61
-!s100 PMn7Cd@hJRff07MnXNIIk2
+VYIjW2nGU6odPdl[J:^KD=3
+!s100 g7zd0R:=H5NE@c:SKc6KY0
 R7
 33
-R52
+R40
 !i10b 1
-R53
-Z138 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/I2s/universal_shiftreg.vhd|
-Z139 !s107 ../../../source/I2s/universal_shiftreg.vhd|
+R41
+Z154 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../../source/I2s/universal_shiftreg.vhd|
+Z155 !s107 ../../../source/I2s/universal_shiftreg.vhd|
 !i113 1
 R12
 R13
 Artl
-R28
+R27
 R1
 R2
 R3
-DEx4 work 18 universal_shiftreg 0 22 QeEmka9hN3?35cG4hozN61
+DEx4 work 18 universal_shiftreg 0 22 YIjW2nGU6odPdl[J:^KD=3
 l47
 L41
 V@V[XmFHf1P=Y8<f^DfEhf2
 !s100 dXR[ci?a0JSf6`fj9Q^?P2
 R7
 33
-R52
+R40
 !i10b 1
-R53
-R138
-R139
+R41
+R154
+R155
 !i113 1
 R12
 R13
 Puser_driver_pkg
-R102
-R107
+R108
+R115
 R1
 R2
 R3
-R80
+R85
 R4
-Z140 8../../support/user_driver_pkg.vhd
-Z141 F../../support/user_driver_pkg.vhd
+Z156 8../../support/user_driver_pkg.vhd
+Z157 F../../support/user_driver_pkg.vhd
 l0
 L28
 Vo_a5lQMg7a>Xd3Zhi]Eb=3
 !s100 hH=B]Kz6Bo@1:W57n4aoH0
 R7
 33
-R81
+R86
 !i10b 1
-R9
-Z142 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../support/user_driver_pkg.vhd|
-Z143 !s107 ../../support/user_driver_pkg.vhd|
+R87
+Z158 !s90 -reportprogress|300|-2008|-explicit|-work|work|../../support/user_driver_pkg.vhd|
+Z159 !s107 ../../support/user_driver_pkg.vhd|
 !i113 1
 R12
 R13
 Bbody
-R119
-R102
-R107
+R129
+R108
+R115
 R1
 R2
 R3
@@ -1148,11 +1256,11 @@ V5i:6Za;XdhCC?JX?N`]2d2
 !s100 4YoE2^8W]`bVjQ592[70O0
 R7
 33
-R81
+R86
 !i10b 1
-R9
-R142
-R143
+R87
+R158
+R159
 !i113 1
 R12
 R13

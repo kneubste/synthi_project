@@ -49,7 +49,7 @@ package tone_gen_pkg is
 	-------------------------------------------------------------------------------
     constant N_CUM:					natural :=19; 			-- number of bits in phase cumulator phicum_reg
     constant N_LUT:					natural :=8;  			-- number of bits in LUT address
-    constant L: 					natural := 2**N_LUT; 	-- length of LUT
+    constant L: 						natural := 2**N_LUT; 	-- length of LUT
     constant N_RESOL:				natural := 13;			-- Attention: 1 bit reserved for sign
 	constant N_AUDIO :				natural := 16;			-- Audio Paralell Bus width
 	-------------------------------------------------------------------------------

@@ -159,7 +159,7 @@ architecture str of synthi_top is
     port (
       clk_12m    : in  std_logic;
       rst_n      : in  std_logic;
-      tone_on_i  : in  std_logic;
+      tone_on_i  : in std_logic_vector(4 downto 0);
       step_i     : in  std_logic;
       note_i     : in  std_logic_vector(6 downto 0);
       velocity_i : in  std_logic_vector(6 downto 0);
@@ -178,7 +178,7 @@ begin  -- architecture str
 	port map (
 	   clk_12m => sig_clk_12m,
       rst_n => sig_reset_n,
-      tone_on_i => SW(4),
+      tone_on_i => SW(4 downto 0),
       step_i => load_int,
       note_i => note_signal,
       velocity_i => velocity_signal,

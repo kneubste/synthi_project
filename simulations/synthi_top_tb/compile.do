@@ -6,7 +6,7 @@ vcom -2008 -explicit -work work ../../support/simulation_pkg.vhd
 vcom -2008 -explicit -work work ../../support/standard_driver_pkg.vhd
 vcom -2008 -explicit -work work ../../support/user_driver_pkg.vhd
 vcom -2008 -explicit -work work ../../support/reg_table_pkg.vhd
-
+vcom -2008 -explicit -work work ../../../source/toneGenerator/tone_gen_pkg.vhd
 
 vcom -2008 -explicit -work work ../../../source/midi/baud_tick.vhd
 vcom -2008 -explicit -work work ../../../source/midi/bit_counter.vhd
@@ -30,6 +30,8 @@ vcom -2008 -explicit -work work ../../../source/path_control.vhd
 vcom -2008 -explicit -work work ../../../source/I2s/i2s_frame_generator.vhd
 vcom -2008 -explicit -work work ../../../source/I2s/i2s_master.vhd
 vcom -2008 -explicit -work work ../../../source/I2s/universal_shiftreg.vhd
+vcom -2008 -explicit -work work ../../../source/toneGenerator/tone_generator.vhd
+vcom -2008 -explicit -work work ../../../source/toneGenerator/dds.vhd
 vcom -2008 -explicit -work work ../../../source/synthi_top.vhd
 vcom -2008 -explicit -work work ../../../source/synthi_top_tb.vhd
 

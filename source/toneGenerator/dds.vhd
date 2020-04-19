@@ -32,8 +32,8 @@ entity dds is
 		clk_12m		: in	std_logic;
 		reset_n		: in	std_logic;
 		step_i		: in	std_logic;
-		tone_on_i	: in	std_logic;
-		phi_incr_i	: in	std_logic_vector(N_CUM-1 downto 0); -- Zäher inkrement Schritte --> Freq des Sin
+		tone_on_i	: in	std_logic_vector(4 downto 0);
+		phi_incr_i	: in	std_logic_vector(N_CUM-1 downto 0); -- Zähler inkrement Schritte --> Freq des Sin
 		attenu_i		: in	std_logic_vector(2 downto 0);
 		dds_o			: out std_logic_vector(15 downto 0)
 		);
@@ -71,20 +71,22 @@ lut_val <= to_signed(LUT(lut_addr), N_AUDIO); -- Audio Output accessing lut_sinu
 
 attenu : PROCESS(all)
 	BEGIN
-		atte <= to_integer(unsigned(attenu_i));
+	atte <= to_integer(unsigned(attenu_i));
 		
-		case atte is 
-		when 0 => dds_o <= std_logic_vector(lut_val);
-		when 1 => dds_o <= std_logic_vector(shift_right(lut_val,1));
-		when 2 => dds_o <= std_logic_vector(shift_right(lut_val,2));
-		when 3 => dds_o <= std_logic_vector(shift_right(lut_val,3));
-		when 4 => dds_o <= std_logic_vector(shift_right(lut_val,4));
-		when 5 => dds_o <= std_logic_vector(shift_right(lut_val,5));
-		when 6 => dds_o <= std_logic_vector(shift_right(lut_val,6));
-		when 7 => dds_o <= std_logic_vector(shift_right(lut_val,7));
-		when others => dds_o <= std_logic_vector(lut_val);
-		end case;
-		
+		if tone_on_i = "10000" then
+			case atte is 
+			when 0 => dds_o <= std_logic_vector(lut_val);
+			when 1 => dds_o <= std_logic_vector(shift_right(lut_val,1));
+			when 2 => dds_o <= std_logic_vector(shift_right(lut_val,2));
+			when 3 => dds_o <= std_logic_vector(shift_right(lut_val,3));
+			when 4 => dds_o <= std_logic_vector(shift_right(lut_val,4));
+			when 5 => dds_o <= std_logic_vector(shift_right(lut_val,5));
+			when 6 => dds_o <= std_logic_vector(shift_right(lut_val,6));
+			when 7 => dds_o <= std_logic_vector(shift_right(lut_val,7));
+			when others => dds_o <= std_logic_vector(lut_val);
+			end case;
+		else dds_o <=  (others => '0');
+		end if;
 END PROCESS attenu;	
 
 

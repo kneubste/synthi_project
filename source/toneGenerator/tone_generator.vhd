@@ -30,12 +30,12 @@ entity tone_generator is
 
   port (clk_12m		: in  std_logic;
         rst_n			: in  std_logic;
-        tone_on_i 	: in  std_logic;
+        tone_on_i 	: in  std_logic_vector(4 downto 0);
         step_i			: in  std_logic;
         note_i			: in  std_logic_vector(6 downto 0);
         velocity_i	: in  std_logic_vector(6 downto 0);
         dds_l_o 		: out std_logic_vector(15 downto 0);
-        dds_r_o 		: out std_logic_vector(15 downto 0)        
+        dds_r_o 		: out std_logic_vector(15 downto 0)      
     );
 
 end entity tone_generator;
@@ -57,7 +57,7 @@ architecture str of tone_generator is
       clk_12m    : in  std_logic;
       reset_n    : in  std_logic;
       step_i     : in  std_logic;
-      tone_on_i  : in  std_logic;
+      tone_on_i  : in  std_logic_vector(4 downto 0);
       phi_incr_i : in  std_logic_vector(N_CUM-1 downto 0);
       attenu_i   : in  std_logic_vector(2 downto 0);
       dds_o      : out std_logic_vector(15 downto 0));

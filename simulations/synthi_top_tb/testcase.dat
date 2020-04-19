@@ -20,205 +20,89 @@
 #-- 2019-02-13  1.0      Hans-Joachim    Created
 #-- 2020-03-17  1.1      Matthis Lussi   expanded
 #-- 2020-03-29  1.11	 Stefan Kneubühl changed to IS2 Testcases
+#-- 2020-04-08  1.11	 Stefan Kneubühl changed to DDS Testcases
 #-------------------------------------------------------------------------------
 
-#Digital Loop Test I2S
+#DDS TEST ( SW4 = 1 -> DDS ON )
 
 
-#Schalterstellung 1000 SW3 TEST lange Laufzeit
-
-rst_sim
-gpi_sim 00 00 00 08
-run_sim 00 01 ff ff
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
-i2s_sim 12 34 56 78
-i2s_chk 12 34 56 78
-i2s_sim 99 99 99 aa
-i2s_chk 99 99 99 aa
-
-#Schalterstellung 0000
+#Schalterstellung 0000000000 Check auf DDS -> 0 
 rst_sim
 gpi_sim 00 00 00 00
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 00 00 00 00
-i2s_sim 12 34 56 78
-i2s_chk 00 00 00 00
-i2s_sim 11 22 33 44
+run_sim 00 00 ff ff
 i2s_chk 00 00 00 00
 
-#Schalterstellung 0001
-
+#Schalterstellung 0000000001 Check auf DDS -> 0 
 rst_sim
 gpi_sim 00 00 00 01
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 00 00 00 00
-i2s_sim 12 34 56 78
-i2s_chk 00 00 00 00
-i2s_sim 11 22 33 44
+run_sim 00 00 ff ff
 i2s_chk 00 00 00 00
 
-#Schalterstellung 0010
-rst_sim
-gpi_sim 00 00 00 02
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 00 00 00 00
-i2s_sim 12 34 56 78
-i2s_chk 00 00 00 00
-i2s_sim 11 22 33 44
-i2s_chk 00 00 00 00
-
-#Schalterstellung 0011
-
-rst_sim
-gpi_sim 00 00 00 03
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 00 00 00 00
-i2s_sim 12 34 56 78
-i2s_chk 00 00 00 00
-i2s_sim 11 22 33 44
-i2s_chk 00 00 00 00
-
-#Schalterstellung 1000 SW3 aktiv
-
-rst_sim
-gpi_sim 00 00 00 04
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 00 00 00 00
-i2s_sim 12 34 56 78
-i2s_chk 00 00 00 00
-i2s_sim 11 22 33 44
-i2s_chk 00 00 00 00
-
-#Schalterstellung 0101
-rst_sim
-gpi_sim 00 00 00 05
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 00 00 00 00
-i2s_sim 12 34 56 78
-i2s_chk 00 00 00 00
-i2s_sim 11 22 33 44
-i2s_chk 00 00 00 00
-
-#Schalterstellung 0110
-rst_sim
-gpi_sim 00 00 00 06
-run_sim 00 00 9f ff
-i2s_sim 99 99 99 aa
-i2s_chk 00 00 00 00
-i2s_sim 12 34 56 78
-i2s_chk 00 00 00 00
-i2s_sim 11 22 33 44
-i2s_chk 00 00 00 00
-
-#Schalterstellung 0111
+#Schalterstellung 0000000111 Check auf DDS -> 0 
 rst_sim
 gpi_sim 00 00 00 07
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 00 00 00 00
-i2s_sim 12 34 56 78
-i2s_chk 00 00 00 00
-i2s_sim 11 22 33 44
+run_sim 00 00 ff ff
 i2s_chk 00 00 00 00
 
-#Schalterstellung 1000
-
+#Schalterstellung 0000001000 Check auf DDS -> 0 
 rst_sim
 gpi_sim 00 00 00 08
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
-i2s_sim 12 34 56 78
-i2s_chk 12 34 56 78
+run_sim 00 00 ff ff
 i2s_sim 11 22 33 44
 i2s_chk 11 22 33 44
 
-#Schalterstellung 1001
+#----------------------------------------------
+
+#Schalterstellung 0100010000 SW4 -> 1 DDS -> on
 rst_sim
-gpi_sim 00 00 00 09
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
-i2s_sim 99 99 99 aa
-i2s_chk 99 99 99 aa
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
+gpi_sim 00 00 01 10
+run_sim 00 00 ff ff
 
-#Schalterstellung 1010
 
+#Schalterstellung 0000010001 Check auf DDS -> 0 
 rst_sim
-gpi_sim 00 00 00 0a
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
-i2s_sim 12 34 56 78
-i2s_chk 12 34 56 78
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
+gpi_sim 00 00 00 11
+i2s_chk 00 00 00 00
+run_sim 00 00 ff ff
+i2s_chk 00 00 00 00
 
 
-#Schalterstellung 1011
+#Schalterstellung 00 0011 0000
 rst_sim
-gpi_sim 00 00 00 0b
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
-i2s_sim 12 34 56 78
-i2s_chk 12 34 56 78
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
+gpi_sim 00 00 00 30 
+run_sim 00 00 ff ff
 
-#Schalterstellung 1100
-
-rst_sim 
-gpi_sim 00 00 00 0c
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
-i2s_sim 12 34 56 78
-i2s_chk 12 34 56 78
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
-
-#Schalterstellung 1101
+#Schalterstellung 00 0101 0000
 rst_sim
-gpi_sim 00 00 00 0d
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
-i2s_sim 12 34 56 78
-i2s_chk 12 34 56 78
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
+gpi_sim 00 00 00 50
+run_sim 00 00 ff ff
 
-#Schalterstellung 1110
-
+#Schalterstellung 00 1001 0000
 rst_sim
-gpi_sim 00 00 00 0e
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
-i2s_sim 12 34 56 78
-i2s_chk 12 34 56 78
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
+gpi_sim 00 00 00 90 
+run_sim 00 00 ff ff
 
-#Schalterstellung 1111
-
+#Schalterstellung 01 0001 0000
 rst_sim
-gpi_sim 00 00 00 0f
-run_sim 00 00 9f ff
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
-i2s_sim 12 34 56 78
-i2s_chk 12 34 56 78
-i2s_sim 11 22 33 44
-i2s_chk 11 22 33 44
+gpi_sim 00 00 01 10
+run_sim 00 00 ff ff
+
+#Schalterstellung 10 0001 0000
+rst_sim
+gpi_sim 00 00 02 10
+run_sim 00 00 ff ff
+
+
+#Schalterstellung 1100010000
+rst_sim
+gpi_sim 00 00 03 10
+run_sim 00 00 ff ff
+
+
+#Schalterstellung 11 1111 0000
+rst_sim
+gpi_sim 00 00 03 f0
+run_sim 00 0f ff ff
+
+
 
