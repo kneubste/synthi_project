@@ -32,7 +32,7 @@ entity dds is
 		clk_12m		: in	std_logic;
 		reset_n		: in	std_logic;
 		step_i		: in	std_logic;
-		tone_on_i	: in	std_logic_vector(4 downto 0);
+		tone_on_i	: in	std_logic;
 		phi_incr_i	: in	std_logic_vector(N_CUM-1 downto 0); -- Zähler inkrement Schritte --> Freq des Sin
 		attenu_i		: in	std_logic_vector(2 downto 0);
 		dds_o			: out std_logic_vector(15 downto 0)
@@ -73,7 +73,7 @@ attenu : PROCESS(all)
 	BEGIN
 	atte <= to_integer(unsigned(attenu_i));
 		
-		if tone_on_i = "10000" then
+		if tone_on_i = '1' then
 			case atte is 
 			when 0 => dds_o <= std_logic_vector(lut_val);
 			when 1 => dds_o <= std_logic_vector(shift_right(lut_val,1));

@@ -6,7 +6,7 @@
 -- Author     :   <Cyrill@DESKTOP-MRJOR86>
 -- Company    : 
 -- Created    : 2020-02-21
--- Last update: 2020-03-28
+-- Last update: 2020-04-29
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -16,7 +16,7 @@
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author    Description
--- 2020-02-21  1.0      Cyrill	  Created
+-- 2020-02-21  1.0      Cyrill    Created
 -- 2020-01-11  1.1      Cyrill    Added codec_controller and i2c_master
 -- 2020-03-28  1.2      lussimat  Added i2s_master and path_control
 -------------------------------------------------------------------------------
@@ -30,27 +30,27 @@ use work.reg_table_pkg.all;
 
 entity synthi_top is
 
-   port (  CLOCK_50 : in std_logic;            -- DE2 clock from xtal 50MHz
-    KEY_0    : in std_logic;            -- DE2 low_active input buttons
-    KEY_1    : in std_logic;            -- DE2 low_active input buttons
-    SW       : in std_logic_vector(9 downto 0);  -- DE2 input switches
-    USB_RXD : in std_logic;             -- USB (midi) serial_input
-    USB_TXD : in std_logic;             -- USB (midi) serial_output
-    BT_RXD : in std_logic;             -- Bluetooth serial_input
-    BT_TXD : in std_logic;             -- Bluetooth serial_output
-    BT_RST_N : in std_logic;           -- Bluetooth reset_n
-    AUD_XCK     : out std_logic;        -- master clock for Audio Codec
-    AUD_DACDAT  : out std_logic;        -- audio serial data to Codec-DAC
-    AUD_BCLK    : out std_logic;        -- bit clock for audio serial data
-    AUD_DACLRCK : out std_logic;        -- left/right word select for Codec-DAC
-    AUD_ADCLRCK : out std_logic;        -- left/right word select for Codec-ADC
-    AUD_ADCDAT  : in  std_logic;        -- audio serial data from Codec-ADC
-    AUD_SCLK : out   std_logic;         -- clock from I2C master block
-    AUD_SDAT : inout std_logic;          -- data  from I2C master block
-    LEDR_0 : out std_logic;
-    HEX0: out std_logic_vector(6 downto 0);  -- output for HEX 0 display
-    HEX1: out std_logic_vector(6 downto 0)  -- output for HEX 1 display
-    );
+  port (CLOCK_50    : in    std_logic;  -- DE2 clock from xtal 50MHz
+        KEY_0       : in    std_logic;  -- DE2 low_active input buttons
+        KEY_1       : in    std_logic;  -- DE2 low_active input buttons
+        SW          : in    std_logic_vector(9 downto 0);  -- DE2 input switches
+        USB_RXD     : in    std_logic;  -- USB (midi) serial_input
+        USB_TXD     : in    std_logic;  -- USB (midi) serial_output
+        BT_RXD      : in    std_logic;  -- Bluetooth serial_input
+        BT_TXD      : in    std_logic;  -- Bluetooth serial_output
+        BT_RST_N    : in    std_logic;  -- Bluetooth reset_n
+        AUD_XCK     : out   std_logic;  -- master clock for Audio Codec
+        AUD_DACDAT  : out   std_logic;  -- audio serial data to Codec-DAC
+        AUD_BCLK    : out   std_logic;  -- bit clock for audio serial data
+        AUD_DACLRCK : out   std_logic;  -- left/right word select for Codec-DAC
+        AUD_ADCLRCK : out   std_logic;  -- left/right word select for Codec-ADC
+        AUD_ADCDAT  : in    std_logic;  -- audio serial data from Codec-ADC
+        AUD_SCLK    : out   std_logic;  -- clock from I2C master block
+        AUD_SDAT    : inout std_logic;  -- data  from I2C master block
+        LEDR_0      : out   std_logic;
+        HEX0        : out   std_logic_vector(6 downto 0);  -- output for HEX 0 display
+        HEX1        : out   std_logic_vector(6 downto 0)  -- output for HEX 1 display
+        );
 
 end entity synthi_top;
 
@@ -61,38 +61,42 @@ architecture str of synthi_top is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
-  signal sig_clk_12m : std_logic;
-  signal sig_reset_n : std_logic;
+  signal sig_clk_12m      : std_logic;
+  signal sig_reset_n      : std_logic;
   signal sig_usb_txd_sync : std_logic;
-  signal sig_ledr_0 : std_logic;
-  signal sig_write_o : std_logic;
+  signal sig_ledr_0       : std_logic;
+  signal sig_write_o      : std_logic;
   signal sig_write_data_o : std_logic_vector(15 downto 0);
   signal sig_write_done_i : std_logic;
-  signal sig_ack_error : std_logic;
-  signal ws_o_int : std_logic;
-  signal pl_master_out : std_logic_vector(15 downto 0);
-  signal pr_master_out : std_logic_vector(15 downto 0);
-  signal pl_pathcon_out : std_logic_vector(15 downto 0);
-  signal pr_pathcon_out : std_logic_vector(15 downto 0);
-  signal dds_r_i : std_logic_vector(15 downto 0) := (others => '0');
-  signal dds_l_i : std_logic_vector(15 downto 0) := (others => '0');
+  signal sig_ack_error    : std_logic;
+  signal ws_o_int         : std_logic;
+  signal pl_master_out    : std_logic_vector(15 downto 0);
+  signal pr_master_out    : std_logic_vector(15 downto 0);
+  signal pl_pathcon_out   : std_logic_vector(15 downto 0);
+  signal pr_pathcon_out   : std_logic_vector(15 downto 0);
+  signal dds_r_i          : std_logic_vector(15 downto 0) := (others => '0');
+  signal dds_l_i          : std_logic_vector(15 downto 0) := (others => '0');
   signal load_int         : std_logic;
   signal note_signal      : std_logic_vector(6 downto 0);
   signal velocity_signal  : std_logic_vector(6 downto 0);
-  
+  signal rx_data_rdy      : std_logic;
+  signal rx_data          : std_logic_vector(7 downto 0);
+  signal note_on          : std_logic;
+  signal note_simple      : std_logic_vector(6 downto 0);
+  signal velocity_simple  : std_logic_vector(6 downto 0);
   -----------------------------------------------------------------------------
   -- Component declarations
   -----------------------------------------------------------------------------
 
   component uart_top is
     port (
-      clk         : IN  STD_LOGIC;
-      reset_n     : IN  STD_LOGIC;
-      ser_data_i  : IN  STD_LOGIC;
-      rx_data_rdy : OUT STD_LOGIC;
-      seg0_o      : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-      seg1_o      : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-      rx_data     : OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
+      clk         : in  std_logic;
+      reset_n     : in  std_logic;
+      ser_data_i  : in  std_logic;
+      rx_data_rdy : out std_logic;
+      seg0_o      : out std_logic_vector(6 downto 0);
+      seg1_o      : out std_logic_vector(6 downto 0);
+      rx_data     : out std_logic_vector(7 downto 0));
   end component uart_top;
 
   component infrastructure is
@@ -154,50 +158,61 @@ architecture str of synthi_top is
       dacdat_pl_o : out std_logic_vector(15 downto 0);
       dacdat_pr_o : out std_logic_vector(15 downto 0));
   end component path_control;
-     
+
   component tone_generator is
     port (
       clk_12m    : in  std_logic;
       rst_n      : in  std_logic;
-      tone_on_i  : in std_logic_vector(4 downto 0);
+      tone_on_i  : in  std_logic;
       step_i     : in  std_logic;
       note_i     : in  std_logic_vector(6 downto 0);
       velocity_i : in  std_logic_vector(6 downto 0);
       dds_l_o    : out std_logic_vector(15 downto 0);
       dds_r_o    : out std_logic_vector(15 downto 0));
   end component tone_generator;
-  
+
+  component midi_controller is
+    port (
+      clk_12m         : in  std_logic;
+      reset_n         : in  std_logic;
+      rx_data_rdy     : in  std_logic;
+      rx_data         : in  std_logic_vector(7 downto 0);
+      note_on         : out std_logic;
+      note_simple     : out std_logic_vector(6 downto 0);
+      velocity_simple : out std_logic_vector(6 downto 0));
+  end component midi_controller;
+
 begin  -- architecture str
 
   -----------------------------------------------------------------------------
   -- Component instantiations
   -----------------------------------------------------------------------------
- 
+
   -- instance "tone_generator"
   tone_generator_1 : tone_generator
-	port map (
-	   clk_12m => sig_clk_12m,
-      rst_n => sig_reset_n,
-      tone_on_i => SW(4 downto 0),
-      step_i => load_int,
-      note_i => note_signal,
+    port map (
+      clk_12m    => sig_clk_12m,
+      rst_n      => sig_reset_n,
+      tone_on_i  => note_on,
+      step_i     => load_int,
+      note_i     => note_signal,
       velocity_i => velocity_signal,
-      dds_l_o => dds_l_i,
-      dds_r_o => dds_r_i);
-     
+      dds_l_o    => dds_l_i,
+      dds_r_o    => dds_r_i);
+
   -- instance "path_control"
-  path_control_1: path_control
+  path_control_1 : path_control
     port map (
       sw_sync_3   => SW(3),
       adcdat_pl_i => pl_master_out,
       adcdat_pr_i => pr_master_out,
       dds_r_i     => dds_r_i,
-      dds_l_i     => dds_l_i, 
+      dds_l_i     => dds_l_i,
       dacdat_pl_o => pl_pathcon_out,
       dacdat_pr_o => pr_pathcon_out);
-      
+
   -- instance "i2s_master"
-  i2s_master_1: i2s_master
+  i2s_master_1 : i2s_master
     port map (
       clk_12m     => sig_clk_12m,
       reset_n     => sig_reset_n,
@@ -210,18 +225,20 @@ begin  -- architecture str
       ws_o        => ws_o_int,
       adcdat_s_i  => AUD_ADCDAT,
       load_o      => load_int);
-    
+
   -- instance "uart_top_1"
-  uart_top_1: uart_top
+  uart_top_1 : uart_top
     port map (
-      clk         => sig_clk_12m,
-      reset_n     => sig_reset_n,
-      ser_data_i  => sig_usb_txd_sync,
-      seg0_o      => HEX0,
-      seg1_o      => HEX1);
+      clk        	=> sig_clk_12m,
+      reset_n    	=> sig_reset_n,
+      ser_data_i 	=> sig_usb_txd_sync,
+		rx_data    	=> rx_data,
+		rx_data_rdy	=> rx_data_rdy,
+      seg0_o     	=> HEX0,
+      seg1_o     	=> HEX1);
 
   -- instance "infrastructure_1"
-  infrastructure_1: infrastructure
+  infrastructure_1 : infrastructure
     port map (
       clock_50     => CLOCK_50,
       key_0        => KEY_0,
@@ -232,7 +249,7 @@ begin  -- architecture str
       ledr_0       => LEDR_0);
 
   -- instance "i2c_master_1"
-  i2c_master_1: i2c_master
+  i2c_master_1 : i2c_master
     port map (
       clk          => sig_clk_12m,
       reset_n      => sig_reset_n,
@@ -244,7 +261,7 @@ begin  -- architecture str
       ack_error_o  => sig_ack_error);
 
   -- instance "codec_controller_1"
-  codec_controller_1: codec_controller
+  codec_controller_1 : codec_controller
     port map (
       clk          => sig_clk_12m,
       reset_n      => sig_reset_n,
@@ -254,12 +271,24 @@ begin  -- architecture str
       write_o      => sig_write_o,
       write_data_o => sig_write_data_o);
 
-  note_signal <= SW(9 downto 8) & "00000";
-  velocity_signal <= SW(7 downto 5) & "0000";
-  AUD_DACLRCK <= ws_o_int;
-  AUD_ADCLRCK <= ws_o_int;	  
-  AUD_XCK <= sig_clk_12m;
-  
+
+  AUD_DACLRCK     <= ws_o_int;
+  AUD_ADCLRCK     <= ws_o_int;
+  AUD_XCK         <= sig_clk_12m;
+
+  -- instance "midi_controller_1"
+  midi_controller_1 : midi_controller
+    port map (
+      clk_12m         => sig_clk_12m,
+      reset_n         => sig_reset_n,
+      rx_data_rdy     => rx_data_rdy,
+      rx_data         => rx_data,
+      note_on         => note_on,
+      note_simple     => note_signal,
+      velocity_simple => velocity_signal);
+		
+
+
 end architecture str;
 
 -------------------------------------------------------------------------------

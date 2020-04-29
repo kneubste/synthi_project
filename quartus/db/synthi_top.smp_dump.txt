@@ -1,4 +1,10 @@
 
+State Machine - |synthi_top|midi_controller:midi_controller_1|fsm_state
+Name fsm_state.st_wait_data2 fsm_state.st_wait_data1 fsm_state.st_wait 
+fsm_state.st_wait 0 0 0 
+fsm_state.st_wait_data1 0 1 1 
+fsm_state.st_wait_data2 1 0 1 
+
 State Machine - |synthi_top|codec_controller:codec_controller_1|fsm_state
 Name fsm_state.st_state_end fsm_state.st_wait_write fsm_state.st_idle 
 fsm_state.st_idle 0 0 0 

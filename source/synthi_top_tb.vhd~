@@ -6,19 +6,19 @@
 -- Author     : lussimat
 -- Company    : 
 -- Created    : 2020-03-09
--- Last update: 2020-04-04
+-- Last update: 2020-04-18
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: Diese Testbench ist dafür zuständig, die verschiedenen
--- data-register (0-9) von i2c_slave_bfm zu testen. Für den Test wird
+-- Description: Diese Testbench ist dafï¿½r zustï¿½ndig, die verschiedenen
+-- data-register (0-9) von i2c_slave_bfm zu testen. Fï¿½r den Test wird
 -- am Input "SW" von "sythi_top", die Werte 0-7 geladen (3 Schalter).
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
--- Revisions  : 2020-03-13 Zusammenfügen verschiedener Teile
+-- Revisions  : 2020-03-13 Zusammenfï¿½gen verschiedener Teile
 --              2020-03-15 Fehlersuche + Behebung
---              2020-03-17 einfachere Lösung für anlegen von Wert an SW
+--              2020-03-17 einfachere Lï¿½sung fï¿½r anlegen von Wert an SW
 --              2020-03-19 letzter Schliff - kommentieren, Header und Beautify
 -- Date        Version  Author  Description
 -- 2020-03-16  1.0      matth   Created
@@ -154,7 +154,7 @@ begin  -- architecture struct
       HEX0        => HEX0,
       HEX1        => HEX1);
 
-   SW(9 downto 0) <= switch(9 downto 0);  
+  SW(9 downto 0) <= switch(9 downto 0);
 
 
 
@@ -234,17 +234,17 @@ begin  -- architecture struct
       if cmd = string'("rst_sim") then
         rst_sim(tv, key_0);             --Reset der Simulation
       elsif cmd = string'("run_sim") then
-        run_sim(tv);                    --Simulation wird für bestimmte Anz.Clk-cycles betrieben
+        run_sim(tv);  --Simulation wird fï¿½r bestimmte Anz.Clk-cycles betrieben
       elsif cmd = string'("uar_sim") then
-        uar_sim(tv, usb_txd);           --Serielles Eingangssignal wird angelegt
+        uar_sim(tv, usb_txd);        --Serielles Eingangssignal wird angelegt
       elsif cmd = string'("ini_cod") then
-        ini_cod(tv, switch, key_1);  --Paralleles Signal wird in SWITCH geladen
+        ini_cod(tv, switch(2 downto 0), key_0);  --Paralleles Signal wird in SWITCH geladen
       elsif cmd = string'("gpi_sim") then
         gpi_sim(tv, switch);
       elsif cmd = string'("uar_ch0") then
-        uar_chk(tv, hex0);              --Check von 7-Segment-Anzeige mit Testvektor
+        uar_chk(tv, hex0);  --Check von 7-Segment-Anzeige mit Testvektor
       elsif cmd = string'("uar_ch1") then
-        uar_chk(tv, hex1);              --Check von 7-Segment-Anzeige mit Testvektor
+        uar_chk(tv, hex1);  --Check von 7-Segment-Anzeige mit Testvektor
       elsif cmd = string'("i2c_ch0") then
         gpo_chk(tv, reg_data0);         --Check data-register0
       elsif cmd = string'("i2c_ch1") then

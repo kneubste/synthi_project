@@ -1,5 +1,5 @@
 Timing Analyzer report for synthi_top
-Sun Apr 19 14:43:32 2020
+Wed Apr 29 16:30:19 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -93,13 +93,14 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.29        ;
+; Average used               ; 1.27        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   9.9%      ;
-;     Processors 3-4         ;   9.7%      ;
+;     Processor 2            ;   9.3%      ;
+;     Processor 3            ;   8.9%      ;
+;     Processor 4            ;   8.7%      ;
 +----------------------------+-------------+
 
 
@@ -113,14 +114,14 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------+
-; Slow 1200mV 85C Model Fmax Summary                                                                            ;
-+-----------+-----------------+--------------------------------------------------------------------------+------+
-; Fmax      ; Restricted Fmax ; Clock Name                                                               ; Note ;
-+-----------+-----------------+--------------------------------------------------------------------------+------+
-; 155.4 MHz ; 155.4 MHz       ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ;      ;
-; 220.9 MHz ; 220.9 MHz       ; CLOCK_50                                                                 ;      ;
-+-----------+-----------------+--------------------------------------------------------------------------+------+
++----------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                             ;
++------------+-----------------+--------------------------------------------------------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                                                               ; Note ;
++------------+-----------------+--------------------------------------------------------------------------+------+
+; 150.99 MHz ; 150.99 MHz      ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ;      ;
+; 238.04 MHz ; 238.04 MHz      ; CLOCK_50                                                                 ;      ;
++------------+-----------------+--------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -129,8 +130,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                    ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------+--------+---------------+
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -5.435 ; -471.495      ;
-; CLOCK_50                                                                 ; -3.527 ; -102.282      ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -5.623 ; -548.267      ;
+; CLOCK_50                                                                 ; -3.201 ; -93.745       ;
 +--------------------------------------------------------------------------+--------+---------------+
 
 
@@ -140,7 +141,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; Clock                                                                    ; Slack ; End Point TNS ;
 +--------------------------------------------------------------------------+-------+---------------+
 ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 0.323 ; 0.000         ;
-; CLOCK_50                                                                 ; 0.355 ; 0.000         ;
+; CLOCK_50                                                                 ; 0.356 ; 0.000         ;
 +--------------------------------------------------------------------------+-------+---------------+
 
 
@@ -149,7 +150,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                    ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------+--------+---------------+
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -2.316 ; -418.554      ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -2.484 ; -482.496      ;
 +--------------------------------------------------------------------------+--------+---------------+
 
 
@@ -158,7 +159,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                    ; Slack ; End Point TNS ;
 +--------------------------------------------------------------------------+-------+---------------+
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 2.335 ; 0.000         ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 2.487 ; 0.000         ;
 +--------------------------------------------------------------------------+-------+---------------+
 
 
@@ -168,7 +169,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; Clock                                                                    ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------+--------+---------------+
 ; CLOCK_50                                                                 ; -3.000 ; -53.508       ;
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -1.403 ; -284.809      ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -1.403 ; -304.451      ;
 +--------------------------------------------------------------------------+--------+---------------+
 
 
@@ -179,14 +180,14 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Slow 1200mV 0C Model Fmax Summary                                                                              ;
-+------------+-----------------+--------------------------------------------------------------------------+------+
-; Fmax       ; Restricted Fmax ; Clock Name                                                               ; Note ;
-+------------+-----------------+--------------------------------------------------------------------------+------+
-; 167.73 MHz ; 167.73 MHz      ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ;      ;
-; 242.48 MHz ; 242.48 MHz      ; CLOCK_50                                                                 ;      ;
-+------------+-----------------+--------------------------------------------------------------------------+------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                                                                                       ;
++------------+-----------------+--------------------------------------------------------------------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                                                               ; Note                                                          ;
++------------+-----------------+--------------------------------------------------------------------------+---------------------------------------------------------------+
+; 164.23 MHz ; 164.23 MHz      ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ;                                                               ;
+; 257.27 MHz ; 250.0 MHz       ; CLOCK_50                                                                 ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+--------------------------------------------------------------------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -195,8 +196,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                    ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------+--------+---------------+
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -4.962 ; -419.790      ;
-; CLOCK_50                                                                 ; -3.124 ; -91.206       ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -5.089 ; -485.178      ;
+; CLOCK_50                                                                 ; -2.887 ; -83.266       ;
 +--------------------------------------------------------------------------+--------+---------------+
 
 
@@ -205,8 +206,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                    ; Slack ; End Point TNS ;
 +--------------------------------------------------------------------------+-------+---------------+
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 0.289 ; 0.000         ;
-; CLOCK_50                                                                 ; 0.321 ; 0.000         ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 0.290 ; 0.000         ;
+; CLOCK_50                                                                 ; 0.322 ; 0.000         ;
 +--------------------------------------------------------------------------+-------+---------------+
 
 
@@ -215,7 +216,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                    ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------+--------+---------------+
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -2.042 ; -365.887      ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -2.194 ; -424.542      ;
 +--------------------------------------------------------------------------+--------+---------------+
 
 
@@ -224,7 +225,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                    ; Slack ; End Point TNS ;
 +--------------------------------------------------------------------------+-------+---------------+
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 2.109 ; 0.000         ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 2.247 ; 0.000         ;
 +--------------------------------------------------------------------------+-------+---------------+
 
 
@@ -234,7 +235,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; Clock                                                                    ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------+--------+---------------+
 ; CLOCK_50                                                                 ; -3.000 ; -53.508       ;
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -1.403 ; -284.809      ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -1.403 ; -304.451      ;
 +--------------------------------------------------------------------------+--------+---------------+
 
 
@@ -250,8 +251,8 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +--------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                    ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------+--------+---------------+
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -1.807 ; -100.726      ;
-; CLOCK_50                                                                 ; -0.873 ; -23.562       ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -1.873 ; -122.707      ;
+; CLOCK_50                                                                 ; -0.770 ; -20.330       ;
 +--------------------------------------------------------------------------+--------+---------------+
 
 
@@ -261,7 +262,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 ; Clock                                                                    ; Slack ; End Point TNS ;
 +--------------------------------------------------------------------------+-------+---------------+
 ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 0.140 ; 0.000         ;
-; CLOCK_50                                                                 ; 0.151 ; 0.000         ;
+; CLOCK_50                                                                 ; 0.152 ; 0.000         ;
 +--------------------------------------------------------------------------+-------+---------------+
 
 
@@ -270,7 +271,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +--------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                    ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------+--------+---------------+
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -0.682 ; -116.790      ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -0.768 ; -142.776      ;
 +--------------------------------------------------------------------------+--------+---------------+
 
 
@@ -279,7 +280,7 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +--------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                    ; Slack ; End Point TNS ;
 +--------------------------------------------------------------------------+-------+---------------+
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 1.165 ; 0.000         ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 1.240 ; 0.000         ;
 +--------------------------------------------------------------------------+-------+---------------+
 
 
@@ -288,20 +289,15 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +--------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                    ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------+--------+---------------+
-; CLOCK_50                                                                 ; -3.000 ; -45.459       ;
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -1.000 ; -203.000      ;
+; CLOCK_50                                                                 ; -3.000 ; -45.524       ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -1.000 ; -217.000      ;
 +--------------------------------------------------------------------------+--------+---------------+
 
 
 ----------------------------------------------
 ; Fast 1200mV 0C Model Metastability Summary ;
 ----------------------------------------------
-The design MTBF is not calculated because there are no specified synchronizers in the design.
-Number of Synchronizer Chains Found: 3
-Shortest Synchronizer Chain: 2 Registers
-Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 0.584 ns
-
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
 
 
 
@@ -310,12 +306,12 @@ Worst Case Available Settling Time: 0.584 ns
 +---------------------------------------------------------------------------+----------+-------+----------+---------+---------------------+
 ; Clock                                                                     ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +---------------------------------------------------------------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack                                                          ; -5.435   ; 0.140 ; -2.316   ; 1.165   ; -3.000              ;
-;  CLOCK_50                                                                 ; -3.527   ; 0.151 ; N/A      ; N/A     ; -3.000              ;
-;  infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -5.435   ; 0.140 ; -2.316   ; 1.165   ; -1.403              ;
-; Design-wide TNS                                                           ; -573.777 ; 0.0   ; -418.554 ; 0.0     ; -338.317            ;
-;  CLOCK_50                                                                 ; -102.282 ; 0.000 ; N/A      ; N/A     ; -53.508             ;
-;  infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -471.495 ; 0.000 ; -418.554 ; 0.000   ; -284.809            ;
+; Worst-case Slack                                                          ; -5.623   ; 0.140 ; -2.484   ; 1.240   ; -3.000              ;
+;  CLOCK_50                                                                 ; -3.201   ; 0.152 ; N/A      ; N/A     ; -3.000              ;
+;  infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -5.623   ; 0.140 ; -2.484   ; 1.240   ; -1.403              ;
+; Design-wide TNS                                                           ; -642.012 ; 0.0   ; -482.496 ; 0.0     ; -357.959            ;
+;  CLOCK_50                                                                 ; -93.745  ; 0.000 ; N/A      ; N/A     ; -53.508             ;
+;  infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; -548.267 ; 0.000 ; -482.496 ; 0.000   ; -304.451            ;
 +---------------------------------------------------------------------------+----------+-------+----------+---------+---------------------+
 
 
@@ -356,25 +352,25 @@ Worst Case Available Settling Time: 0.584 ns
 ; Pin                 ; I/O Standard          ; 10-90 Rise Time ; 90-10 Fall Time ;
 +---------------------+-----------------------+-----------------+-----------------+
 ; KEY_1               ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; SW[4]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; SW[5]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; SW[6]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; SW[7]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; SW[8]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; SW[9]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; USB_RXD             ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; BT_RXD              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; BT_TXD              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; BT_RST_N            ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; AUD_SDAT            ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; CLOCK_50            ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; SW[4]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; SW[1]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; SW[2]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; SW[0]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; SW[3]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; KEY_0               ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
-; SW[8]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; SW[9]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; USB_TXD             ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; SW[5]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; SW[6]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; SW[7]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; AUD_ADCDAT          ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; SW[2]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; SW[1]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; SW[0]               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; ~ALTERA_TMS~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TCK~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TDI~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
@@ -485,7 +481,7 @@ Worst Case Available Settling Time: 0.584 ns
 +--------------------------------------------------------------------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
 ; CLOCK_50                                                                 ; CLOCK_50                                                                 ; 2598     ; 0        ; 0        ; 0        ;
 ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; CLOCK_50                                                                 ; 1        ; 1        ; 0        ; 0        ;
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 10400    ; 0        ; 0        ; 0        ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 16098    ; 0        ; 0        ; 0        ;
 +--------------------------------------------------------------------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -497,7 +493,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +--------------------------------------------------------------------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
 ; CLOCK_50                                                                 ; CLOCK_50                                                                 ; 2598     ; 0        ; 0        ; 0        ;
 ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; CLOCK_50                                                                 ; 1        ; 1        ; 0        ; 0        ;
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 10400    ; 0        ; 0        ; 0        ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 16098    ; 0        ; 0        ; 0        ;
 +--------------------------------------------------------------------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -507,7 +503,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +--------------------------------------------------------------------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                                               ; To Clock                                                                 ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +--------------------------------------------------------------------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 198      ; 0        ; 0        ; 0        ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 212      ; 0        ; 0        ; 0        ;
 +--------------------------------------------------------------------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -517,7 +513,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +--------------------------------------------------------------------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                                               ; To Clock                                                                 ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +--------------------------------------------------------------------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
-; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 198      ; 0        ; 0        ; 0        ;
+; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] ; 212      ; 0        ; 0        ; 0        ;
 +--------------------------------------------------------------------------+--------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -541,8 +537,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 14    ; 14   ;
-; Unconstrained Input Port Paths  ; 331   ; 331  ;
+; Unconstrained Input Ports       ; 8     ; 8    ;
+; Unconstrained Input Port Paths  ; 93    ; 93   ;
 ; Unconstrained Output Ports      ; 22    ; 22   ;
 ; Unconstrained Output Port Paths ; 69    ; 69   ;
 +---------------------------------+-------+------+
@@ -570,12 +566,6 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; SW[1]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW[2]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW[3]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[4]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[5]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[6]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[7]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[8]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[9]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; USB_TXD    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
@@ -622,12 +612,6 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; SW[1]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW[2]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW[3]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[4]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[5]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[6]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[7]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[8]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; SW[9]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; USB_TXD    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
@@ -668,7 +652,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Apr 19 14:43:29 2020
+    Info: Processing started: Wed Apr 29 16:30:16 2020
 Info: Command: quartus_sta synthi_top -c synthi_top
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -686,29 +670,29 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -5.435
+Info (332146): Worst-case setup slack is -5.623
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -5.435            -471.495 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
-    Info (332119):    -3.527            -102.282 CLOCK_50 
+    Info (332119):    -5.623            -548.267 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
+    Info (332119):    -3.201             -93.745 CLOCK_50 
 Info (332146): Worst-case hold slack is 0.323
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.323               0.000 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
-    Info (332119):     0.355               0.000 CLOCK_50 
-Info (332146): Worst-case recovery slack is -2.316
+    Info (332119):     0.356               0.000 CLOCK_50 
+Info (332146): Worst-case recovery slack is -2.484
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.316            -418.554 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
-Info (332146): Worst-case removal slack is 2.335
+    Info (332119):    -2.484            -482.496 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
+Info (332146): Worst-case removal slack is 2.487
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     2.335               0.000 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
+    Info (332119):     2.487               0.000 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):    -3.000             -53.508 CLOCK_50 
-    Info (332119):    -1.403            -284.809 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
+    Info (332119):    -1.403            -304.451 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
 Info (332114): Report Metastability: Found 3 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Slow 1200mV 0C Model
@@ -716,69 +700,64 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -4.962
+Info (332146): Worst-case setup slack is -5.089
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.962            -419.790 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
-    Info (332119):    -3.124             -91.206 CLOCK_50 
-Info (332146): Worst-case hold slack is 0.289
+    Info (332119):    -5.089            -485.178 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
+    Info (332119):    -2.887             -83.266 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.290
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.289               0.000 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
-    Info (332119):     0.321               0.000 CLOCK_50 
-Info (332146): Worst-case recovery slack is -2.042
+    Info (332119):     0.290               0.000 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
+    Info (332119):     0.322               0.000 CLOCK_50 
+Info (332146): Worst-case recovery slack is -2.194
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.042            -365.887 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
-Info (332146): Worst-case removal slack is 2.109
+    Info (332119):    -2.194            -424.542 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
+Info (332146): Worst-case removal slack is 2.247
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     2.109               0.000 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
+    Info (332119):     2.247               0.000 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):    -3.000             -53.508 CLOCK_50 
-    Info (332119):    -1.403            -284.809 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
+    Info (332119):    -1.403            -304.451 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
 Info (332114): Report Metastability: Found 3 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.807
+Info (332146): Worst-case setup slack is -1.873
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.807            -100.726 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
-    Info (332119):    -0.873             -23.562 CLOCK_50 
+    Info (332119):    -1.873            -122.707 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
+    Info (332119):    -0.770             -20.330 CLOCK_50 
 Info (332146): Worst-case hold slack is 0.140
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.140               0.000 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
-    Info (332119):     0.151               0.000 CLOCK_50 
-Info (332146): Worst-case recovery slack is -0.682
+    Info (332119):     0.152               0.000 CLOCK_50 
+Info (332146): Worst-case recovery slack is -0.768
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.682            -116.790 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
-Info (332146): Worst-case removal slack is 1.165
+    Info (332119):    -0.768            -142.776 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
+Info (332146): Worst-case removal slack is 1.240
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.165               0.000 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
+    Info (332119):     1.240               0.000 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -45.459 CLOCK_50 
-    Info (332119):    -1.000            -203.000 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
+    Info (332119):    -3.000             -45.524 CLOCK_50 
+    Info (332119):    -1.000            -217.000 infrastructure:infrastructure_1|modulo_divider:modulo_divider_1|count[1] 
 Info (332114): Report Metastability: Found 3 synchronizer chains.
-    Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
-    Info (332114): Number of Synchronizer Chains Found: 3
-    Info (332114): Shortest Synchronizer Chain: 2 Registers
-    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 0.584 ns
-    Info (332114): 
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4835 megabytes
-    Info: Processing ended: Sun Apr 19 14:43:32 2020
+    Info: Peak virtual memory: 4838 megabytes
+    Info: Processing ended: Wed Apr 29 16:30:19 2020
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 

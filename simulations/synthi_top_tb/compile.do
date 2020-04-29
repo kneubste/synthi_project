@@ -7,7 +7,7 @@ vcom -2008 -explicit -work work ../../support/standard_driver_pkg.vhd
 vcom -2008 -explicit -work work ../../support/user_driver_pkg.vhd
 vcom -2008 -explicit -work work ../../support/reg_table_pkg.vhd
 vcom -2008 -explicit -work work ../../../source/toneGenerator/tone_gen_pkg.vhd
-
+vcom -2008 -explicit -work work ../../../source/midi/midi_controller.vhd
 vcom -2008 -explicit -work work ../../../source/midi/baud_tick.vhd
 vcom -2008 -explicit -work work ../../../source/midi/bit_counter.vhd
 vcom -2008 -explicit -work work ../../../source/midi/bus_hex2sevseg.vhd
@@ -39,4 +39,4 @@ vcom -2008 -explicit -work work ../../../source/synthi_top_tb.vhd
 # run the simulation
 vsim -novopt -t 1ns -lib work work.synthi_top_tb
 do ./wave.do
-run 50 ms
+run 200 ms

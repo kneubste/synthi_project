@@ -6,7 +6,7 @@
 -- Author     : lussimat
 -- Company    : 
 -- Created    : 2020-03-09
--- Last update: 2020-04-18
+-- Last update: 2020-04-29
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -127,6 +127,7 @@ architecture struct of synthi_top_tb is
 
   constant clock_freq   : natural := 50_000_000;
   constant clock_period : time    := 1000 ms/clock_freq;
+
 
 begin  -- architecture struct
 
@@ -302,6 +303,8 @@ begin  -- architecture struct
     wait for clock_period/2;
 
   end process clkgen;
+
+
 
 
 

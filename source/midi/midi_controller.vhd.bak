@@ -1,0 +1,53 @@
+-------------------------------------------
+-- Block code:  midi_controller.vhd
+-- History:     2020-04-20 - 1st version (kneubste)
+
+-- Function:
+-------------------------------------------
+
+-- Library & Use Statements
+-------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-- Entity Declaration 
+-------------------------------------------
+entity XXXXX is
+
+-- Architecture Declaration
+-------------------------------------------
+architecture rtl of XXXXX is
+-- Signals & Constants Declaration�
+-------------------------------------------
+
+  -- shifted into shift register
+
+-- Begin Architecture
+-------------------------------------------
+begin
+
+  --------------------------------------------------
+  -- PROCESS FOR ALL FLIP-FLOPS
+  --------------------------------------------------
+
+
+
+  --------------------------------------------------
+  -- PROCESS FOR INPUT-COMB-LOGIC XXXXX 
+  --------------------------------------------------
+  state_logic : process (all)
+
+
+  end process state_logic;
+
+  
+  --------------------------------------------------
+  -- PROCESS FOR OUTPUT-COMB-LOGIC 
+  --------------------------------------------------
+
+
+-- End Architecture 
+------------------------------------------- 
+end rtl;
+
