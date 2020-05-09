@@ -6,19 +6,19 @@
 -- Author     : lussimat
 -- Company    : 
 -- Created    : 2020-03-09
--- Last update: 2020-04-29
+-- Last update: 2020-05-04
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: Diese Testbench ist daf�r zust�ndig, die verschiedenen
--- data-register (0-9) von i2c_slave_bfm zu testen. F�r den Test wird
+-- Description: Diese Testbench ist dafï¿½r zustï¿½ndig, die verschiedenen
+-- data-register (0-9) von i2c_slave_bfm zu testen. Fï¿½r den Test wird
 -- am Input "SW" von "sythi_top", die Werte 0-7 geladen (3 Schalter).
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
--- Revisions  : 2020-03-13 Zusammenf�gen verschiedener Teile
+-- Revisions  : 2020-03-13 Zusammenfï¿½gen verschiedener Teile
 --              2020-03-15 Fehlersuche + Behebung
---              2020-03-17 einfachere L�sung f�r anlegen von Wert an SW
+--              2020-03-17 einfachere Lï¿½sung fï¿½r anlegen von Wert an SW
 --              2020-03-19 letzter Schliff - kommentieren, Header und Beautify
 -- Date        Version  Author  Description
 -- 2020-03-16  1.0      matth   Created
@@ -65,7 +65,10 @@ architecture struct of synthi_top_tb is
       AUD_SDAT    : inout std_logic;
       LEDR_0      : out   std_logic;
       HEX0        : out   std_logic_vector(6 downto 0);
-      HEX1        : out   std_logic_vector(6 downto 0));
+      HEX1        : out   std_logic_vector(6 downto 0);
+      HEX2        : out   std_logic_vector(6 downto 0);
+      HEX3        : out   std_logic_vector(6 downto 0);
+      LEDR_9	  : out   std_logic);
   end component synthi_top;
 
   component i2c_slave_bfm is
@@ -108,6 +111,9 @@ architecture struct of synthi_top_tb is
   signal LEDR_0       : std_logic;
   signal HEX0         : std_logic_vector(6 downto 0);
   signal HEX1         : std_logic_vector(6 downto 0);
+  signal HEX2         : std_logic_vector(6 downto 0);
+  signal HEX3         : std_logic_vector(6 downto 0);
+  signal LEDR_9       : std_logic_vector(6 downto 0);
   signal I2C_SCLK_int : std_logic;
   signal I2C_SDAT_int : std_logic;
   signal reg_data0    : std_logic_vector(31 downto 0);
@@ -153,7 +159,10 @@ begin  -- architecture struct
       AUD_SDAT    => I2C_SDAT_int,
       LEDR_0      => LEDR_0,
       HEX0        => HEX0,
-      HEX1        => HEX1);
+      HEX1        => HEX1,
+      HEX2        => HEX2,
+      HEX3        => HEX3,
+      LEDR_9      => LEDR_9(5));
 
   SW(9 downto 0) <= switch(9 downto 0);
 
@@ -235,7 +244,7 @@ begin  -- architecture struct
       if cmd = string'("rst_sim") then
         rst_sim(tv, key_0);             --Reset der Simulation
       elsif cmd = string'("run_sim") then
-        run_sim(tv);  --Simulation wird f�r bestimmte Anz.Clk-cycles betrieben
+        run_sim(tv);  --Simulation wird fï¿½r bestimmte Anz.Clk-cycles betrieben
       elsif cmd = string'("uar_sim") then
         uar_sim(tv, usb_txd);        --Serielles Eingangssignal wird angelegt
       elsif cmd = string'("ini_cod") then
@@ -246,6 +255,12 @@ begin  -- architecture struct
         uar_chk(tv, hex0);  --Check von 7-Segment-Anzeige mit Testvektor
       elsif cmd = string'("uar_ch1") then
         uar_chk(tv, hex1);  --Check von 7-Segment-Anzeige mit Testvektor
+      elsif cmd = string'("uar_ch2") then
+        uar_chk(tv, HEX2);  --Check von 7-Segment-Anzeige mit Testvektor
+      elsif cmd = string'("uar_ch3") then
+        uar_chk(tv, HEX3);  --Check von 7-Segment-Anzeige mit Testvektor
+      elsif cmd = string'("uar_ch4") then
+        uar_chk(tv, LEDR_9);  --Check von 7-Segment-Anzeige mit Testvektor
       elsif cmd = string'("i2c_ch0") then
         gpo_chk(tv, reg_data0);         --Check data-register0
       elsif cmd = string'("i2c_ch1") then
