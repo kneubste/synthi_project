@@ -1,0 +1,64 @@
+#-------------------------------------------------------------------------------
+#-- Title      : Template for testcases
+#-- Project    : DTP2
+#-------------------------------------------------------------------------------
+#-- File       : testcase.dat
+#-- Author     : Hans-Joachim Gelke
+#-- Company    : 
+#-- Created    : 2018-10-21
+#-- Last update: 2019-2-13
+#-- Platform   : 
+#-- Standard   : VHDL'08
+#-------------------------------------------------------------------------------
+#-- Description: Verschiedene Schalterstellungen/cases (3 Schalter/Bits) fuer den
+#--              Input "SW". Prueft diverse Outputs von i2c_slave_bfm (data_reg's) 
+#-------------------------------------------------------------------------------
+#-- Copyright (c) 2018 - 2019
+#-------------------------------------------------------------------------------
+#-- Revisions  :
+#-- Date        Version  Author          Description
+#-- 2019-02-13  1.0      Hans-Joachim    Created
+#-- 2020-03-17  1.1      Matthis Lussi   expanded
+#-- 2020-03-29  1.11	 Stefan Kneubühl changed to IS2 Testcases
+#-- 2020-04-08  1.11	 Stefan Kneubühl changed to DDS Testcases
+#-------------------------------------------------------------------------------
+
+#tone on
+
+rst_sim
+uar_sim 90 00 00
+run_sim 00 00 ff ff
+uar_sim 02 00 00
+run_sim 00 00 ff ff
+uar_ch2 02
+uar_ch3 00
+
+#tone off
+
+uar_sim 80 00 00
+run_sim 00 00 ff ff
+
+
+#tone on
+
+rst_sim
+uar_sim 90 00 00
+run_sim 00 00 ff ff
+uar_sim 17 00 00
+run_sim 00 00 ff ff
+uar_ch2 07 
+uar_ch3 01
+
+#tone off/velocity off
+
+uar_sim 00 00 00
+run_sim 00 00 ff ff
+uar_ch2 07 
+uar_ch3 01
+
+#Ton bleibt erhalten aber Status => off
+
+
+
+
+
