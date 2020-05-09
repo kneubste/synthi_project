@@ -6,7 +6,7 @@
 -- Author     :   <kneubste>
 -- Company    : 
 -- Created    : 2020-04-20
--- Last update: 2020-04-29
+-- Last update: 2020-05-09
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -24,6 +24,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.tone_gen_pkg.all;
 
 -- Entity Declaration 
 -------------------------------------------
@@ -52,12 +53,14 @@ architecture rtl of midi_controller is
   signal fsm_state                : fsm_states;
   signal next_fsm_state           : fsm_states;
   signal new_data_flag            : std_logic;
-  signal note_on_sig              : std_logic;
-  signal next_note_on_sig         : std_logic;
-  signal note_simple_sig          : std_logic_vector(6 downto 0);
-  signal next_note_simple_sig     : std_logic_vector(6 downto 0);
-  signal velocity_simple_sig      : std_logic_vector(6 downto 0);
-  signal next_velocity_simple_sig : std_logic_vector(6 downto 0);
+  signal note_on_sig              : note_array;
+  signal next_note_on_sig         : note_array;
+  signal note_simple_sig          : t_tone_array;
+  signal next_note_simple_sig     : t_tone_array;
+  signal velocity_simple_sig      : t_tone_array;
+  signal next_velocity_simple_sig : t_tone_array;
+  signal status_reg               : status_array;
+  signal data1_reg, data2_reg     : std_logic_vector(6 downto 0);
 
 -- Begin Architecture
 -------------------------------------------
@@ -70,10 +73,13 @@ begin
   begin
     if reset_n = '0' then
       fsm_state           <= st_wait;
-      note_on_sig         <= '0';
-      note_simple_sig     <= (others => '0');
-      velocity_simple_sig <= (others => '0');
+      note_on_sig         <= (others => '0');
+      note_simple_sig     <= (others => (others => '0'));
+      velocity_simple_sig <= (others => (others => '0'));
       new_data_flag       <= '0';
+		status_reg			  <= (others => (others => '0'));
+		data1_reg			  <= (others => '0');
+		data2_reg			  <= (others => '0');
 
     elsif rising_edge(clk_12m) then
       fsm_state           <= next_fsm_state;
@@ -150,22 +156,22 @@ begin
       when st_wait =>
         if rx_data_rdy = '1' then
           if rx_data(7) = '1' then
-            next_note_on_sig <= rx_data(4);
+            next_note_on_sig(0) <= rx_data(4);
           elsif rx_data(7) = '0' then
-            next_note_simple_sig(6 downto 0) <= rx_data(6 downto 0);
+            next_note_simple_sig(0) <= rx_data(6 downto 0);
           end if;
         end if;
       when st_Wait_data1 =>
         if rx_data_rdy = '1' then
-          next_note_simple_sig(6 downto 0) <= rx_data(6 downto 0);
+          next_note_simple_sig(0) <= rx_data(6 downto 0);
         end if;
       when st_Wait_data2 =>
         if rx_data_rdy = '1' then
-          next_velocity_simple_sig(6 downto 0) <= rx_data(6 downto 0);
+          next_velocity_simple_sig(0) <= rx_data(6 downto 0);
 
           -- Falls Taste velocity = 0 anstatt tone off sendet
           if rx_data = "00000000" then
-            next_note_on_sig <= '0';
+            next_note_on_sig(0) <= '0';
           end if;
         end if;
       when others =>
@@ -175,15 +181,75 @@ begin
 
   end process fsm_output_logic;
 
+
+  --------------------------------------------------
+  -- PROCESS FOR MIDI-ARRAY_LOGIC
+  --------------------------------------------------
+
+
+  midi_array_logic : process (all)
+
+    variable note_available : std_logic := '0';
+    variable note_written   : std_logic := '0';
+
+  begin
+    --default statements
+    if new_data_flag = '1' then
+      note_available := '0';
+    end if;
+
+    ------------------------------------------------------
+    -- CHECK IF NOTE IS ALREADY ENTERED IN MIDI ARRAY
+    ------------------------------------------------------ 
+    for i in 0 to 9 loop
+      if note_simple_sig(i) = data1_reg and note_on_sig(i) = '1' then  -- Found a matching note
+        note_available := '1';
+        if status_reg(4) = "0" then --note off
+          next_note_on_sig(i) <= '0';  -- turn off note
+        elsif status_reg(4) = "1" and data2_reg = "00000000" then
+          next_note_on_sig(i) <= '0';   -- turn off note if velocity is 0 
+        end if;
+      end if;
+    end loop;
+
+
+    -----------------------------------------
+    -- ENTER A NEW NOTE IF STILL EMPTY REGISTERS
+    ------------------------------------------
+    -- If the new note is not in the midi storage array yet, find a free space 
+    -- if the valid flag is cleared, the note can be overwritten, at the same time a flag is set to mark that
+    -- the new note has found a place.
+
+    if note_available = '0' then  -- If there is not yet an entry for the note, look for an empty space and write it
+
+      for i in 0 to 9 loop
+        if note_written = '0' then  -- if the note already written, ignore the remaining loop runs
+
+          -- If a free space is found, enter the note number and velocity
+          -- or if until the end of the loop no space is found overwrite last entry
+		IF (note_on_sig(i) = '0' OR i = 9)  AND status_reg(4) = "1" 
+			then 																		-- bit 4 is note_on bit
+				next_note_simple_sig(i) <= data1_reg;
+				next_velocity_simple_sig(i) <= data2_reg;
+				next_note_on_sig(i)         <= '1';  -- And set the note_1_register to valid.
+				note_written                := '1';  -- flag that note is written to supress remaining loop runs
+          end if;
+        end if;
+      end loop;
+    end if;
+
+	END PROCESS midi_array_logic;
+	
+	
   --------------------------------------------------
   -- Output-Zuweisungen
   --------------------------------------------------
 
-  note_on         <= note_on_sig;
-  note_simple     <= note_simple_sig;
-  velocity_simple <= velocity_simple_sig;
+  note_on         <= note_on_sig(0);
+  note_simple     <= note_simple_sig(0);
+  velocity_simple <= velocity_simple_sig(0);
   --------------------------------------------------
 
 -- End Architecture 
 ------------------------------------------- 
-end rtl;
+  end rtl;
