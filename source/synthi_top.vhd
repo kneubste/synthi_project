@@ -6,7 +6,7 @@
 -- Author     :   <Cyrill@DESKTOP-MRJOR86>
 -- Company    : 
 -- Created    : 2020-02-21
--- Last update: 2020-04-29
+-- Last update: 2020-05-03
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -49,7 +49,10 @@ entity synthi_top is
         AUD_SDAT    : inout std_logic;  -- data  from I2C master block
         LEDR_0      : out   std_logic;
         HEX0        : out   std_logic_vector(6 downto 0);  -- output for HEX 0 display
-        HEX1        : out   std_logic_vector(6 downto 0)  -- output for HEX 1 display
+        HEX1        : out   std_logic_vector(6 downto 0);  -- output for HEX 1 display
+		  HEX2		  : out   std_logic_vector(6 downto 0);  -- output for HEX 2 display
+		  HEX3		  : out   std_logic_vector(6 downto 0);  -- output for HEX 3 display
+		  LEDR_9		  : out std_logic
         );
 
 end entity synthi_top;
@@ -87,6 +90,12 @@ architecture str of synthi_top is
   -----------------------------------------------------------------------------
   -- Component declarations
   -----------------------------------------------------------------------------
+
+  component bus_hex2sevseg is
+    port (
+      data_in : in  std_logic_vector(3 downto 0);
+      seg_o   : out std_logic_vector(6 downto 0));
+  end component bus_hex2sevseg;
 
   component uart_top is
     port (
@@ -188,6 +197,17 @@ begin  -- architecture str
   -- Component instantiations
   -----------------------------------------------------------------------------
 
+  --
+  bus_hex2sevseg1 : bus_hex2sevseg
+    port map (
+      data_in    => note_signal(3 downto 0),
+      seg_o      => HEX2);
+
+   bus_hex2sevseg2 : bus_hex2sevseg
+    port map (
+      data_in    => '0' & note_signal(6 downto 4),
+      seg_o      => HEX3);
+  
   -- instance "tone_generator"
   tone_generator_1 : tone_generator
     port map (
@@ -275,6 +295,8 @@ begin  -- architecture str
   AUD_DACLRCK     <= ws_o_int;
   AUD_ADCLRCK     <= ws_o_int;
   AUD_XCK         <= sig_clk_12m;
+  LEDR_9 				<= note_on;
+  
 
   -- instance "midi_controller_1"
   midi_controller_1 : midi_controller
