@@ -86,7 +86,6 @@ architecture str of synthi_top is
   signal rx_data_rdy         : std_logic;
   signal rx_data             : std_logic_vector(7 downto 0);
   signal note_on             : std_logic_vector(3 downto 0);
-  signal note_simple         : std_logic_vector(6 downto 0);
   signal velocity_simple     : std_logic_vector(6 downto 0);
   signal data_flag_sig       : std_logic;
   signal reg_note_simple     : t_tone_array;
@@ -328,7 +327,7 @@ begin  -- architecture str
       clk_12m             => sig_clk_12m,
       reset_n             => sig_reset_n,
       status_reg          => note_on,
-      data1_reg           => note_simple,
+      data1_reg           => note_signal,
       data2_reg           => velocity_signal,
       new_data_flag       => data_flag_sig,
       reg_note_on_o         => reg_note_on,

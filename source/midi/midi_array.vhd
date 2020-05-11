@@ -71,7 +71,7 @@ begin
       reg_note_on  <= (others => '0');
       reg_velocity <= (others => (others => '0'));
       reg_note	    <= (others => (others => '0'));
-
+		
     elsif rising_edge(clk_12m) then
       reg_note_on  <= next_reg_note_on;
       reg_velocity <= next_reg_velocity;
@@ -95,26 +95,30 @@ begin
 		  ------------------------------------------------------
         --default statements
 		  ------------------------------------------------------
-        if new_data_flag = '1' then
+        if new_data_flag = '1' then --erhält status (etwas wird geloescht oder geschrieben) 
           note_available := '0';
-        end if;
-			
+			 note_written   := '0';
+		  end if;
+		  
 		  next_reg_note_on  <= reg_note_on;
         next_reg_velocity <= reg_velocity;
         next_reg_note     <= reg_note;
-		  
-		  
+		 	  
         ------------------------------------------------------
         -- CHECK IF NOTE IS ALREADY ENTERED IN MIDI ARRAY
         ------------------------------------------------------ 
         for i in 0 to 9 loop
-          if reg_note(i) = data1_reg and reg_note_on(i) = '1' then  -- Found a matching note
+          if reg_note(i) = data1_reg and reg_note_on(i) = '1' then  -- Found a matching note (spielt bereits)
             note_available := '1';
+				
             if status_reg(0) = '0' then    --note off
               next_reg_note_on(i) <= '0';  -- turn off note
-            elsif status_reg(0) = '1' and data2_reg = "00000000" then
+            elsif status_reg(0) = '1' and data2_reg = "0000000" then
               next_reg_note_on(i) <= '0';  -- turn off note if velocity is 0 
             end if;
+				
+			 else 
+			   note_available := '0';
           end if;
         end loop;
 
@@ -138,9 +142,15 @@ begin
                 next_reg_velocity(i) <= data2_reg;
                 next_reg_note_on(i)  <= '1';  -- And set the note_1_register to valid.
                 note_written         := '1';  -- flag that note is written to supress remaining loop runs
+				  else 
+					 note_written         := '0';
               end if;
+				 else 
+			     note_written         := '1';
             end if;
           end loop;
+			else
+			 note_written         := '0';
         end if;
 
      end process midi_array_logic;
