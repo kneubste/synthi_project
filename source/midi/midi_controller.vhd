@@ -81,7 +81,7 @@ begin
       fsm_state           <= next_fsm_state;
       note_on_sig         <= next_note_on_sig;
 		velocity_simple_sig <= next_velocity_simple_sig;
-		note_simple_sig     <= next_velocity_simple_sig;
+		note_simple_sig     <= next_note_simple_sig;
 		data_flag_sig  	  <= next_data_flag_sig;
 
     end if;
@@ -102,15 +102,17 @@ begin
     case fsm_state is
 
       when st_wait =>
-
+		
         if rx_data_rdy = '0' then
           next_fsm_state <= st_wait;
         elsif
           rx_data(7) = '1' then
           next_fsm_state <= st_wait_data1;
+			 next_data_flag_sig  <= '0'; --keine neue Status-Daten stehen an
         elsif
           rx_data(7) = '0' then
           next_fsm_state <= st_wait_data2;
+			 next_data_flag_sig  <= '0'; --keine neue Status-Daten stehen an
         end if;
 
       when st_wait_data1 =>
@@ -124,10 +126,9 @@ begin
       when st_wait_data2 =>
 
         if rx_data_rdy = '0' then
-			 next_data_flag_sig  <= '0'; --keine neue Daten stehen an
           next_fsm_state <= st_wait_data2;
         else
-          next_data_flag_sig  <= '1';
+          next_data_flag_sig  <= '1'; --wird für eine clk_period gesetzt
           next_fsm_state <= st_wait;
         end if;
 
