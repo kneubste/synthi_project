@@ -10,7 +10,7 @@
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: Enthält den mode_switch-Block für den Tone_generator.
+-- Description: Enthï¿½lt den mode_switch-Block fï¿½r den Tone_generator.
 --              Umschaltung zwischen Midi-Controller und Melody-Box.
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
@@ -58,19 +58,19 @@ architecture rtl of mode_switch is
 -------------------------------------------
 begin
 -- default statements
-	note_on <= note_on_midi
-	note_simple <= note_simple_midi
-	velocity_simple <= velocity_simple_midi;
+
   --------------------------------------------------
   -- PROCESS FOR OUTPUT
   --------------------------------------------------
-	case <mode> is
-	when '1'1
+	if mode = '1' then
 	note_on <= note_on_melody
 	note_simple <= note_simple_melody
 	velocity_simple <= velocity_simple_melody;
-	when others =>
-	end case;
+	else
+	note_on <= note_on_midi
+	note_simple <= note_simple_midi
+	velocity_simple <= velocity_simple_midi;
+	end if;
 
 
 -- End Architecture 
