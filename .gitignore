@@ -1,6 +1,8 @@
 simulations/synthi_top_tb/modelsim/work
 *cdb
 *hdb
+*.bak
+*~
 quartus/incremental_db
 quartus/output_files
 quartus/db
