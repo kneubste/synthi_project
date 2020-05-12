@@ -102,17 +102,16 @@ begin
     case fsm_state is
 
       when st_wait =>
-		
+		 
+		 next_data_flag_sig  <= '0'; --keine neue Status-Daten stehen an
         if rx_data_rdy = '0' then
-          next_fsm_state <= st_wait;
+			 next_fsm_state <= st_wait;
         elsif
           rx_data(7) = '1' then
           next_fsm_state <= st_wait_data1;
-			 next_data_flag_sig  <= '0'; --keine neue Status-Daten stehen an
         elsif
           rx_data(7) = '0' then
           next_fsm_state <= st_wait_data2;
-			 next_data_flag_sig  <= '0'; --keine neue Status-Daten stehen an
         end if;
 
       when st_wait_data1 =>
@@ -134,7 +133,7 @@ begin
 
       when others =>
         next_fsm_state <= st_wait;
-
+			 next_data_flag_sig  <= '1'; --wird für eine clk_period gesetzt
     end case;
 
   end process state_logic;

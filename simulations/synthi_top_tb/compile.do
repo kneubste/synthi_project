@@ -16,6 +16,7 @@ vcom -2008 -explicit -work work ../../../source/infrastructure/clock_sync.vhd
 vcom -2008 -explicit -work work ../../../source/count_down.vhd
 vcom -2008 -explicit -work work ../../../source/codec_controller.vhd
 vcom -2008 -explicit -work work ../../../source/midi/flanken_detekt_vhdl.vhd
+vcom -2008 -explicit -work work ../../../source/midi/midi_array.vhd
 vcom -2008 -explicit -work work ../../../source/i2c/i2c_slave_bfm.vhd
 vcom -2008 -explicit -work work ../../../source/i2c/i2c_master.vhd
 vcom -2008 -explicit -work work ../../../source/infrastructure.vhd
