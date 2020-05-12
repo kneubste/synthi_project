@@ -167,7 +167,7 @@ begin
         if rx_data_rdy = '1' then
           next_velocity_simple_sig <= rx_data(6 downto 0);
 
-          -- Falls Taste velocity = 0 anstatt tone off sendet
+          --Falls Taste velocity = 0 anstatt tone off sendet
           if rx_data = "00000000" then
             next_note_on_sig <= "0000";
           end if;
