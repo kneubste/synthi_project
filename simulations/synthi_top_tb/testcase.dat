@@ -27,10 +27,12 @@
 
 rst_sim
 run_sim 00 00 00 ff
-uar_sim 90 00 00
+uar_sim C0 00 00
 run_sim 00 00 00 ff
 uar_sim 32 00 00
-run_sim 00 00 0f ff
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
 
 #Ton B
 
@@ -38,7 +40,9 @@ run_sim 00 00 00 ff
 uar_sim 90 00 00
 run_sim 00 00 00 ff
 uar_sim 33 00 00
-run_sim 00 00 0f ff
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
 
 #Ton C
 
@@ -46,7 +50,9 @@ run_sim 00 00 00 ff
 uar_sim 90 00 00
 run_sim 00 00 00 ff
 uar_sim 34 00 00
-run_sim 00 00 0f ff
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
 
 #Ton A aus
 
@@ -54,4 +60,6 @@ run_sim 00 00 00 ff
 uar_sim 80 00 00
 run_sim 00 00 00 ff
 uar_sim 32 00 00
-run_sim 00 00 ff ff
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
