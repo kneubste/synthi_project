@@ -69,13 +69,11 @@ COMPONENT bus_hex2sevseg
 END COMPONENT;
 
 COMPONENT uart_controller_fsm
-GENERIC (width : INTEGER
-			);
 	PORT(clk				: IN STD_LOGIC;
 		 reset_n 		: IN STD_LOGIC;
 		 falling_pulse : IN STD_LOGIC;
 		 baud_tick 		: IN STD_LOGIC;
-		 bit_count 		: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+		 bit_count 		: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 		 parallel_data : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
 		 shift_enable 	: OUT STD_LOGIC;
 		 start_bit 		: OUT STD_LOGIC;
@@ -100,7 +98,7 @@ GENERIC (width : INTEGER
 		 reset_n		: IN STD_LOGIC;
 		 start_bit 	: IN STD_LOGIC;
 		 baud_tick 	: IN STD_LOGIC;
-		 bit_count 	: OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
+		 bit_count 	: OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
 	);
 END COMPONENT;
 
@@ -114,7 +112,7 @@ COMPONENT flanken_detekt_vhdl
 END COMPONENT;
 
 SIGNAL	sig_baud_tick 				:  STD_LOGIC;
-SIGNAL	sig_bit_count 				:  STD_LOGIC_VECTOR(9 DOWNTO 0);
+SIGNAL	sig_bit_count 				:  STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL	sig_data_valid 			:  STD_LOGIC;
 SIGNAL	sig_falling_puls 			:  STD_LOGIC;
 SIGNAL	sig_hex_lsb_out 			:  STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -173,8 +171,7 @@ PORT MAP(data_in	=> sig_hex_msb_out,
 			seg_o		=> seg1_o);
 
 b2v_inst3 : uart_controller_fsm
-GENERIC MAP(width => 10
-			)
+
 PORT MAP(clk 				=> clk,
 			reset_n 			=> reset_n,
 			falling_pulse 	=> sig_falling_puls,
@@ -194,7 +191,7 @@ PORT MAP(clk		 => clk,
 			baud_tick => sig_baud_tick);
 
 b2v_inst6 : bit_counter
-GENERIC MAP(width => 10
+GENERIC MAP(width => 4
 			)
 PORT MAP(clk		 => clk,
 			reset_n 	 => reset_n,
