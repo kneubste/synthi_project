@@ -36,7 +36,7 @@ entity midi_controller is
         reset_n         : in  std_logic;
         rx_data_rdy     : in  std_logic;
         rx_data         : in  std_logic_vector(7 downto 0);
-        note_on         : out std_logic_vector(3 downto 0);
+        note_on         : out std_logic;
         note_simple     : out std_logic_vector(6 downto 0);
         velocity_simple : out std_logic_vector(6 downto 0);
 		  data_flag			: out std_logic
@@ -53,13 +53,10 @@ architecture rtl of midi_controller is
   type fsm_states is (st_wait, st_wait_data1, st_wait_data2);
   signal fsm_state                : fsm_states;
   signal next_fsm_state           : fsm_states;
-  signal data_flag_sig, next_data_flag_sig : std_logic;
-  signal note_on_sig              : std_logic_vector(3 downto 0);
-  signal next_note_on_sig         : std_logic_vector(3 downto 0);
-  signal note_simple_sig          : std_logic_vector(6 downto 0);
-  signal next_note_simple_sig     : std_logic_vector(6 downto 0);
-  signal velocity_simple_sig      : std_logic_vector(6 downto 0);
-  signal next_velocity_simple_sig : std_logic_vector(6 downto 0);
+  signal data_flag_sig, next_data_flag_sig             : std_logic;
+  signal note_on_sig, next_note_on_sig                 : std_logic;
+  signal note_simple_sig, next_note_simple_sig         : std_logic_vector(6 downto 0);
+  signal velocity_simple_sig, next_velocity_simple_sig : std_logic_vector(6 downto 0);
 
 -- Begin Architecture
 -------------------------------------------
@@ -72,7 +69,7 @@ begin
   begin
     if reset_n = '0' then
       fsm_state           <= st_wait;
-      note_on_sig         <= (others => '0');
+      note_on_sig         <= '0';
       data_flag_sig       <= '0';
 		note_simple_sig     <= (others => '0');
 		velocity_simple_sig <= (others => '0');
@@ -106,11 +103,9 @@ begin
 		 next_data_flag_sig  <= '0'; --keine neue Status-Daten stehen an
         if rx_data_rdy = '0' then
 			 next_fsm_state <= st_wait;
-        elsif
-          rx_data(7) = '1' then
+        elsif rx_data(7) = '1' then
           next_fsm_state <= st_wait_data1;
-        elsif
-          rx_data(7) = '0' then
+        elsif rx_data(7) = '0' then
           next_fsm_state <= st_wait_data2;
         end if;
 
@@ -133,7 +128,7 @@ begin
 
       when others =>
         next_fsm_state <= st_wait;
-			 next_data_flag_sig  <= '1'; --wird für eine clk_period gesetzt
+		  next_data_flag_sig  <= '1'; --wird für eine clk_period gesetzt
     end case;
 
   end process state_logic;
@@ -154,7 +149,7 @@ begin
       when st_wait =>
         if rx_data_rdy = '1' then
           if rx_data(7) = '1' then
-            next_note_on_sig <= rx_data(7 downto 4);
+            next_note_on_sig <= rx_data(4);
           elsif rx_data(7) = '0' then
             next_note_simple_sig <= rx_data(6 downto 0);
           end if;
@@ -166,14 +161,9 @@ begin
       when st_Wait_data2 =>
         if rx_data_rdy = '1' then
           next_velocity_simple_sig <= rx_data(6 downto 0);
-
-          --Falls Taste velocity = 0 anstatt tone off sendet
-          if rx_data = "00000000" then
-            next_note_on_sig <= "0000";
-          end if;
+          -- Falls Taste velocity = 0 anstatt tone off sendet
         end if;
       when others =>
-
 
     end case;
 

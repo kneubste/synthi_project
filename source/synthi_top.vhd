@@ -85,7 +85,7 @@ architecture str of synthi_top is
   signal velocity_signal     : std_logic_vector(6 downto 0);
   signal rx_data_rdy         : std_logic;
   signal rx_data             : std_logic_vector(7 downto 0);
-  signal note_on             : std_logic_vector(3 downto 0);
+  signal note_on             : std_logic;
   signal velocity_simple     : std_logic_vector(6 downto 0);
   signal data_flag_sig       : std_logic;
   signal reg_note_simple     : t_tone_array;
@@ -99,7 +99,7 @@ architecture str of synthi_top is
     port (
       clk_12m             : in  std_logic;
       reset_n             : in  std_logic;
-      status_reg          : in  std_logic_vector(3 downto 0);
+      status_reg          : in  std_logic;
       data1_reg           : in  std_logic_vector(6 downto 0);
       data2_reg           : in  std_logic_vector(6 downto 0);
       new_data_flag       : in  std_logic;
@@ -204,7 +204,7 @@ architecture str of synthi_top is
       rx_data_rdy     : in  std_logic;
       rx_data         : in  std_logic_vector(7 downto 0);
 		data_flag       : out std_logic;
-      note_on         : out std_logic_vector(3 downto 0);
+      note_on         : out std_logic;
       note_simple     : out std_logic_vector(6 downto 0);
       velocity_simple : out std_logic_vector(6 downto 0));
   end component midi_controller;

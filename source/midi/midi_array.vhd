@@ -34,7 +34,7 @@ entity midi_array is
 
   port (clk_12m             : in  std_logic;
         reset_n             : in  std_logic;
-        status_reg          : in  std_logic_vector(3 downto 0);
+        status_reg          : in  std_logic;
         data1_reg           : in  std_logic_vector(6 downto 0);
         data2_reg           : in  std_logic_vector(6 downto 0);
         new_data_flag       : in  std_logic;
@@ -111,9 +111,9 @@ begin
           if reg_note(i) = data1_reg and reg_note_on(i) = '1' then  -- Found a matching note (spielt bereits)
             note_available := '1';
 				
-            if status_reg(0) = '0' then    --note off
+            if status_reg = '0' then    --note off
               next_reg_note_on(i) <= '0';  -- turn off note
-            elsif status_reg(0) = '1' and data2_reg = "0000000" then
+            elsif status_reg = '1' and data2_reg = "0000000" then
               next_reg_note_on(i) <= '0';  -- turn off note if velocity is 0 
             end if;
 				
@@ -137,7 +137,7 @@ begin
 
               -- If a free space is found, enter the note number and velocity
               -- or if until the end of the loop no space is found overwrite last entry
-              if (reg_note_on(i) = '0' or i = 9) and status_reg(0) = '1' then  -- bit 4 is note_on bit
+              if (reg_note_on(i) = '0' or i = 9) and status_reg = '1' then  -- bit 4 is note_on bit
                 next_reg_note(i)     <= data1_reg;
                 next_reg_velocity(i) <= data2_reg;
                 next_reg_note_on(i)  <= '1';  -- And set the note_1_register to valid.
