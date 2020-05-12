@@ -4,3 +4,8 @@ simulations/synthi_top_tb/modelsim/work
 quartus/incremental_db
 quartus/output_files
 quartus/db
+*.bak
+*~
+simulations/synthi_top_tb/modelsim/
+*.qws
+
