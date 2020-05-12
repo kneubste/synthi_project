@@ -18,16 +18,11 @@
 -- Include in Design of Block dds.vhd and tone_decoder.vhd :
 --   use work.tone_gen_pkg.all;
 -------------------------------------------------------------------------------
-library ieee;
+  library ieee;
   use ieee.std_logic_1164.all;
   use ieee.numeric_std.all;
 
 package tone_gen_pkg is
-
- type t_tone_array is array (0 to 9) of std_logic_vector(6 downto 0);
- type status_array is array (0 to 9) of std_logic_vector(3 downto 0);
- type note_array 	 is array (0 to 9) of std_logic;
-
   
     -------------------------------------------------------------------------------
 	-- TYPES AND CONSTANTS FOR MIDI INTERFACE
@@ -57,6 +52,10 @@ package tone_gen_pkg is
 	-------------------------------------------------------------------------------
 	-- TYPE DECLARATION FOR DDS
 	-------------------------------------------------------------------------------
+	 type t_tone_array is array (0 to 9) of std_logic_vector(6 downto 0);
+	 type note_on_array is array (0 to 9) of std_logic;
+ 	 type t_dds_o_array is array (0 to 9) of std_logic_vector(N_AUDIO-1 downto 0);
+	
     subtype t_audio_range is integer range -(2**(N_RESOL-1)) to (2**(N_RESOL-1))-1;  -- range : [-2^12; +(2^12)-1]
 
  --type t_lut_rom is array (0 to L-1) of t_audio_range;

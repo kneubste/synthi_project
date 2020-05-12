@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M50DAF484C7G
-set_global_assignment -name TOP_LEVEL_ENTITY midi_controller
+set_global_assignment -name TOP_LEVEL_ENTITY bit_counter
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:18:22  FEBRUARY 17, 2020"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
@@ -416,6 +416,7 @@ set_location_assignment PIN_AA17 -to USB_TXD
 set_location_assignment PIN_AB19 -to BT_RXD
 set_location_assignment PIN_AA19 -to BT_TXD
 set_location_assignment PIN_Y19 -to BT_RST_N
+set_global_assignment -name VHDL_FILE ../source/midi/midi_array.vhd
 set_global_assignment -name VHDL_FILE ../source/midi/midi_controller.vhd
 set_global_assignment -name VHDL_FILE ../source/toneGenerator/tone_generator.vhd
 set_global_assignment -name VHDL_FILE ../source/toneGenerator/tone_gen_pkg.vhd
