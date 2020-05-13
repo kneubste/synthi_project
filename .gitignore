@@ -11,3 +11,5 @@ quartus/db
 simulations/synthi_top_tb/modelsim/
 *.qws
 
+simulations/synthi_top_tb/testcase - Kopie.dat
+simulations/synthi_top_tb/testcase.dat
