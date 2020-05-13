@@ -161,7 +161,6 @@ begin
       when st_Wait_data2 =>
         if rx_data_rdy = '1' then
           next_velocity_simple_sig <= rx_data(6 downto 0);
-          -- Falls Taste velocity = 0 anstatt tone off sendet
         end if;
       when others =>
 

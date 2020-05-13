@@ -98,6 +98,9 @@ begin
         if new_data_flag = '1' then --erhält status (etwas wird geloescht oder geschrieben) 
           note_available := '0';
 			 note_written   := '0';
+		  else 
+		    note_available := '1';
+			 note_written   := '1';
 		  end if;
 		  
 		  next_reg_note_on  <= reg_note_on;
