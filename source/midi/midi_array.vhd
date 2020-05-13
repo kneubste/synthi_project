@@ -111,7 +111,7 @@ begin
         -- CHECK IF NOTE IS ALREADY ENTERED IN MIDI ARRAY
         ------------------------------------------------------ 
         for i in 0 to 9 loop
-          if reg_note(i) = data1_reg and reg_note_on(i) = '1' then  -- Found a matching note (spielt bereits)
+          if (reg_note(i) = data1_reg and reg_note_on(i) = '1') and note_written = '0' then  -- Found a matching note (spielt bereits)
             note_available := '1';
 				
             if status_reg = '0' then    --note off

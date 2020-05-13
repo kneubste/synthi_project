@@ -148,11 +148,13 @@ begin
     case fsm_state is
       when st_wait =>
         if rx_data_rdy = '1' then
-          if rx_data(7) = '1' then
-            next_note_on_sig <= rx_data(4);
-          elsif rx_data(7) = '0' then
+          if rx_data(7 downto 4) = "1001" then
+				 next_note_on_sig <= '1';
+			 elsif rx_data(7 downto 4) = "1000" then
+				next_note_on_sig <= '0';
+			 else
             next_note_simple_sig <= rx_data(6 downto 0);
-          end if;
+			 end if;
         end if;
       when st_Wait_data1 =>
         if rx_data_rdy = '1' then
