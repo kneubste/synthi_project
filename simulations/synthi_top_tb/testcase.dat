@@ -91,6 +91,61 @@ run_sim 00 00 00 ff
 rst_sim
 
 
+#Ton violin
+
+rst_sim
+gpi_sim 00 00 00 c0
+run_sim 00 00 9f ff
+
+#Ton A 
+
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 0f ff
+
+#Ton A aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 0f ff
+
+#Ton sinus
+rst_sim
+gpi_sim 00 00 00 00
+run_sim 00 00 9f ff
+
+#Ton A
+
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 0f ff
+
+#Ton A aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 0f ff
+
+#Ton chello
+
+rst_sim
+gpi_sim 00 00 01 40
+run_sim 00 00 9f ff
+
 #Ton A
 
 uar_sim 90 00 00
@@ -111,174 +166,133 @@ uar_sim 00 00 00
 run_sim 00 00 0f ff
 
 
-#Ton B
+#Ton ungültig Ausgabe sinus
+rst_sim
+gpi_sim 00 00 03 80
+run_sim 00 00 9f ff
 
-run_sim 00 00 00 ff
+#Ton A
+
 uar_sim 90 00 00
 run_sim 00 00 00 ff
-uar_sim 33 00 00
+uar_sim 32 00 00
 run_sim 00 00 00 ff
 uar_sim 70 00 00
-run_sim 00 00 00 ff
+run_sim 00 00 0f ff
 
-run_sim 00 00 00 ff
-#Ton B aus
+#Ton A aus
 
 run_sim 00 00 00 ff
 uar_sim 80 00 00
 run_sim 00 00 00 ff
-uar_sim 33 00 00
+uar_sim 32 00 00
 run_sim 00 00 00 ff
 uar_sim 00 00 00
+run_sim 00 00 0f ff
+
+
+#Ton violin
+
+rst_sim
+gpi_sim 00 00 00 c0
+run_sim 00 00 9f ff
+
+#Ton A 
+
+uar_sim 90 00 00
 run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 0f ff
+
+#Ton A aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 0f ff
+
+
+#Ton ungültig Ausgabe sinus
+gpi_sim 00 00 03 80
+run_sim 00 00 9f ff
+
+#Ton A
+
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 0f ff
+
+#Ton A aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 0f ff
 
 rst_sim
 
 
+#Ton violin
 
-#Ton B
+rst_sim
+gpi_sim 00 00 00 c0
+run_sim 00 00 9f ff
 
-run_sim 00 00 00 ff
+#Ton A 
+
 uar_sim 90 00 00
 run_sim 00 00 00 ff
-uar_sim 33 00 00
+uar_sim 32 00 00
 run_sim 00 00 00 ff
 uar_sim 70 00 00
-run_sim 00 00 00 ff
+run_sim 00 00 0f ff
 
-run_sim 00 00 00 ff
-#Ton B aus
+#Ton A aus
 
 run_sim 00 00 00 ff
 uar_sim 80 00 00
 run_sim 00 00 00 ff
-uar_sim 33 00 00
+uar_sim 32 00 00
 run_sim 00 00 00 ff
 uar_sim 00 00 00
-run_sim 00 00 00 ff
+run_sim 00 00 0f ff
 
-#Ton B
+#Ton chello
 
-run_sim 00 00 00 ff
+gpi_sim 00 00 01 40
+run_sim 00 00 9f ff
+
+#Ton A
+
 uar_sim 90 00 00
 run_sim 00 00 00 ff
-uar_sim 33 00 00
+uar_sim 32 00 00
 run_sim 00 00 00 ff
 uar_sim 70 00 00
-run_sim 00 00 00 ff
+run_sim 00 00 0f ff
 
-run_sim 00 00 00 ff
-#Ton B aus
+#Ton A aus
 
 run_sim 00 00 00 ff
 uar_sim 80 00 00
 run_sim 00 00 00 ff
-uar_sim 33 00 00
+uar_sim 32 00 00
 run_sim 00 00 00 ff
 uar_sim 00 00 00
-run_sim 00 00 00 ff
+run_sim 00 00 0f ff
 
-#Ton B
 
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 33 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-run_sim 00 00 00 ff
 
-run_sim 00 00 00 ff
-#Ton B aus
-
-run_sim 00 00 00 ff
-uar_sim 80 00 00
-run_sim 00 00 00 ff
-uar_sim 33 00 00
-run_sim 00 00 00 ff
-uar_sim 00 00 00
-run_sim 00 00 00 ff
-
-#Ton B
-
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 33 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-run_sim 00 00 00 ff
-
-run_sim 00 00 00 ff
-#Ton B aus
-
-run_sim 00 00 00 ff
-uar_sim 80 00 00
-run_sim 00 00 00 ff
-uar_sim 33 00 00
-run_sim 00 00 00 ff
-uar_sim 00 00 00
-run_sim 00 00 00 ff
-
-#Ton B
-
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 33 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-run_sim 00 00 00 ff
-
-run_sim 00 00 00 ff
-#Ton B aus
-
-run_sim 00 00 00 ff
-uar_sim 80 00 00
-run_sim 00 00 00 ff
-uar_sim 33 00 00
-run_sim 00 00 00 ff
-uar_sim 00 00 00
-run_sim 00 00 00 ff
-#Ton B
-
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 33 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-run_sim 00 00 00 ff
-
-run_sim 00 00 00 ff
-#Ton B aus
-
-run_sim 00 00 00 ff
-uar_sim 80 00 00
-run_sim 00 00 00 ff
-uar_sim 33 00 00
-run_sim 00 00 00 ff
-uar_sim 00 00 00
-run_sim 00 00 00 ff
-#Ton B
-
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 33 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-run_sim 00 00 00 ff
-
-run_sim 00 00 00 ff
-#Ton B aus
-
-run_sim 00 00 00 ff
-uar_sim 80 00 00
-run_sim 00 00 00 ff
-uar_sim 33 00 00
-run_sim 00 00 00 ff
-uar_sim 00 00 00
-run_sim 00 00 00 ff
 
 
