@@ -192,6 +192,7 @@ architecture str of synthi_top is
       tone_on_i  : in  note_on_array;
       step_i     : in  std_logic;
       note_i     : in  t_tone_array;
+		instr_sel_i: in std_logic_vector(3 downto 0);
       velocity_i : in  std_logic_vector(6 downto 0);
       dds_l_o    : out std_logic_vector(15 downto 0);
       dds_r_o    : out std_logic_vector(15 downto 0));
@@ -234,6 +235,7 @@ begin  -- architecture str
       tone_on_i  => reg_note_on,
       step_i     => load_int,
       note_i     => reg_note_simple,
+		instr_sel_i =>SW(9 downto 6), 
       velocity_i => "0010000",
       dds_l_o    => dds_l_i,
       dds_r_o    => dds_r_i);
@@ -338,7 +340,7 @@ begin  -- architecture str
   AUD_DACLRCK <= ws_o_int;
   AUD_ADCLRCK <= ws_o_int;
   AUD_XCK     <= sig_clk_12m;
-  
+  LEDR_9      <= SW(9);
 end architecture str;
 
 -------------------------------------------------------------------------------

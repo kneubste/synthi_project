@@ -33,7 +33,9 @@ entity dds is
 		reset_n		: in	std_logic;
 		step_i		: in	std_logic;
 		tone_on_i	: in	std_logic;
-		phi_incr_i	: in	std_logic_vector(N_CUM-1 downto 0); -- Zähler inkrement Schritte --> Freq des Sin
+		instr_sel_i	: in 	std_logic_vector(3 downto 0);			-- Schalter für die Wahl des Instruments ein.
+		instr_ctrl  : in std_logic;
+		phi_incr_i	: in	std_logic_vector(N_CUM-1 downto 0); 	-- Zähler inkrement Schritte --> Freq des Sin
 		attenu_i		: in	std_logic_vector(2 downto 0);
 		dds_o			: out std_logic_vector(15 downto 0)
 		);
@@ -66,8 +68,27 @@ comb_logic : PROCESS(all)
 END PROCESS comb_logic;
 
 lut_addr <= to_integer(count(N_CUM-1 downto N_CUM - N_LUT));
-lut_val <= to_signed(LUT(lut_addr), N_AUDIO); -- Audio Output accessing lut_sinus
 
+instrument : PROCESS(all) -- Prozess für die Auswahl des Instrument-LUTs.
+
+	BEGIN
+		if instr_sel_i(0) = '1' then
+			case instr_sel_i(3 downto 1) is
+			when "000" => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO); 	-- Audio Output accessing lut_sinus
+			when "001" => lut_val <= to_signed(LUT_violin_a(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_violin_a
+			when "010" => lut_val <= to_signed(LUT_chello_a(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_chello_a
+			when "011" => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_sinus
+			when "100" => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_sinus
+			when "101" => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_sinus
+			when "111" => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_sinus
+			when others => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO); 	-- Audio Output accessing lut_sinus
+			end case;
+		else
+			lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO); 	-- Audio Output accessing lut_sinus
+		end if;
+END PROCESS instrument;
+		 
+		
 
 attenu : PROCESS(all)
 	BEGIN

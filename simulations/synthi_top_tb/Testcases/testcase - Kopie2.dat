@@ -1,0 +1,284 @@
+#-------------------------------------------------------------------------------
+#-- Title      : Template for testcases
+#-- Project    : DTP2
+#-------------------------------------------------------------------------------
+#-- File       : testcase.dat
+#-- Author     : Hans-Joachim Gelke
+#-- Company    : 
+#-- Created    : 2018-10-21
+#-- Last update: 2019-2-13
+#-- Platform   : 
+#-- Standard   : VHDL'08
+#-------------------------------------------------------------------------------
+#-- Description: Verschiedene Schalterstellungen/cases (3 Schalter/Bits) fuer den
+#--              Input "SW". Prueft diverse Outputs von i2c_slave_bfm (data_reg's) 
+#-------------------------------------------------------------------------------
+#-- Copyright (c) 2018 - 2019
+#-------------------------------------------------------------------------------
+#-- Revisions  :
+#-- Date        Version  Author          Description
+#-- 2019-02-13  1.0      Hans-Joachim    Created
+#-- 2020-03-17  1.1      Matthis Lussi   expanded
+#-- 2020-03-29  1.11	 Stefan Kneubühl changed to IS2 Testcases
+#-- 2020-04-08  1.11	 Stefan Kneubühl changed to DDS Testcases
+#-------------------------------------------------------------------------------
+
+#Ton A
+
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 0f ff
+
+#Ton A aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 0f ff
+
+rst_sim
+
+#Ton B
+
+run_sim 00 00 00 ff
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+run_sim 00 00 00 ff
+#Ton B aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 00 ff
+
+rst_sim
+
+#Ton C
+
+run_sim 00 00 00 ff
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 55 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+run_sim 00 00 00 ff
+#Ton C aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 55 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+rst_sim
+
+
+#Ton A
+
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 0f ff
+
+#Ton A aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 0f ff
+
+
+#Ton B
+
+run_sim 00 00 00 ff
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+run_sim 00 00 00 ff
+#Ton B aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 00 ff
+
+rst_sim
+
+
+
+#Ton B
+
+run_sim 00 00 00 ff
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+run_sim 00 00 00 ff
+#Ton B aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 00 ff
+
+#Ton B
+
+run_sim 00 00 00 ff
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+run_sim 00 00 00 ff
+#Ton B aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 00 ff
+
+#Ton B
+
+run_sim 00 00 00 ff
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+run_sim 00 00 00 ff
+#Ton B aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 00 ff
+
+#Ton B
+
+run_sim 00 00 00 ff
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+run_sim 00 00 00 ff
+#Ton B aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 00 ff
+
+#Ton B
+
+run_sim 00 00 00 ff
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+run_sim 00 00 00 ff
+#Ton B aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 00 ff
+#Ton B
+
+run_sim 00 00 00 ff
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+run_sim 00 00 00 ff
+#Ton B aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 00 ff
+#Ton B
+
+run_sim 00 00 00 ff
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+run_sim 00 00 00 ff
+#Ton B aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 33 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 00 ff
+
+
