@@ -2,7 +2,7 @@
 -- Block code:  uart_controller_fsm.vhd
 -- History:     15.Jan.2017 - 1st version (dqtm)
 --              19.Jan.2017 - further reduction for SEP HS17
---              02.12.2019 - changed to uart_controller_fsm  (canosmue & kneubste)
+--              02.12.2019 - changed to uart_controller_fsm  kneubste
 -- Function: fsm and registers for UART-RX in DTP1 Mini-project alternative implementation.
 --                      This block is the central piece of the UART-RX, coordinating byte reception and storage of 1 byte.
 -------------------------------------------
