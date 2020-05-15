@@ -6,7 +6,7 @@
 -- Author     :   <Cyrill@DESKTOP-MRJOR86>
 -- Company    : 
 -- Created    : 2020-02-21
--- Last update: 2020-05-10
+-- Last update: 2020-05-15
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -65,44 +65,78 @@ architecture str of synthi_top is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
-  signal sig_clk_12m         : std_logic;
-  signal sig_reset_n         : std_logic;
-  signal sig_usb_txd_sync    : std_logic;
-  signal sig_ledr_0          : std_logic;
-  signal sig_write_o         : std_logic;
-  signal sig_write_data_o    : std_logic_vector(15 downto 0);
-  signal sig_write_done_i    : std_logic;
-  signal sig_ack_error       : std_logic;
-  signal ws_o_int            : std_logic;
-  signal pl_master_out       : std_logic_vector(15 downto 0);
-  signal pr_master_out       : std_logic_vector(15 downto 0);
-  signal pl_pathcon_out      : std_logic_vector(15 downto 0);
-  signal pr_pathcon_out      : std_logic_vector(15 downto 0);
-  signal dds_r_i             : std_logic_vector(15 downto 0) := (others => '0');
-  signal dds_l_i             : std_logic_vector(15 downto 0) := (others => '0');
-  signal load_int            : std_logic;
-  signal note_signal         : std_logic_vector(6 downto 0);
-  signal velocity_signal     : std_logic_vector(6 downto 0);
-  signal rx_data_rdy         : std_logic;
-  signal rx_data             : std_logic_vector(7 downto 0);
-  signal note_on             : std_logic;
-  signal velocity_simple     : std_logic_vector(6 downto 0);
-  signal data_flag_sig       : std_logic;
-  signal reg_note_simple     : t_tone_array;
-  signal reg_velocity_simple : t_tone_array;
-  signal reg_note_on		     : note_on_array;
+  signal sig_clk_12m          : std_logic;
+  signal sig_reset_n          : std_logic;
+  signal sig_usb_txd_sync     : std_logic;
+  signal sig_ledr_0           : std_logic;
+  signal sig_write_o          : std_logic;
+  signal sig_write_data_o     : std_logic_vector(15 downto 0);
+  signal sig_write_done_i     : std_logic;
+  signal sig_ack_error        : std_logic;
+  signal ws_o_int             : std_logic;
+  signal pl_master_out        : std_logic_vector(15 downto 0);
+  signal pr_master_out        : std_logic_vector(15 downto 0);
+  signal pl_pathcon_out       : std_logic_vector(15 downto 0);
+  signal pr_pathcon_out       : std_logic_vector(15 downto 0);
+  signal dds_r_i              : std_logic_vector(15 downto 0) := (others => '0');
+  signal dds_l_i              : std_logic_vector(15 downto 0) := (others => '0');
+  signal load_int             : std_logic;
+  signal note_signal          : std_logic_vector(6 downto 0);
+  signal velocity_signal      : std_logic_vector(6 downto 0);
+  signal rx_data_rdy          : std_logic;
+  signal rx_data              : std_logic_vector(7 downto 0);
+  signal note_on              : std_logic;
+  signal velocity_simple      : std_logic_vector(6 downto 0);
+  signal note_on_mode         : std_logic;
+  signal note_signal_mode 		: std_logic_vector(6 downto 0);
+  signal velocity_signal_mode : std_logic_vector(6 downto 0);
+  signal note_on_sequenzer    : std_logic;
+  signal note_sequenzer       : std_logic_vector(6 downto 0);
+  signal velocity_sequenzer   : std_logic_vector(6 downto 0);
+  signal data_flag_sig        : std_logic;
+  signal reg_note_simple      : t_tone_array;
+  signal reg_velocity_simple  : t_tone_array;
+  signal reg_note_on          : note_on_array;
   -----------------------------------------------------------------------------
   -- Component declarations
   -----------------------------------------------------------------------------
 
+  component midi_sequenzer is
+    port (
+      clk_12m        : in  std_logic;
+      reset_n        : in  std_logic;
+      note_i         : in  std_logic_vector(6 downto 0);
+      velocity_i     : in  std_logic_vector(6 downto 0);
+      write_enable_i : in  std_logic;
+      play_i         : in  std_logic;
+      record_i       : in  std_logic;
+      note_o         : out std_logic_vector(6 downto 0);
+      velocity_o     : out std_logic_vector(6 downto 0);
+      note_pulse     : out std_logic);
+  end component midi_sequenzer;
+
+  component mode_switch is
+    port (
+      mode                      : in  std_logic;
+      note_on_midi              : in  std_logic;
+      note_simple_midi          : in  std_logic_vector(6 downto 0);
+      velocity_simple_midi      : in  std_logic_vector(6 downto 0);
+      note_on_sequenzer         : in  std_logic;
+      note_simple_sequenzer     : in  std_logic_vector(6 downto 0);
+      velocity_simple_sequenzer : in  std_logic_vector(6 downto 0);
+      note_on                   : out std_logic;
+      note_simple               : out std_logic_vector(6 downto 0);
+      velocity_simple           : out std_logic_vector(6 downto 0));
+  end component mode_switch;
+
   component midi_array is
     port (
-      clk_12m             : in  std_logic;
-      reset_n             : in  std_logic;
-      status_reg          : in  std_logic;
-      data1_reg           : in  std_logic_vector(6 downto 0);
-      data2_reg           : in  std_logic_vector(6 downto 0);
-      new_data_flag       : in  std_logic;
+      clk_12m               : in  std_logic;
+      reset_n               : in  std_logic;
+      status_reg            : in  std_logic;
+      data1_reg             : in  std_logic_vector(6 downto 0);
+      data2_reg             : in  std_logic_vector(6 downto 0);
+      new_data_flag         : in  std_logic;
       reg_note_on_o         : out note_on_array;
       reg_note_simple_o     : out t_tone_array;
       reg_velocity_simple_o : out t_tone_array);
@@ -187,15 +221,15 @@ architecture str of synthi_top is
 
   component tone_generator is
     port (
-      clk_12m    : in  std_logic;
-      rst_n      : in  std_logic;
-      tone_on_i  : in  note_on_array;
-      step_i     : in  std_logic;
-      note_i     : in  t_tone_array;
-		instr_sel_i: in std_logic_vector(3 downto 0);
-      velocity_i : in  std_logic_vector(6 downto 0);
-      dds_l_o    : out std_logic_vector(15 downto 0);
-      dds_r_o    : out std_logic_vector(15 downto 0));
+      clk_12m     : in  std_logic;
+      rst_n       : in  std_logic;
+      tone_on_i   : in  note_on_array;
+      step_i      : in  std_logic;
+      note_i      : in  t_tone_array;
+      instr_sel_i : in  std_logic_vector(3 downto 0);
+      velocity_i  : in  t_tone_array;
+      dds_l_o     : out std_logic_vector(15 downto 0);
+      dds_r_o     : out std_logic_vector(15 downto 0));
   end component tone_generator;
 
   component midi_controller is
@@ -204,7 +238,7 @@ architecture str of synthi_top is
       reset_n         : in  std_logic;
       rx_data_rdy     : in  std_logic;
       rx_data         : in  std_logic_vector(7 downto 0);
-		data_flag       : out std_logic;
+      data_flag       : out std_logic;
       note_on         : out std_logic;
       note_simple     : out std_logic_vector(6 downto 0);
       velocity_simple : out std_logic_vector(6 downto 0));
@@ -230,15 +264,15 @@ begin  -- architecture str
   -- instance "tone_generator"
   tone_generator_1 : tone_generator
     port map (
-      clk_12m    => sig_clk_12m,
-      rst_n      => sig_reset_n,
-      tone_on_i  => reg_note_on,
-      step_i     => load_int,
-      note_i     => reg_note_simple,
-		instr_sel_i =>SW(9 downto 6), 
-      velocity_i => "0010000",
-      dds_l_o    => dds_l_i,
-      dds_r_o    => dds_r_i);
+      clk_12m     => sig_clk_12m,
+      rst_n       => sig_reset_n,
+      tone_on_i   => reg_note_on,
+      step_i      => load_int,
+      note_i      => reg_note_simple,
+      instr_sel_i => SW(9 downto 6),
+      velocity_i  => reg_velocity_simple,
+      dds_l_o     => dds_l_i,
+      dds_r_o     => dds_r_i);
 
   -- instance "path_control"
   path_control_1 : path_control
@@ -326,21 +360,49 @@ begin  -- architecture str
   -- instance "midi_array1"
   midi_array1 : midi_array
     port map (
-      clk_12m             => sig_clk_12m,
-      reset_n             => sig_reset_n,
-      status_reg          => note_on,
-      data1_reg           => note_signal,
-      data2_reg           => velocity_signal,
-      new_data_flag       => data_flag_sig,
+      clk_12m               => sig_clk_12m,
+      reset_n               => sig_reset_n,
+      status_reg            => note_on_mode,
+      data1_reg             => note_signal_mode,
+      data2_reg             => velocity_signal_mode,
+      new_data_flag         => data_flag_sig,
       reg_note_on_o         => reg_note_on,
       reg_note_simple_o     => reg_note_simple,
       reg_velocity_simple_o => reg_velocity_simple);
-		
-		
+
+  mode_switch1 : mode_switch
+    port map (
+      mode                      => SW(5),
+      note_on_midi              => note_on,
+      note_simple_midi          => note_signal,
+      velocity_simple_midi      => velocity_signal,
+      note_on_sequenzer         => note_on_sequenzer,
+      note_simple_sequenzer     => note_sequenzer,
+      velocity_simple_sequenzer => velocity_sequenzer,
+      note_on                   => note_on_mode,
+      note_simple               => note_signal_mode,
+      velocity_simple           => velocity_signal_mode);
+
+  midi_sequenzer1 : midi_sequenzer
+    port map (
+      clk_12m        => sig_clk_12m,
+      reset_n        => sig_reset_n,
+      note_i         => note_signal,
+      velocity_i     => velocity_signal,
+      write_enable_i => data_flag_sig,
+      play_i         => SW(5),
+      record_i       => SW(4),
+      note_o         => note_sequenzer,
+      velocity_o     => velocity_sequenzer,
+      note_pulse     => note_on_sequenzer);
+
+
+
   AUD_DACLRCK <= ws_o_int;
   AUD_ADCLRCK <= ws_o_int;
   AUD_XCK     <= sig_clk_12m;
   LEDR_9      <= SW(9);
+
 end architecture str;
 
 -------------------------------------------------------------------------------

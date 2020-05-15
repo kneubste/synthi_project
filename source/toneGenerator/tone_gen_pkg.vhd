@@ -59,7 +59,7 @@ package tone_gen_pkg is
 	 type t_tone_array is array (0 to 9) of std_logic_vector(6 downto 0);
 	 type note_on_array is array (0 to 9) of std_logic;
  	 type t_dds_o_array is array (0 to 9) of std_logic_vector(N_AUDIO-1 downto 0);
-	 type NOTE_VELOCITY_RAM_TYPE is array (0 to (sequenz-1)) of std_logic_vector (7 downto 0);
+	 type NOTE_VELOCITY_RAM_TYPE is array (0 to (sequenz-1)) of std_logic_vector (6 downto 0);
 	 type TIMER_RAM_TYPE is array (0 to (sequenz-1)) of std_logic_vector (31 downto 0); 
 	
     subtype t_audio_range is integer range -(2**(N_RESOL-1)) to (2**(N_RESOL-1))-1;  -- range : [-2^12; +(2^12)-1]

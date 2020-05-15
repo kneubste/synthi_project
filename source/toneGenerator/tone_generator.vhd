@@ -34,7 +34,7 @@ entity tone_generator is
         step_i			: in  std_logic;--load von m2s_master
         note_i			: in  t_tone_array;
 		  instr_sel_i: in  std_logic_vector(3 downto 0);
-        velocity_i	: in  std_logic_vector(6 downto 0);
+        velocity_i	: in  t_tone_array;
         dds_l_o 		: out std_logic_vector(15 downto 0);
         dds_r_o 		: out std_logic_vector(15 downto 0)      
     );
@@ -81,7 +81,7 @@ begin  -- architecture str
       tone_on_i  => tone_on_i(i),
 		instr_sel_i=> instr_sel_i,
       phi_incr_i => lut_midi2dds(to_integer(unsigned(note_i(i)))), --Lut wert von note_i
-      attenu_i   => velocity_i(6 downto 4),  --MSBs der velocity_i
+      attenu_i   => velocity_i(i)(6 downto 4),  --MSBs der velocity_i
       dds_o      => dds_o_array(i));
 end generate dds_inst_gen;
 

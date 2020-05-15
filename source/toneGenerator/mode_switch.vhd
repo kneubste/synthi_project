@@ -6,7 +6,7 @@
 -- Author     :   <kneubste>
 -- Company    : 
 -- Created    : 2020-05-11
--- Last update: 2020-05-11
+-- Last update: 2020-05-15
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -32,17 +32,17 @@ use ieee.numeric_std.all;
 
 entity mode_switch is
 
-  port (mode                   : in  std_logic;  -- Wahl Betriebsart
-        note_on_midi           : in  std_logic;  -- Signal von Midi_controller
-        note_simple_midi       : in  std_logic_vector(6 downto 0);  -- Signal von Midi_controller
-        velocity_simple_midi   : in  std_logic_vector(6 downto 0);  -- Signal von Midi_controller
-        note_on_melody         : in  std_logic;  -- Signal von Melody_box
-        note_simple_melody     : in  std_logic_vector(6 downto 0);  -- Signal von Melody_box
-        velocity_simple_melody : in  std_logic_vector(6 downto 0);  -- Signal von Melody_box
+  port (mode                      : in  std_logic;  -- Wahl Betriebsart
+        note_on_midi              : in  std_logic;  -- Signal von Midi_controller
+        note_simple_midi          : in  std_logic_vector(6 downto 0);  -- Signal von Midi_controller
+        velocity_simple_midi      : in  std_logic_vector(6 downto 0);  -- Signal von Midi_controller
+        note_on_sequenzer         : in  std_logic;  -- Signal von Melody_box
+        note_simple_sequenzer     : in  std_logic_vector(6 downto 0);  -- Signal von Melody_box
+        velocity_simple_sequenzer : in  std_logic_vector(6 downto 0);  -- Signal von Melody_box
 -- Umbennenung der Signale vom Midi_Controller sinnvoll.
-        note_on                : out std_logic;  -- Signal ton_gen
-        note_simple            : out std_logic_vector(6 downto 0);  -- Signal ton_gen
-        velocity_simple        : out std_logic_vector(6 downto 0)  -- Signal ton_gen
+        note_on                   : out std_logic;  -- Signal ton_gen
+        note_simple               : out std_logic_vector(6 downto 0);  -- Signal ton_gen
+        velocity_simple           : out std_logic_vector(6 downto 0)  -- Signal ton_gen
         );
 
 end entity mode_switch;
@@ -62,16 +62,20 @@ begin
   --------------------------------------------------
   -- PROCESS FOR OUTPUT
   --------------------------------------------------
-	if mode = '1' then
-	note_on <= note_on_melody
-	note_simple <= note_simple_melody
-	velocity_simple <= velocity_simple_melody;
-	else
-	note_on <= note_on_midi
-	note_simple <= note_simple_midi
-	velocity_simple <= velocity_simple_midi;
-	end if;
+  muxer_out : process (all)
+  begin
 
+    if mode = '1' then
+      note_on         <= note_on_sequenzer;
+      note_simple     <= note_simple_sequenzer;
+      velocity_simple <= velocity_simple_sequenzer;
+    else
+      note_on         <= note_on_midi;
+      note_simple     <= note_simple_midi;
+      velocity_simple <= velocity_simple_midi;
+    end if;
+
+  end process muxer_out;
 
 -- End Architecture 
 ------------------------------------------- 
