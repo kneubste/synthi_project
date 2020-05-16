@@ -76,11 +76,11 @@ instrument : PROCESS(all) -- Prozess für die Auswahl des Instrument-LUTs.
 			when "000" => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO); 	-- Audio Output accessing lut_sinus
 			when "001" => lut_val <= to_signed(LUT_violin_a(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_violin_a
 			when "010" => lut_val <= to_signed(LUT_chello_a(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_chello_a
-			when "011" => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_sinus
-			when "100" => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_sinus
-			when "101" => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_sinus
-			when "111" => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_sinus
-			when others => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO); 	-- Audio Output accessing lut_sinus
+			when "011" => lut_val <= to_signed(LUT_altosax_26(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_altosax_26
+			when "100" => lut_val <= to_signed(LUT_squ8bit(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_squ8bit
+			when "101" => lut_val <= to_signed(LUT_symetric_a(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_symetric_a
+			when "111" => lut_val <= to_signed(LUT_tannerin_a(lut_addr), N_AUDIO); 		-- Audio Output accessing LUT_tannerin_a
+			when others => lut_val <= to_signed(LUT_theremin_a(lut_addr), N_AUDIO); 	-- Audio Output accessing LUT_theremin_a
 			end case;
 		else
 			lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO); 	-- Audio Output accessing lut_sinus
