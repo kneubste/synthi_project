@@ -42,7 +42,6 @@ architecture rtl of universal_shiftreg is
 
   signal shiftreg_S2P, next_shiftreg_S2P : std_logic_vector(15 downto 0);
   signal shiftreg_P2S, next_shiftreg_P2S : std_logic_vector(15 downto 0);
-  signal shift_enable                    : std_logic;
 
 begin
 
@@ -77,6 +76,5 @@ begin
 
   par_out      <= shiftreg_S2P;
   ser_out      <= shiftreg_P2S(15);
-  shift_enable <= en_1 and en_2;
 
 end rtl;

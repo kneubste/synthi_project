@@ -16,6 +16,7 @@ USE ieee.numeric_std.all;
 -- Entity Declaration 
 -------------------------------------------
 ENTITY modulo_divider IS
+GENERIC (width : positive := 2);
   PORT( clk				: IN    std_logic;
     	   clk_div     : OUT   std_logic
     	);
@@ -27,7 +28,6 @@ END modulo_divider;
 ARCHITECTURE rtl OF modulo_divider IS
 -- Signals & Constants Declaration?
 -------------------------------------------
-signal width : integer := 2;
 signal count, next_count: unsigned(width-1 downto 0) := (others => '0');	 
 
 

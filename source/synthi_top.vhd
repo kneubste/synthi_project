@@ -93,7 +93,9 @@ architecture str of synthi_top is
   signal note_on_sequenzer    : std_logic;
   signal note_sequenzer       : std_logic_vector(6 downto 0);
   signal velocity_sequenzer   : std_logic_vector(6 downto 0);
-  signal data_flag_sig        : std_logic;
+  signal flag_midi_sig        : std_logic;
+  signal flag_mode_sig        : std_logic;
+  signal flag_sequenzer_sig   : std_logic;
   signal reg_note_simple      : t_tone_array;
   signal reg_velocity_simple  : t_tone_array;
   signal reg_note_on          : note_on_array;
@@ -112,7 +114,8 @@ architecture str of synthi_top is
       record_i       : in  std_logic;
       note_o         : out std_logic_vector(6 downto 0);
       velocity_o     : out std_logic_vector(6 downto 0);
-      note_pulse     : out std_logic);
+      note_pulse     : out std_logic;
+		flag_out			: out std_logic);
   end component midi_sequenzer;
 
   component mode_switch is
@@ -121,12 +124,15 @@ architecture str of synthi_top is
       note_on_midi              : in  std_logic;
       note_simple_midi          : in  std_logic_vector(6 downto 0);
       velocity_simple_midi      : in  std_logic_vector(6 downto 0);
+		flag_midi					  : in  std_logic;
       note_on_sequenzer         : in  std_logic;
       note_simple_sequenzer     : in  std_logic_vector(6 downto 0);
       velocity_simple_sequenzer : in  std_logic_vector(6 downto 0);
+		flag_sequenzer				  : in  std_logic; 
       note_on                   : out std_logic;
       note_simple               : out std_logic_vector(6 downto 0);
-      velocity_simple           : out std_logic_vector(6 downto 0));
+      velocity_simple           : out std_logic_vector(6 downto 0);
+		flag_out						  : out std_logic);
   end component mode_switch;
 
   component midi_array is
@@ -355,7 +361,7 @@ begin  -- architecture str
       note_on         => note_on,
       note_simple     => note_signal,
       velocity_simple => velocity_signal,
-      data_flag       => data_flag_sig);
+      data_flag       => flag_midi_sig);
 
   -- instance "midi_array1"
   midi_array1 : midi_array
@@ -365,7 +371,7 @@ begin  -- architecture str
       status_reg            => note_on_mode,
       data1_reg             => note_signal_mode,
       data2_reg             => velocity_signal_mode,
-      new_data_flag         => data_flag_sig,
+      new_data_flag         => flag_mode_sig,
       reg_note_on_o         => reg_note_on,
       reg_note_simple_o     => reg_note_simple,
       reg_velocity_simple_o => reg_velocity_simple);
@@ -376,12 +382,15 @@ begin  -- architecture str
       note_on_midi              => note_on,
       note_simple_midi          => note_signal,
       velocity_simple_midi      => velocity_signal,
+		flag_midi					  => flag_midi_sig,
       note_on_sequenzer         => note_on_sequenzer,
       note_simple_sequenzer     => note_sequenzer,
       velocity_simple_sequenzer => velocity_sequenzer,
+		flag_sequenzer				  => flag_sequenzer_sig,
       note_on                   => note_on_mode,
       note_simple               => note_signal_mode,
-      velocity_simple           => velocity_signal_mode);
+      velocity_simple           => velocity_signal_mode,
+		flag_out						  => flag_mode_sig);
 
   midi_sequenzer1 : midi_sequenzer
     port map (
@@ -389,14 +398,13 @@ begin  -- architecture str
       reset_n        => sig_reset_n,
       note_i         => note_signal,
       velocity_i     => velocity_signal,
-      write_enable_i => data_flag_sig,
+      write_enable_i => flag_midi_sig,
       play_i         => SW(5),
       record_i       => SW(4),
       note_o         => note_sequenzer,
       velocity_o     => velocity_sequenzer,
-      note_pulse     => note_on_sequenzer);
-
-
+      note_pulse     => note_on_sequenzer,
+		flag_out			=> flag_sequenzer_sig);
 
   AUD_DACLRCK <= ws_o_int;
   AUD_ADCLRCK <= ws_o_int;

@@ -17,6 +17,7 @@ use ieee.numeric_std.all;
 -- Entity Declaration 
 -------------------------------------------
 entity i2s_frame_generator is
+GENERIC (width : positive := 2);
   port(rst_n_12m : in  std_logic;
        clk_12m   : in  std_logic;
        bclk      : out std_logic;
@@ -35,7 +36,6 @@ architecture rtl of i2s_frame_generator is
 -------------------------------------------
   type fsm_states is (st_load, st_left_wait, st_right_wait, st_shift_l, st_shift_r);
   signal next_fsm_state, fsm_state     : fsm_states;
-  signal width                         : integer                    := 2;
   signal div_count, div_next_count     : unsigned(width-1 downto 0) := (others => '0');
   signal bit_counter, next_bit_counter : unsigned(6 downto 0);
   signal ws_int, load_int, bclk_int    : std_logic;
