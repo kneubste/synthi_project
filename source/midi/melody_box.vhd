@@ -6,7 +6,7 @@
 -- Author     :   <kneubste>
 -- Company    : 
 -- Created    : 2020-04-20
--- Last update: 2020-05-09
+-- Last update: 2020-05-17
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -16,7 +16,8 @@
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author  Description
--- 2020-04-20  1.0      kneubste        Created
+-- 2020-04-20  1.0      kneubste  Created
+-- 2020-05-17           kneubste  Project-Contrl. & Beautify.
 -------------------------------------------------------------------------------
 
 -- Library & Use Statements
@@ -31,9 +32,9 @@ use work.tone_gen_pkg.all;
 
 entity midi_controller is
 
-  port (button_cmd      : in  std_logic_vector(3 downto 0);
-        reset_n         : in  std_logic;
-        play_mode       : in  std_logic;
+  port (button_cmd             : in  std_logic_vector(3 downto 0);
+        reset_n                : in  std_logic;
+        play_mode              : in  std_logic;
         note_on_melody         : out std_logic;
         note_simple_melody     : out std_logic_vector(6 downto 0);
         velocity_simple_melody : out std_logic_vector(6 downto 0)
@@ -49,7 +50,7 @@ architecture rtl of midi_controller is
 -------------------------------------------
 
   type XXXXXX is ();
-  signal 
+  signal
 
 -- Begin Architecture
 -------------------------------------------
@@ -78,4 +79,4 @@ begin
 
 -- End Architecture 
 ------------------------------------------- 
-  end rtl;
+end rtl;

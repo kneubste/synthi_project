@@ -2,6 +2,7 @@
 -- Block code:  i2s_frame_generator.vhd
 -- History:     24.Maerz 2020 - 1st version (lussimat)
 --              30.Maerz 2020 - 2nd version (lussimat) | Fehlersuche und Überarbeitung
+-- 17.05.20| kneubste | Project-Contrl. & Beautify.
 --
 -- Function: Diese entity generiert das load-, shift_left-, shift_right- und das
 --           word select (kurz: ws) -Signal.
@@ -17,7 +18,7 @@ use ieee.numeric_std.all;
 -- Entity Declaration 
 -------------------------------------------
 entity i2s_frame_generator is
-GENERIC (width : positive := 2);
+  generic (width : positive := 2);
   port(rst_n_12m : in  std_logic;
        clk_12m   : in  std_logic;
        bclk      : out std_logic;

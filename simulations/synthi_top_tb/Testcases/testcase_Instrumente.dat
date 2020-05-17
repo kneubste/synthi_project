@@ -18,9 +18,8 @@
 #-- Revisions  :
 #-- Date        Version  Author          Description
 #-- 2019-02-13  1.0      Hans-Joachim    Created
-#-- 2020-03-17  1.1      Matthis Lussi   expanded
-#-- 2020-03-29  1.11	 Stefan Kneubühl changed to IS2 Testcases
-#-- 2020-04-08  1.11	 Stefan Kneubühl changed to DDS Testcases
+#-- 2020-05-16  1.1      kneubste	 Testcase for Instruments.
+
 #-------------------------------------------------------------------------------
 
 #Ton A

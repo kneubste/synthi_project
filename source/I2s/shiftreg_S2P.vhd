@@ -13,6 +13,7 @@
 ------------|----------|--------------------------------------------
 -- 6.03.19 | gelk     | Prepared template for students
 -- 21.03.19| lussimat | Start with project.
+-- 17.05.20| kneubste | Project-Contrl. & Beautify.
 --------------------------------------------------------------------
 
 library ieee;

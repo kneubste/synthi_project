@@ -14,6 +14,7 @@
 ------------|----------|--------------------------------------------
 -- 6.03.19 | gelk     | Prepared template for students
 -- 25.03.19| lussimat | Start with project.
+-- 17.05.20| kneubste | Project-Contrl. & Beautify.
 --------------------------------------------------------------------
 
 library ieee;
@@ -49,7 +50,7 @@ begin
   comb_shift : process(all)
   begin
 
-    if load = '1' and en_1 = '1' then --*(würde load nicht mit bclk gekoppelt werden, würde eine Periode zu früh geschoben werden)
+    if load = '1' and en_1 = '1' then  --*(wuerde load nicht mit bclk gekoppelt werden, wuerde eine Periode zu frueh geschoben werden)
       next_shiftreg <= par_in;
     elsif shift_enable = '1' then
       next_shiftreg <= shiftreg(14 downto 0) & '0';

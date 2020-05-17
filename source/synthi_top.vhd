@@ -6,7 +6,7 @@
 -- Author     :   <Cyrill@DESKTOP-MRJOR86>
 -- Company    : 
 -- Created    : 2020-02-21
--- Last update: 2020-05-15
+-- Last update: 2020-05-17
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -19,6 +19,11 @@
 -- 2020-02-21  1.0      Cyrill    Created
 -- 2020-01-11  1.1      Cyrill    Added codec_controller and i2c_master
 -- 2020-03-28  1.2      lussimat  Added i2s_master and path_control
+-- 2020-04-12  1.3      lussimat  Added tone_generator.
+-- 2020-04-29  1.4      kneubste  Added midi-controller. 
+-- 2020-05-13  1.5      lussimat  Added midi-array
+-- 2020-05-15  1.6      lussimat  Added midi-sequenzer and mode-switch.
+-- 2020-05-17  1.7      kneubste  Project-Contrl. & Beautify.
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -88,7 +93,7 @@ architecture str of synthi_top is
   signal note_on              : std_logic;
   signal velocity_simple      : std_logic_vector(6 downto 0);
   signal note_on_mode         : std_logic;
-  signal note_signal_mode 		: std_logic_vector(6 downto 0);
+  signal note_signal_mode     : std_logic_vector(6 downto 0);
   signal velocity_signal_mode : std_logic_vector(6 downto 0);
   signal note_on_sequenzer    : std_logic;
   signal note_sequenzer       : std_logic_vector(6 downto 0);
@@ -115,7 +120,7 @@ architecture str of synthi_top is
       note_o         : out std_logic_vector(6 downto 0);
       velocity_o     : out std_logic_vector(6 downto 0);
       note_pulse     : out std_logic;
-		flag_out			: out std_logic);
+      flag_out       : out std_logic);
   end component midi_sequenzer;
 
   component mode_switch is
@@ -124,15 +129,15 @@ architecture str of synthi_top is
       note_on_midi              : in  std_logic;
       note_simple_midi          : in  std_logic_vector(6 downto 0);
       velocity_simple_midi      : in  std_logic_vector(6 downto 0);
-		flag_midi					  : in  std_logic;
+      flag_midi                 : in  std_logic;
       note_on_sequenzer         : in  std_logic;
       note_simple_sequenzer     : in  std_logic_vector(6 downto 0);
       velocity_simple_sequenzer : in  std_logic_vector(6 downto 0);
-		flag_sequenzer				  : in  std_logic; 
+      flag_sequenzer            : in  std_logic;
       note_on                   : out std_logic;
       note_simple               : out std_logic_vector(6 downto 0);
       velocity_simple           : out std_logic_vector(6 downto 0);
-		flag_out						  : out std_logic);
+      flag_out                  : out std_logic);
   end component mode_switch;
 
   component midi_array is
@@ -382,15 +387,15 @@ begin  -- architecture str
       note_on_midi              => note_on,
       note_simple_midi          => note_signal,
       velocity_simple_midi      => velocity_signal,
-		flag_midi					  => flag_midi_sig,
+      flag_midi                 => flag_midi_sig,
       note_on_sequenzer         => note_on_sequenzer,
       note_simple_sequenzer     => note_sequenzer,
       velocity_simple_sequenzer => velocity_sequenzer,
-		flag_sequenzer				  => flag_sequenzer_sig,
+      flag_sequenzer            => flag_sequenzer_sig,
       note_on                   => note_on_mode,
       note_simple               => note_signal_mode,
       velocity_simple           => velocity_signal_mode,
-		flag_out						  => flag_mode_sig);
+      flag_out                  => flag_mode_sig);
 
   midi_sequenzer1 : midi_sequenzer
     port map (
@@ -404,7 +409,7 @@ begin  -- architecture str
       note_o         => note_sequenzer,
       velocity_o     => velocity_sequenzer,
       note_pulse     => note_on_sequenzer,
-		flag_out			=> flag_sequenzer_sig);
+      flag_out       => flag_sequenzer_sig);
 
   AUD_DACLRCK <= ws_o_int;
   AUD_ADCLRCK <= ws_o_int;

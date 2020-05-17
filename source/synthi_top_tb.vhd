@@ -6,7 +6,7 @@
 -- Author     : lussimat
 -- Company    : 
 -- Created    : 2020-03-09
--- Last update: 2020-05-15
+-- Last update: 2020-05-17
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -16,12 +16,15 @@
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
--- Revisions  : 2020-03-13 Zusammenfï¿½gen verschiedener Teile
+-- Revisions  : 2020-03-13 Zusammenlegung verschiedener Teile
 --              2020-03-15 Fehlersuche + Behebung
---              2020-03-17 einfachere Lï¿½sung fï¿½r anlegen von Wert an SW
+--              2020-03-17 einfachere Loesung fuer anlegen von Wert an SW
 --              2020-03-19 letzter Schliff - kommentieren, Header und Beautify
--- Date        Version  Author  Description
--- 2020-03-16  1.0      matth   Created
+-- Date        Version  Author     Description
+-- 2020-03-16  1.0      lussimat   Created
+-- 2020-03-30  1.1      kneubste   Added Testcases.
+-- 2020-05-13  1.2      lussimat   Added Testcases.
+-- 2020-05-17  1.3      kneubste   Project-Contrl. & Beautify.
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -68,7 +71,7 @@ architecture struct of synthi_top_tb is
       HEX1        : out   std_logic_vector(6 downto 0);
       HEX2        : out   std_logic_vector(6 downto 0);
       HEX3        : out   std_logic_vector(6 downto 0);
-      LEDR_9	  : out   std_logic);
+      LEDR_9      : out   std_logic);
   end component synthi_top;
 
   component i2c_slave_bfm is
@@ -244,23 +247,23 @@ begin  -- architecture struct
       if cmd = string'("rst_sim") then
         rst_sim(tv, key_0);             --Reset der Simulation
       elsif cmd = string'("run_sim") then
-        run_sim(tv);  --Simulation wird fï¿½r bestimmte Anz.Clk-cycles betrieben
+        run_sim(tv);  --Simulation wird fuer bestimmte Anz.Clk-cycles betrieben
       elsif cmd = string'("uar_sim") then
-        uar_sim(tv, usb_txd);        --Serielles Eingangssignal wird angelegt
+        uar_sim(tv, usb_txd);  --Serielles Eingangssignal wird angelegt
       elsif cmd = string'("ini_cod") then
         ini_cod(tv, switch(6 downto 4), key_0);  --Paralleles Signal wird in SWITCH geladen
       elsif cmd = string'("gpi_sim") then
         gpi_sim(tv, switch);
       elsif cmd = string'("uar_ch0") then
-        uar_chk(tv, hex0);  --Check von 7-Segment-Anzeige mit Testvektor
+        uar_chk(tv, hex0);     --Check von 7-Segment-Anzeige mit Testvektor
       elsif cmd = string'("uar_ch1") then
-        uar_chk(tv, hex1);  --Check von 7-Segment-Anzeige mit Testvektor
+        uar_chk(tv, hex1);     --Check von 7-Segment-Anzeige mit Testvektor
       elsif cmd = string'("uar_ch2") then
-        uar_chk(tv, HEX2);  --Check von 7-Segment-Anzeige mit Testvektor
+        uar_chk(tv, HEX2);     --Check von 7-Segment-Anzeige mit Testvektor
       elsif cmd = string'("uar_ch3") then
-        uar_chk(tv, HEX3);  --Check von 7-Segment-Anzeige mit Testvektor
+        uar_chk(tv, HEX3);     --Check von 7-Segment-Anzeige mit Testvektor
       elsif cmd = string'("uar_ch4") then
-        uar_chk(tv, LEDR_9);  --Check von 7-Segment-Anzeige mit Testvektor
+        uar_chk(tv, LEDR_9);   --Check von 7-Segment-Anzeige mit Testvektor
       elsif cmd = string'("i2c_ch0") then
         gpo_chk(tv, reg_data0);         --Check data-register0
       elsif cmd = string'("i2c_ch1") then
@@ -281,10 +284,8 @@ begin  -- architecture struct
         gpo_chk(tv, reg_data8);         --Check data-register8
       elsif cmd = string'("i2c_ch9") then
         gpo_chk(tv, reg_data9);         --Check data-register9
-
       elsif cmd = string'("i2s_chk") then
         i2s_chk(tv, AUD_DACLRCK, AUD_BCLK, AUD_DACDAT, dacdat_check);
-
       elsif cmd = string'("i2s_sim") then
         i2s_sim(tv, AUD_ADCLRCK, AUD_BCLK, AUD_ADCDAT);
 

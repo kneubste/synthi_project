@@ -1,84 +1,85 @@
 -------------------------------------------
 -- Block code:  bit_counter.vhd
--- History: 	12.Nov.2013 - 1st version (dqtm)
---                 29.11.2019 - changed from count_down.vhd  (kneubste)
+-- History:     12.Nov.2013 - 1st version (dqtm)
+--              29.11.2019 - changed from count_down.vhd  (kneubste)
+-- 17.05.20| kneubste | Project-Contrl. & Beautify.
 -------------------------------------------
 
 
 -- Library & Use Statements
 -------------------------------------------
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
-USE ieee.numeric_std.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 
 -- Entity Declaration 
 -------------------------------------------
-ENTITY bit_counter IS
-GENERIC (width : positive := 4);
-  PORT( clk,reset_n		: IN    std_logic;
-  		start_bit			: IN    std_logic;
-		baud_tick			: IN 	  std_logic;
-    	bit_count     		: OUT   std_logic_vector(3 downto 0)
-    	);
-END bit_counter;
+entity bit_counter is
+  generic (width : positive := 4);
+  port(clk, reset_n : in  std_logic;
+       start_bit    : in  std_logic;
+       baud_tick    : in  std_logic;
+       bit_count    : out std_logic_vector(3 downto 0)
+       );
+end bit_counter;
 
 
 -- Architecture Declaration
 -------------------------------------------
-ARCHITECTURE rtl OF bit_counter IS
+architecture rtl of bit_counter is
 -- Signals & Constants Declaration
 -------------------------------------------
-CONSTANT  	max_val: 			   unsigned(width-1 downto 0):= to_unsigned(4,width); -- convert integer value 4 to unsigned with 4bits
-SIGNAL 		count, next_bit_count: 	unsigned(width-1 downto 0);	 
+  constant max_val             : unsigned(width-1 downto 0) := to_unsigned(4, width);  -- convert integer value 4 to unsigned with 4bits
+  signal count, next_bit_count : unsigned(width-1 downto 0);
 
 
 -- Begin Architecture
 -------------------------------------------
-BEGIN
+begin
 
 
   --------------------------------------------------
   -- PROCESS FOR COMBINATORIAL LOGIC
   --------------------------------------------------
-  bit_counter: PROCESS(all)
-  BEGIN	
-	-- load	
-	IF (start_bit = '1') THEN
-		next_bit_count <= to_unsigned(9,width)	;
-	
-  	-- decrement
-  	ELSIF (bit_count > "0000") and baud_tick = '1' THEN
-  		next_bit_count <= count - 1 ;
-  	
-  	-- freezes
-  	ELSE
-  		next_bit_count <= count;
-  	END IF;
-	
-  END PROCESS bit_counter;   
-  
-  
-  
-  
+  bit_counter : process(all)
+  begin
+    -- load     
+    if (start_bit = '1') then
+      next_bit_count <= to_unsigned(9, width);
+
+    -- decrement
+    elsif (bit_count > "0000") and baud_tick = '1' then
+      next_bit_count <= count - 1;
+
+    -- freezes
+    else
+      next_bit_count <= count;
+    end if;
+
+  end process bit_counter;
+
+
+
+
   --------------------------------------------------
   -- PROCESS FOR REGISTERS
   --------------------------------------------------
-  flip_flops : PROCESS(all)
-  BEGIN	
-  	IF reset_n = '0' THEN
-		count <= to_unsigned(0,width); -- convert integer value 0 to unsigned with 4bits
-    ELSIF rising_edge(clk) THEN
-		count <= next_bit_count ;
-    END IF;
-  END PROCESS flip_flops;		
-  
-  
+  flip_flops : process(all)
+  begin
+    if reset_n = '0' then
+      count <= to_unsigned(0, width);  -- convert integer value 0 to unsigned with 4bits
+    elsif rising_edge(clk) then
+      count <= next_bit_count;
+    end if;
+  end process flip_flops;
+
+
   --------------------------------------------------
   -- CONCURRENT ASSIGNMENTS
   --------------------------------------------------
   -- convert count from unsigned to std_logic (output data-type)
   bit_count <= std_logic_vector(count);
- -- End Architecture 
+-- End Architecture 
 ------------------------------------------- 
-END rtl;
+end rtl;

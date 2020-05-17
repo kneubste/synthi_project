@@ -15,6 +15,7 @@
 ------------|----------|--------------------------------------------
 -- 6.03.19 | gelk     | Prepared template for students
 -- 9.03.19 | kneubste | Start with project.
+-- 2020-05-17  1.2      kneubste   Project-Contrl. & Beautify.
 --------------------------------------------------------------------
 
 library ieee;
@@ -56,7 +57,7 @@ begin
   --------------------------------------------------
   flip_flops : process(all)
   begin
-  
+
     if reset_n = '0' then
       fsm_state <= st_idle;
       count     <= to_unsigned(0, 4);
@@ -64,23 +65,23 @@ begin
       fsm_state <= next_fsm_state;
       count     <= next_count;
     end if;
-	 
+
   end process flip_flops;
   --------------------------------------------------
   -- PROCESS FOR OUTPUT-codec-LOGIC 
   --------------------------------------------------
   fsm_state_logic : process (all)
   begin
-  
+
     -- default statements (hold current value)
     next_count     <= count;
     next_fsm_state <= fsm_state;
- write_o                   <= '0';
-  --------------------------------------------------
-	 
+    write_o        <= '0';
+    --------------------------------------------------
+
     case fsm_state is
       when st_idle =>
-         write_o <= '1';
+        write_o        <= '1';
         next_fsm_state <= st_wait_write;
       when st_wait_write =>
         if write_done_i = '1' and count < 9 then
@@ -88,7 +89,7 @@ begin
           next_count     <= count + 1;
         elsif (write_done_i = '1' and count >= 9) or ack_error_i = '1' then
           next_fsm_state <= st_state_end;
-        else NULL;
+        else null;
         end if;
       when others => null;
     end case;
@@ -102,16 +103,16 @@ begin
 -- type   : combinational
 -- inputs : all
 -- outputs: 
-outdata: process (all) is
-begin  -- process outdata
-   case mode is
-            when "001"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_BYPASS(to_integer(count));
-            when "101"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_LEFT(to_integer(count));
-            when "011"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_RIGHT(to_integer(count));
-            when "111"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_BOTH(to_integer(count));
-            when others => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ADC_DAC_0DB_48K(to_integer(count));
-          end case;
-end process outdata;
+  outdata : process (all) is
+  begin  -- process outdata
+    case mode is
+      when "001"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_BYPASS(to_integer(count));
+      when "101"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_LEFT(to_integer(count));
+      when "011"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_RIGHT(to_integer(count));
+      when "111"  => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ANALOG_MUTE_BOTH(to_integer(count));
+      when others => write_data_o <= "000" & std_logic_vector(count) & C_W8731_ADC_DAC_0DB_48K(to_integer(count));
+    end case;
+  end process outdata;
 
 -- End Architecture 
 ------------------------------------------- 

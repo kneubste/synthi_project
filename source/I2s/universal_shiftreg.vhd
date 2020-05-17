@@ -14,6 +14,7 @@
 ------------|----------|--------------------------------------------
 -- 6.03.19 | gelk     | Prepared template for students
 -- 30.03.19| lussimat | Start with project.
+-- 17.05.20| kneubste | Project-Contrl. & Beautify.
 --------------------------------------------------------------------
 
 library ieee;
@@ -54,11 +55,11 @@ begin
     next_shiftreg_S2P <= shiftreg_S2P;
     next_shiftreg_P2S <= shiftreg_P2S;
 
-    if load = '1' and en_1 = '1' then  --*(würde load nicht mit bclk gekoppelt werden, würde eine Periode zu früh geschoben werden)
-      next_shiftreg_P2S <= par_in; --paralleles signal wird geladen
+    if load = '1' and en_1 = '1' then  --*(wuerde load nicht mit bclk gekoppelt werden, wuerde eine Periode zu frueh geschoben werden)
+      next_shiftreg_P2S <= par_in;      --paralleles signal wird geladen
     elsif en_1 = '1' and en_2 = '1' then
-      next_shiftreg_P2S <= shiftreg_P2S(14 downto 0) & '0'; --schiebe von rechts nach links
-      next_shiftreg_S2P <= shiftreg_S2P(14 downto 0) & ser_in; --schiebe von links nach rechts
+      next_shiftreg_P2S <= shiftreg_P2S(14 downto 0) & '0';  --schiebe von rechts nach links
+      next_shiftreg_S2P <= shiftreg_S2P(14 downto 0) & ser_in;  --schiebe von links nach rechts
     end if;
   end process comb_shift;
 
@@ -74,7 +75,7 @@ begin
     end if;
   end process shift_dffs;
 
-  par_out      <= shiftreg_S2P;
-  ser_out      <= shiftreg_P2S(15);
+  par_out <= shiftreg_S2P;
+  ser_out <= shiftreg_P2S(15);
 
 end rtl;

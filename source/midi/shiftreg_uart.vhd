@@ -22,12 +22,12 @@ entity shiftreg_uart is
   generic (
     width : positive := 10);
   port(clk, reset_n : in  std_logic;  -- Attention, this block has a set_n input for initialisation!!
-		 load_in		  : in  std_logic;
-		 serial_in	  : in  std_logic;
-		 shift_enable : in  std_logic;
-		 parallel_in  : in  std_logic_vector(width-1 downto 0);
-		 serial_out   : out std_logic;
-		 parallel_out : out std_logic_vector(width-1 downto 0)
+       load_in      : in  std_logic;
+       serial_in    : in  std_logic;
+       shift_enable : in  std_logic;
+       parallel_in  : in  std_logic_vector(width-1 downto 0);
+       serial_out   : out std_logic;
+       parallel_out : out std_logic_vector(width-1 downto 0)
        );
 end shiftreg_uart;
 
@@ -49,13 +49,13 @@ begin
   --------------------------------------------------
   shift_comb : process(all)
   begin
-		if load_in = '1' then
-			next_shiftreg <= parallel_in; 
-		elsif shift_enable = '1' then
-			next_shiftreg <= serial_in & shiftreg(width-1 downto 1);  
-		else
-			next_shiftreg <= shiftreg;
-		END IF; 
+    if load_in = '1' then
+      next_shiftreg <= parallel_in;
+    elsif shift_enable = '1' then
+      next_shiftreg <= serial_in & shiftreg(width-1 downto 1);
+    else
+      next_shiftreg <= shiftreg;
+    end if;
 
   end process shift_comb;
 
@@ -75,7 +75,7 @@ begin
   -- CONCURRENT ASSIGNMENTS
   --------------------------------------------------
   parallel_out <= shiftreg;
-  serial_out <=shiftreg(0);
+  serial_out   <= shiftreg(0);
 
 -- End Architecture 
 ------------------------------------------- 
