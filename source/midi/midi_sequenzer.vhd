@@ -41,7 +41,8 @@ entity midi_sequenzer is
         note_o         : out std_logic_vector(6 downto 0);
         velocity_o     : out std_logic_vector(6 downto 0);
         note_pulse     : out std_logic;  --note ein oder aus
-        flag_out       : out std_logic
+        flag_out       : out std_logic;
+		  reset_o 		  : out std_logic
         );
 
 end entity midi_sequenzer;
@@ -107,10 +108,13 @@ begin
   state_logic : process (all)
   begin
 
+  --default case
+  	 reset_o <= '0';
+		  
     case fsm_state is
 
       when st_wait =>
-
+		
         if record_i = '1' then
           next_fsm_state <= st_record;
         elsif play_i = '1' then
@@ -131,6 +135,7 @@ begin
 
         if play_i = '0' then
           next_fsm_state <= st_wait;
+			 reset_o        <= '1';
         else
           next_fsm_state <= fsm_state;
         end if;
@@ -209,13 +214,6 @@ begin
         end if;
 
         next_counter_time <= counter_time + 1;
-
-        if (timer_ram(to_integer(counter_row)) = std_logic_vector(to_unsigned(0, 32))) or (counter_row = to_unsigned(100, SEQUENZ)) then
-
-          next_counter_row  <= to_unsigned(0, SEQUENZ);
-          next_counter_time <= to_unsigned(0, SEQUENZ);
-
-        end if;
 
       when others =>
 

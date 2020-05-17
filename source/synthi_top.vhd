@@ -101,6 +101,7 @@ architecture str of synthi_top is
   signal flag_midi_sig        : std_logic;
   signal flag_mode_sig        : std_logic;
   signal flag_sequenzer_sig   : std_logic;
+  signal rst_flag_sig         : std_logic;
   signal reg_note_simple      : t_tone_array;
   signal reg_velocity_simple  : t_tone_array;
   signal reg_note_on          : note_on_array;
@@ -120,7 +121,8 @@ architecture str of synthi_top is
       note_o         : out std_logic_vector(6 downto 0);
       velocity_o     : out std_logic_vector(6 downto 0);
       note_pulse     : out std_logic;
-      flag_out       : out std_logic);
+      flag_out       : out std_logic;
+		reset_o			: out std_logic);
   end component midi_sequenzer;
 
   component mode_switch is
@@ -148,6 +150,7 @@ architecture str of synthi_top is
       data1_reg             : in  std_logic_vector(6 downto 0);
       data2_reg             : in  std_logic_vector(6 downto 0);
       new_data_flag         : in  std_logic;
+		rst_flag_i				 : in  std_logic;
       reg_note_on_o         : out note_on_array;
       reg_note_simple_o     : out t_tone_array;
       reg_velocity_simple_o : out t_tone_array);
@@ -377,6 +380,7 @@ begin  -- architecture str
       data1_reg             => note_signal_mode,
       data2_reg             => velocity_signal_mode,
       new_data_flag         => flag_mode_sig,
+		rst_flag_i				 => rst_flag_sig,
       reg_note_on_o         => reg_note_on,
       reg_note_simple_o     => reg_note_simple,
       reg_velocity_simple_o => reg_velocity_simple);
@@ -409,7 +413,8 @@ begin  -- architecture str
       note_o         => note_sequenzer,
       velocity_o     => velocity_sequenzer,
       note_pulse     => note_on_sequenzer,
-      flag_out       => flag_sequenzer_sig);
+      flag_out       => flag_sequenzer_sig,
+		reset_o			=> rst_flag_sig);
 
   AUD_DACLRCK <= ws_o_int;
   AUD_ADCLRCK <= ws_o_int;

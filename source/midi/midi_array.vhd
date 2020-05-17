@@ -39,6 +39,7 @@ entity midi_array is
         data1_reg             : in  std_logic_vector(6 downto 0);
         data2_reg             : in  std_logic_vector(6 downto 0);
         new_data_flag         : in  std_logic;
+		  rst_flag_i				: in  std_logic;
         reg_note_on_o         : out note_on_array;
         reg_note_simple_o     : out t_tone_array;
         reg_velocity_simple_o : out t_tone_array
@@ -107,6 +108,16 @@ begin
     next_reg_note_on  <= reg_note_on;
     next_reg_velocity <= reg_velocity;
     next_reg_note     <= reg_note;
+	 
+	 ------------------------------------------------------
+	 -- RESET AFTER SWITCH 5 (PLAY) GOES '0'
+	 ------------------------------------------------------
+	 
+	 if rst_flag_i = '1' then
+		for i in 0 to 9 loop
+			next_reg_note_on(i) <= '0';
+		end loop;
+	 end if;
 
     ------------------------------------------------------
     -- CHECK IF NOTE IS ALREADY ENTERED IN MIDI ARRAY
@@ -127,9 +138,9 @@ begin
     end loop;
 
 
-    -----------------------------------------
+    ------------------------------------------------------
     -- ENTER A NEW NOTE IF STILL EMPTY REGISTERS
-    ------------------------------------------
+    ------------------------------------------------------
     -- If the new note is not in the midi storage array yet, find a free space 
     -- if the valid flag is cleared, the note can be overwritten, at the same time a flag is set to mark that
     -- the new note has found a place.
