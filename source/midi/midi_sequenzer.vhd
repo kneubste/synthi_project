@@ -176,7 +176,7 @@ begin
 
             next_note_ram(to_integer(counter_row))     <= note_i;  --note wird in Zeile gespeichert
             next_velocity_ram(to_integer(counter_row)) <= velocity_i;  --dazugehörige velocity wird in gleicher Zeile (anderes Array) gespeichert
-            next_timer_ram(to_integer(counter_row))    <= std_logic_vector(unsigned(counter_time));  --die Zeit, bei welcher der Ton spielt oder verstummt wird in gleiche Zeile gespeichert
+            next_timer_ram(to_integer(counter_row))    <= std_logic_vector(counter_time);  --die Zeit, bei welcher der Ton spielt oder verstummt wird in gleiche Zeile gespeichert
             next_counter_row                     		 <= counter_row + 1;  --Zeilen werden raufgezählt
 
           else
@@ -190,10 +190,10 @@ begin
 
         if timer_ram(to_integer(counter_row)) = std_logic_vector(counter_time) then
 
-          next_note_sig     <= note_ram(to_integer(counter_row));  --note wird ausgegeben
-          next_velocity_sig <= velocity_ram(to_integer(counter_row));  --dazugehörige velocity wird mitausgegeben
           next_counter_row  <= counter_row + 1;  --nächste note/Zeile wird im nächste Durchlauf angeschaut 
 			 next_flag_sig		 <= '1';
+			 next_note_sig     <= note_ram(to_integer(counter_row));  --note wird ausgegeben
+			 next_velocity_sig <= velocity_ram(to_integer(counter_row));  --dazugehörige velocity wird mitausgegeben
 
           if next_velocity_sig = std_logic_vector(to_unsigned(0, 7)) then  --ist velocity 0?
             next_note_pulse_sig <= '0';
@@ -208,7 +208,14 @@ begin
         end if;
 
         next_counter_time <= counter_time + 1;
+		  
+		  if (timer_ram(to_integer(counter_row)) = std_logic_vector(to_unsigned(0, 32))) or (counter_row = to_unsigned(100, SEQUENZ)) then 
+		  
+			 next_counter_row  <= to_unsigned(0, SEQUENZ);
+			 next_counter_time <= to_unsigned(0, SEQUENZ);
 
+		  end if;
+			 
       when others =>
 
     end case;
