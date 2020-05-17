@@ -82,8 +82,9 @@ begin  -- architecture str
         when "011"  => lut_val <= to_signed(LUT_altosax_26(lut_addr), N_AUDIO);  -- Audio Output accessing LUT_altosax_26
         when "100"  => lut_val <= to_signed(LUT_squ8bit(lut_addr), N_AUDIO);  -- Audio Output accessing LUT_squ8bit
         when "101"  => lut_val <= to_signed(LUT_symetric_a(lut_addr), N_AUDIO);  -- Audio Output accessing LUT_symetric_a
-        when "111"  => lut_val <= to_signed(LUT_tannerin_a(lut_addr), N_AUDIO);  -- Audio Output accessing LUT_tannerin_a
-        when others => lut_val <= to_signed(LUT_theremin_a(lut_addr), N_AUDIO);  -- Audio Output accessing LUT_theremin_a
+        when "110"  => lut_val <= to_signed(LUT_tannerin_a(lut_addr), N_AUDIO);  -- Audio Output accessing LUT_tannerin_a
+        when "111"  => lut_val <= to_signed(LUT_eguitar_a(lut_addr), N_AUDIO);  -- Audio Output accessing LUT_eguitar_a
+		  when others => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO);  -- Audio Output accessing lut_sinus
       end case;
     else
       lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO);  -- Audio Output accessing lut_sinus
