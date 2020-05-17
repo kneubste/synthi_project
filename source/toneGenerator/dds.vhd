@@ -17,8 +17,9 @@
 -- Revisions  :
 -- Date        Version  Author  Description
 -- 2020-04-06  1.0      Cyrill  Created
--- 2020-05-15  1.1      kneubste   Addition of Instrument-Select
--- 2020-05-17  1.2      kneubste   Project-Contrl. & Beautify.
+-- 2020-05-15  1.1      kneubste   Addition of ton_on_i function.
+-- 2020-05-15  1.2      kneubste   Addition of Instrument-Select
+-- 2020-05-17  1.3      kneubste   Project-Contrl. & Beautify.
 -------------------------------------------------------------------------------
 
 library ieee;
