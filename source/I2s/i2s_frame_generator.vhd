@@ -115,7 +115,7 @@ begin
         end if;
       -- nichts aktives passiert => word select verweilt auf links
       when st_left_wait =>
-        if next_bit_counter = "1000000" then next_fsm_state <= st_right_wait;  --word select ändert sich => rechts
+        if next_bit_counter = "1000000" then next_fsm_state <= st_right_wait;  --word select aendert sich => rechts
         else next_fsm_state                                 <= st_left_wait;  --nichts passiert
         end if;
       -- nichts aktives passiert => word select verweilt auf rechts             
@@ -129,7 +129,7 @@ begin
       when st_shift_r =>
         ws_int                                              <= '1';
         shift_r_int                                         <= '1';
-        if next_bit_counter = "1010001" then next_fsm_state <= st_right_wait;  --wechsle zurück in state st_right_wait wenn fertig geschoben
+        if next_bit_counter = "1010001" then next_fsm_state <= st_right_wait;  --wechsle zurueck in state st_right_wait wenn fertig geschoben
         else next_fsm_state                                 <= st_shift_r;
         end if;
 

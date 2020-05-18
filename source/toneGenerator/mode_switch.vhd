@@ -10,7 +10,7 @@
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: Enth�lt den mode_switch-Block f�r den Tone_generator.
+-- Description: Enthaelt den mode_switch-Block fuer den Tone_generator.
 --              Umschaltung zwischen Midi-Controller und Melody-Box.
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 

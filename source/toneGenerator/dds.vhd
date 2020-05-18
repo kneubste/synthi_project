@@ -36,8 +36,8 @@ entity dds is
     reset_n     : in  std_logic;
     step_i      : in  std_logic;
     tone_on_i   : in  std_logic;
-    instr_sel_i : in  std_logic_vector(3 downto 0);  -- Schalter für die Wahl des Instruments ein.
-    phi_incr_i  : in  std_logic_vector(N_CUM-1 downto 0);  -- Zähler inkrement Schritte --> Freq des Sin
+    instr_sel_i : in  std_logic_vector(3 downto 0);  -- Schalter fuer die Wahl des Instruments ein.
+    phi_incr_i  : in  std_logic_vector(N_CUM-1 downto 0);  -- Zaehler inkrement Schritte --> Freq des Sin
     attenu_i    : in  std_logic_vector(2 downto 0);
     dds_o       : out std_logic_vector(15 downto 0)
     );

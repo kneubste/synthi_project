@@ -264,7 +264,7 @@ begin  -- architecture str
   -- Component instantiations
   -----------------------------------------------------------------------------
 
-  --Provisorische Überprüfung
+  --Provisorische Ueberpruefung
   bus_hex2sevseg1 : bus_hex2sevseg
     port map (
       data_in => note_signal(3 downto 0),
