@@ -76,7 +76,7 @@ begin  -- architecture str
   begin
     if instr_sel_i(0) = '1' then
       case instr_sel_i(3 downto 1) is
-        when "000"  => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO);  -- Audio Output accessing lut_sinus
+        when "000"  => lut_val <= to_signed(LUT_random_schwingung(lut_addr), N_AUDIO);  -- Audio Output accessing lut_sinus
         when "001"  => lut_val <= to_signed(LUT_violin_a(lut_addr), N_AUDIO);  -- Audio Output accessing LUT_violin_a
         when "010"  => lut_val <= to_signed(LUT_chello_a(lut_addr), N_AUDIO);  -- Audio Output accessing LUT_chello_a
         when "011"  => lut_val <= to_signed(LUT_altosax_26(lut_addr), N_AUDIO);  -- Audio Output accessing LUT_altosax_26
