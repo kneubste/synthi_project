@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- Project     : audio_top
--- Description : Constants and LUT for tone generation with DDS
+-- Description : Constants and LUTs for tone generation with DDS
 --
 --
 -------------------------------------------------------------------------------

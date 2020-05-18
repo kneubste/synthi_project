@@ -10,7 +10,7 @@
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: This block contains the dds for sythi_project
+-- Description: This block contains the dds's for sythi_project
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------

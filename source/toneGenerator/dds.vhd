@@ -10,7 +10,8 @@
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: 
+-- Description: in this block a LUT is run depending on phi_incr. 
+--              The resulting value is adjusted with attenu (= how hard was the key pressed?)
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------

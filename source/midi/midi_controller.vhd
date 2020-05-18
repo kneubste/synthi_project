@@ -10,7 +10,7 @@
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: This block contains the midi_controller for sythi_project
+-- Description: It is the decoder block for velocity, note_on and the note itself
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------

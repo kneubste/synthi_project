@@ -10,7 +10,8 @@
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: This block contains the midi_sequenzer for sythi_project
+-- Description: This building block is responsible to record and replay the recorded
+--              sequence.
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------

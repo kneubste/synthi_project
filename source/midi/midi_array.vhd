@@ -11,7 +11,8 @@
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: This block contains the midi_array for sythi_project
+-- Description: thie building block assignes velocity, note_on and the note 
+--              itself to one of the ten dds
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
