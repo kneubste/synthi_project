@@ -43,5 +43,5 @@ vcom -2008 -explicit -work work ../../../source/synthi_top_tb.vhd
 # run the simulation
 vsim -novopt -t 1ns -lib work work.synthi_top_tb
 do ./wave.do
-run 500 ms
+run 5000 ms
 
