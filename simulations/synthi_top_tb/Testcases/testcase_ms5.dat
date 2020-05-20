@@ -10,8 +10,8 @@
 #-- Platform   : 
 #-- Standard   : VHDL'08
 #-------------------------------------------------------------------------------
-#-- Description: Verschiedene Schalterstellungen/cases (3 Schalter/Bits) fuer den
-#--              Input "SW". Prueft diverse Outputs von i2c_slave_bfm (data_reg's) 
+#-- Description: Tested das vollstaendige Programm & Zusatzfunktionen.
+#--		 Test von Grundton, Tonänderung, Record und Playback.               
 #-------------------------------------------------------------------------------
 #-- Copyright (c) 2018 - 2019
 #-------------------------------------------------------------------------------

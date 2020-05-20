@@ -10,97 +10,218 @@
 #-- Platform   : 
 #-- Standard   : VHDL'08
 #-------------------------------------------------------------------------------
-#-- Description: Verschiedene Schalterstellungen/cases (3 Schalter/Bits) fuer den
-#--              Input "SW". Prueft diverse Outputs von i2c_slave_bfm (data_reg's) 
+#-- Description: DDS Test des fertigen Projekts. Tested auf DDS ein/aus und
+#--    		 simuliert verschiedene Ton-Wellen.             
 #-------------------------------------------------------------------------------
 #-- Copyright (c) 2018 - 2019
 #-------------------------------------------------------------------------------
 #-- Revisions  :
 #-- Date        Version  Author          Description
 #-- 2019-02-13  1.0      Hans-Joachim    Created
-#-- 2020-04-08  1.11	 Stefan Kneubühl changed to DDS Testcases
+#-- 2020-04-08  1.1	 Stefan Kneubühl changed to DDS Testcases prov. Anschluesse
+#-- 2020-05-17  1.2	 Stefan Kneubühl changed to DDS Testcases finale Version
 #-------------------------------------------------------------------------------
 
-#DDS TEST ( SW4 = 1 -> DDS ON )
-
+#DDS TEST 
 
 #Schalterstellung 0000000000 Check auf DDS -> 0 
 rst_sim
 gpi_sim 00 00 00 00
-run_sim 00 00 ff ff
+run_sim 00 00 00 ff
 i2s_chk 00 00 00 00
+
+
+#Ton A
+
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+#Ton A aus
+
+
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 00 ff
 
 #Schalterstellung 0000000001 Check auf DDS -> 0 
 rst_sim
 gpi_sim 00 00 00 01
-run_sim 00 00 ff ff
+run_sim 00 00 00 ff
 i2s_chk 00 00 00 00
+
+
+#Ton A
+
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+#Ton A aus
+
+
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 00 ff
 
 #Schalterstellung 0000000111 Check auf DDS -> 0 
 rst_sim
 gpi_sim 00 00 00 07
-run_sim 00 00 ff ff
+run_sim 00 00 00 ff
 i2s_chk 00 00 00 00
+
+
+#Ton A
+
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 0f ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+#Ton A aus
+
+
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 00 ff
 
 #Schalterstellung 0000001000 Check auf DDS -> 0 
 rst_sim
+gpi_sim 00 00 00 08
+run_sim 00 00 00 ff
+i2s_sim 11 22 33 44
+i2s_chk 11 22 33 44
+
+
+#Ton A
+
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 0f ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+#Ton A aus
+
+
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 00 ff
+
+#----------------------------------------------
+
+#Schalterstellung 0000001000 Check auf DDS -> 0 
 gpi_sim 00 00 00 08
 run_sim 00 00 ff ff
 i2s_sim 11 22 33 44
 i2s_chk 11 22 33 44
 
-#----------------------------------------------
 
-#Schalterstellung 0100010000 SW4 -> 1 DDS -> on
+#Ton A
+
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+#Ton A aus
+
+run_sim 00 00 00 ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+
+
+#Schalterstellung 0000000000 Check auf DDS -> 1 
 rst_sim
-gpi_sim 00 00 01 10
-run_sim 00 0f ff ff
-
-
-#Schalterstellung 0000010001 Check auf DDS -> 0 
-rst_sim
-gpi_sim 00 00 00 11
+gpi_sim 00 00 00 00
+run_sim 00 00 ff ff
+i2s_sim 11 22 33 44
 i2s_chk 00 00 00 00
-run_sim 00 00 ff ff
-i2s_chk 00 00 00 00
+
+#Ton A
+
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 0f ff
+uar_sim 70 00 00
+run_sim 00 0f 0f ff
+
+#Ton A aus
 
 
-#Schalterstellung 00 0011 0000
-rst_sim
-gpi_sim 00 00 00 30 
-run_sim 00 00 ff ff
-
-#Schalterstellung 00 0101 0000
-rst_sim
-gpi_sim 00 00 00 50
-run_sim 00 00 ff ff
-
-#Schalterstellung 00 1001 0000
-rst_sim
-gpi_sim 00 00 00 90 
-run_sim 00 00 ff ff
-
-#Schalterstellung 01 0001 0000
-rst_sim
-gpi_sim 00 00 01 10
-run_sim 00 00 ff ff
-
-#Schalterstellung 10 0001 0000
-rst_sim
-gpi_sim 00 00 02 10
-run_sim 00 00 ff ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 32 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 00 ff
 
 
-#Schalterstellung 1100010000
-rst_sim
-gpi_sim 00 00 03 10
-run_sim 00 00 ff ff
+#Ton B
+
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim 77 00 00
+run_sim 00 00 0f ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+#Ton B aus
 
 
-#Schalterstellung 11 1111 0000
-rst_sim
-gpi_sim 00 00 03 f0
-run_sim 00 00 ff ff
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim 77 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 0f ff
+
+#Ton C
+
+uar_sim 90 00 00
+run_sim 00 00 00 ff
+uar_sim c7 00 00
+run_sim 00 00 0f ff
+uar_sim 70 00 00
+run_sim 00 00 00 ff
+
+#Ton C aus
+
+
+uar_sim 80 00 00
+run_sim 00 00 00 ff
+uar_sim c7 00 00
+run_sim 00 00 00 ff
+uar_sim 00 00 00
+run_sim 00 00 0f ff
+
 
 
 
