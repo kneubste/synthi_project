@@ -21,9 +21,32 @@
 #-- 2020-03-17  1.1      Matthis Lussi   expanded
 #-------------------------------------------------------------------------------
 
+#-------------------------------------------------------------------------------
+#-- Title      : Template for testcases
+#-- Project    : DTP2
+#-------------------------------------------------------------------------------
+#-- File       : testcase.dat
+#-- Author     : Hans-Joachim Gelke
+#-- Company    : 
+#-- Created    : 2018-10-21
+#-- Last update: 2019-2-13
+#-- Platform   : 
+#-- Standard   : VHDL'08
+#-------------------------------------------------------------------------------
+#-- Description: Verschiedene Schalterstellungen/cases (3 Schalter/Bits) fuer den
+#--              Input "SW". Prueft diverse Outputs von i2c_slave_bfm (data_reg's) 
+#-------------------------------------------------------------------------------
+#-- Copyright (c) 2018 - 2019
+#-------------------------------------------------------------------------------
+#-- Revisions  :
+#-- Date        Version  Author          Description
+#-- 2019-02-13  1.0      Hans-Joachim    Created
+#-- 2020-03-17  1.1      Matthis Lussi   expanded
+#-------------------------------------------------------------------------------
+
 #Schalterstellung 000
 rst_sim
-ini_cod 00 00 00 00
+gpi_sim 00 00 00 00
 run_sim 00 00 9f ff
 i2c_ch0 00 00 00 17
 i2c_ch1 00 00 00 17
@@ -38,7 +61,7 @@ i2c_ch9 00 00 00 01
 
 #Schalterstellung 001
 rst_sim
-ini_cod 00 00 00 01
+gpi_sim 00 00 00 01
 run_sim 00 00 9f ff
 i2c_ch0 00 00 00 17
 i2c_ch1 00 00 00 17
@@ -53,7 +76,7 @@ i2c_ch9 00 00 00 01
 
 #Schalterstellung 010
 rst_sim
-ini_cod 00 00 00 02
+gpi_sim 00 00 00 02
 run_sim 00 00 9f ff
 i2c_ch0 00 00 00 17
 i2c_ch1 00 00 00 17
@@ -68,7 +91,7 @@ i2c_ch9 00 00 00 01
 
 #Schalterstellung 011
 rst_sim
-ini_cod 00 00 00 03
+gpi_sim 00 00 00 03
 run_sim 00 00 9f ff
 i2c_ch0 00 00 00 0f
 i2c_ch1 00 00 00 0f
@@ -83,7 +106,7 @@ i2c_ch9 00 00 00 01
 
 #Schalterstellung 100
 rst_sim
-ini_cod 00 00 00 04
+gpi_sim 00 00 00 04
 run_sim 00 00 9f ff
 i2c_ch0 00 00 00 17
 i2c_ch1 00 00 00 17
@@ -98,7 +121,7 @@ i2c_ch9 00 00 00 01
 
 #Schalterstellung 101
 rst_sim
-ini_cod 00 00 00 05
+gpi_sim 00 00 00 05
 run_sim 00 00 9f ff
 i2c_ch0 00 00 00 0f
 i2c_ch1 00 00 00 0f
@@ -113,7 +136,7 @@ i2c_ch9 00 00 00 01
 
 #Schalterstellung 110
 rst_sim
-ini_cod 00 00 00 06
+gpi_sim 00 00 00 06
 run_sim 00 00 9f ff
 i2c_ch0 00 00 00 17
 i2c_ch1 00 00 00 17
@@ -128,7 +151,7 @@ i2c_ch9 00 00 00 01
 
 #Schalterstellung 111
 rst_sim
-ini_cod 00 00 00 07
+gpi_sim00 00 00 07
 run_sim 00 00 9f ff
 i2c_ch0 00 00 00 0f
 i2c_ch1 00 00 00 0f
