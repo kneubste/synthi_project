@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- Title      : midi_sequenzer
--- Project    : 
+-- Project    : Synthesizer
 -------------------------------------------------------------------------------
 -- File       : midi_sequenzer.vhd
 -- Author     :   <lussimat>
@@ -16,9 +16,11 @@
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
 -- Revisions  :
--- Date        Version  Author  Description
--- 2020-04-20  1.0      lussimat        Created
--- 2020-05-17  1.1      kneubste   Project-Contrl. & Beautify.
+-- Date:       | Version:   | Author:   | Description:
+-- 2020-04-20  | 1.0      	 | lussimat  | Created & commented
+-- 2020-04-22	| 1.1			 | lussimat  | Verbesserung: inkrementierung counter
+-- 2020-05-17  | 1.2			 | lussimat  | Array vergrössert (auf 100 Stellen)
+-- 2020-05-17  | 1.3        | kneubste  | Project-Contrl. & Beautify.
 -------------------------------------------------------------------------------
 
 -- Library & Use Statements
@@ -155,6 +157,7 @@ begin
 
   begin
 
+	 --default cases
     next_counter_row    <= counter_row;
     next_counter_time   <= counter_time;
     next_note_sig       <= note_sig;

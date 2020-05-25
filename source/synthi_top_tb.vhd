@@ -6,7 +6,7 @@
 -- Author     : lussimat
 -- Company    : 
 -- Created    : 2020-03-09
--- Last update: 2020-05-17
+-- Last update: 2020-05-21
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
@@ -251,7 +251,7 @@ begin  -- architecture struct
       elsif cmd = string'("uar_sim") then
         uar_sim(tv, usb_txd);  --Serielles Eingangssignal wird angelegt
       elsif cmd = string'("ini_cod") then
-        ini_cod(tv, switch(6 downto 4), key_0);  --Paralleles Signal wird in SWITCH geladen
+        ini_cod(tv, switch(2 downto 0), key_0);  --Paralleles Signal wird in SWITCH geladen
       elsif cmd = string'("gpi_sim") then
         gpi_sim(tv, switch);
       elsif cmd = string'("uar_ch0") then

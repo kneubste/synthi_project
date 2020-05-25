@@ -74,6 +74,7 @@ begin
       note_on         <= note_on_sequenzer;
       note_simple     <= note_simple_sequenzer;
       velocity_simple <= velocity_simple_sequenzer;
+		
     else
       flag_out        <= flag_midi;
       note_on         <= note_on_midi;

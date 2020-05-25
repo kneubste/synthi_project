@@ -1,18 +1,26 @@
--------------------------------------------
--- Block code:  count_down.vhd
--- History:     12.Nov.2013 - 1st version (dqtm)
---             25.Dez.2019 - 2st version (stutzcyr)
--- 17.05.20| kneubste | Project-Contrl. & Beautify.
--- Function: down-counter, with start input and count output. 
---              The input start should be a pulse which causes the 
---                      counter to load its max-value. When start is off,
---                      the counter decrements by one every clock cycle till 
---                      count_o equals 0. Once the count_o reachs 0, the counter
---                      freezes and wait till next start pulse. 
---                      Can be used as enable for other blocks where need to 
---                      count number of iterations.
--------------------------------------------
-
+-------------------------------------------------------------------------------
+-- Title      : baud_tick
+-- Project    : Synthesizer
+-------------------------------------------------------------------------------
+-- File       : baud_tick.vhd
+-- Author     :   <dqtm>
+-- Company    : 
+-- Created    : 2013-11-12
+-- Last update: 2020-05-25
+-- Platform   : 
+-- Standard   : VHDL'08
+-------------------------------------------------------------------------------
+-- Description: This building block generates the baud-tick rate
+-------------------------------------------------------------------------------
+-- Copyright (c) 2020 
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date:       | Version:   | Author:   | Description:
+-- 2013-11-12	| 1.0			 | dqtm		 | created
+-- 2019-12-25  | 1.1      	 | Cyrill    | angepasst
+-- 2020-05-17  | 1.2        | kneubste  | Project-Contrl. & Beautify.
+-- 2020-05-25  | 1.3			 | lussimat  | auskommentiert & neu strukturiert
+-------------------------------------------------------------------------------
 
 -- Library & Use Statements
 -------------------------------------------
@@ -45,11 +53,9 @@ architecture rtl of baud_tick is
   constant half_period     : unsigned(count_width - 1 downto 0) := to_unsigned(clock_freq/ baud_rate /2, count_width);
   signal count, next_count : unsigned(width-1 downto 0);
 
-
 -- Begin Architecture
 -------------------------------------------
 begin
-
 
   --------------------------------------------------
   -- PROCESS FOR COMBINATORIAL LOGIC
@@ -69,10 +75,15 @@ begin
     end if;
 
   end process comb_logic;
+  
+  --------------------------------------------------
+  -- PROCESS FOR OUTPUT-LOGIC
+  --------------------------------------------------
 
   out_logic : process(all)
   begin
-    baud_tick <= '0';
+  
+    baud_tick <= '0'; -- default value
 
     if (count = "000000000") then
       baud_tick <= '1';
@@ -80,20 +91,19 @@ begin
 
   end process out_logic;
 
-
-
   --------------------------------------------------
   -- PROCESS FOR REGISTERS
   --------------------------------------------------
   flip_flops : process(all)
   begin
+  
     if reset_n = '0' then
       count <= to_unsigned(0, width);  -- convert integer value 0 to unsigned with 4bits
     elsif rising_edge(clk) then
       count <= next_count;
     end if;
+	 
   end process flip_flops;
-
 
   --------------------------------------------------
   -- CONCURRENT ASSIGNMENTS
