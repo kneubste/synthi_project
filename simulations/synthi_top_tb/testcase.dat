@@ -21,9 +21,10 @@
 #-- 2020-05-18  1.1      kneubste	 Testcase für Midi-Sequenzer & Instrumentenumstellung
 #-------------------------------------------------------------------------------
 
-
 # Verlaenerung der Runtime in compile.do nötig: 
 # run 5000 ms
+
+rst_sim
 
 #wait mode
 
@@ -35,7 +36,7 @@ run_sim 00 00 0f ff
 
 uar_sim 90 00 00
 run_sim 00 00 00 ff
-uar_sim 32 00 00
+uar_sim 7E 00 00
 run_sim 00 00 00 ff
 uar_sim 70 00 00
 run_sim 00 00 00 ff
@@ -43,258 +44,13 @@ run_sim 00 00 00 ff
 
 #Ton A aus
 
-run_sim 00 00 00 ff
+run_sim 00 ff ff ff
 uar_sim 80 00 00
 run_sim 00 00 00 ff
-uar_sim 32 00 00
+uar_sim 7E 00 00
 run_sim 00 00 00 ff
 uar_sim 00 00 00
 
-#Ton B
 
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 33 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-run_sim 00 00 00 ff
 
-#Ton C
 
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 55 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-
-#Ton C aus
-
-run_sim 00 00 00 ff
-uar_sim 80 00 00
-run_sim 00 00 00 ff
-uar_sim 55 00 00
-run_sim 00 00 00 ff
-uar_sim 00 00 00
-run_sim 00 00 00 ff
-
-#Ton D
-
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 58 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-
-#Ton D aus
-
-run_sim 00 00 00 ff
-uar_sim 80 00 00
-run_sim 00 00 00 ff
-uar_sim 58 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-
-#Ton E
-
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 58 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-
-#Ton E aus
-
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 58 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-
-#Ton F
-
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 59 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-
-
-#Ton F aus
-
-run_sim 00 00 00 ff
-uar_sim 80 00 00
-run_sim 00 00 00 ff
-uar_sim 59 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-
-gpi_sim 00 00 00 00
-run_sim 00 00 0f ff
-
-rst_sim
-
-#record mode
-
-gpi_sim 00 00 00 10
-
-#Ton A
-
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 32 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-run_sim 00 00 00 ff
-
-
-#Ton A aus
-
-run_sim 00 00 00 ff
-uar_sim 80 00 00
-run_sim 00 00 00 ff
-uar_sim 32 00 00
-run_sim 00 00 00 ff
-uar_sim 00 00 00
-
-#Ton B
-
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 33 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-run_sim 00 00 00 ff
-
-#Ton C
-
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 55 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-
-#Ton C aus
-
-run_sim 00 00 00 ff
-uar_sim 80 00 00
-run_sim 00 00 00 ff
-uar_sim 55 00 00
-run_sim 00 00 00 ff
-uar_sim 00 00 00
-run_sim 00 00 00 ff
-
-#Ton D
-
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 58 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-
-#Ton D aus
-
-run_sim 00 00 00 ff
-uar_sim 80 00 00
-run_sim 00 00 00 ff
-uar_sim 58 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-
-#Ton E
-
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 58 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-
-#Ton E aus
-
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 58 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-
-#Ton F
-
-run_sim 00 00 00 ff
-uar_sim 90 00 00
-run_sim 00 00 00 ff
-uar_sim 59 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-
-
-#Ton F aus
-
-run_sim 00 00 00 ff
-uar_sim 80 00 00
-run_sim 00 00 00 ff
-uar_sim 59 00 00
-run_sim 00 00 00 ff
-uar_sim 70 00 00
-
-
-
-#play mode sinus
-
-gpi_sim 00 00 00 00
-run_sim 00 00 00 ff
-gpi_sim 00 00 00 20
-run_sim 00 0f ff ff
-run_sim 00 00 ff ff
-
-gpi_sim 00 00 00 00
-run_sim 00 00 0f ff
-
-
-#play mode Instrument 1
-
-gpi_sim 00 00 00 00
-run_sim 00 00 00 ff
-gpi_sim 00 00 02 60
-run_sim 00 0f ff ff
-run_sim 00 00 ff ff
-
-gpi_sim 00 00 00 00
-run_sim 00 00 ff ff
-
-
-#play mode Instrument 2
-
-gpi_sim 00 00 00 00
-run_sim 00 00 00 ff
-gpi_sim 00 00 02 e0
-run_sim 00 0f ff ff
-run_sim 00 00 ff ff
-
-
-#play mode off Instrument 2
-
-gpi_sim 00 00 00 00
-run_sim 00 00 00 ff
-gpi_sim 00 00 02 c0
-run_sim 00 0f ff ff
-run_sim 00 00 ff ff
-
-rst_sim
-
-#play mode Instrument 2
-
-gpi_sim 00 00 00 00
-run_sim 00 00 00 ff
-gpi_sim 00 00 02 e0
-run_sim 00 0f ff ff
-run_sim 00 00 ff ff

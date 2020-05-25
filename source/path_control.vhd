@@ -2,10 +2,10 @@
 -- Project     : Audio_Synthesizer
 --
 -- File Name   : digital_loop.vhd
--- Description : Multiplexer f�r die parallelen Daten des i2s_master.vhd
---                                      Bei Digital-Loop werden die Daten des i2s_master direkt
---                                      an ihn zurueckgegeben, bei aktivem synthesizer werden die
---                                      Daten des synthesizer an den i2s_master gesendet.
+-- Description : Multiplexer fuer die parallelen Daten des i2s_master.vhd
+--               Bei Digital-Loop werden die Daten des i2s_master direkt
+--               an ihn zurueckgegeben, bei aktivem synthesizer werden die
+--               Daten des synthesizer an den i2s_master gesendet.
 --
 --------------------------------------------------------------------
 -- Change History
