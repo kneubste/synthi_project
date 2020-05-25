@@ -155,6 +155,7 @@ begin
 
   begin
 
+	 --default cases
     next_counter_row    <= counter_row;
     next_counter_time   <= counter_time;
     next_note_sig       <= note_sig;

@@ -128,7 +128,7 @@ begin
         note_available := '1';
 
         if status_reg = '0' then        --note off
-          next_reg_note_on(i) <= '0';   -- turn off note
+          next_reg_note_on(i) <= '0';   --turn off note
         elsif status_reg = '1' and data2_reg = "0000000" then
           next_reg_note_on(i) <= '0';   -- turn off note if velocity is 0 
         end if;
