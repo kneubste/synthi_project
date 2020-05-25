@@ -1,27 +1,33 @@
--- Copyright (C) 2018  Intel Corporation. All rights reserved.
--- Your use of Intel Corporation's design tools, logic functions 
--- and other software and tools, and its AMPP partner logic 
--- functions, and any output files from any of the foregoing 
--- (including device programming or simulation files), and any 
--- associated documentation or information are expressly subject 
--- to the terms and conditions of the Intel Program License 
--- Subscription Agreement, the Intel Quartus Prime License Agreement,
--- the Intel FPGA IP License Agreement, or other applicable license
--- agreement, including, without limitation, that your use is for
--- the sole purpose of programming logic devices manufactured by
--- Intel and sold by Intel or its authorized distributors.  Please
--- refer to the applicable agreement for further details.
-
--- PROGRAM              "Quartus Prime"
--- VERSION              "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
--- CREATED              "Mon Feb 17 11:01:37 2020"
-
--- 2020-05-17  1.1      kneubste   Project-Contrl. & Beautify.
+-------------------------------------------------------------------------------
+-- Title      : uart_top
+-- Project    : Synthesizer
+-------------------------------------------------------------------------------
+-- File       : uart_top.vhd
+-- Author     :   <Cyrill>
+-- Company    : 
+-- Created    : 2020-04-20
+-- Last update: 2020-05-25
+-- Platform   : 
+-- Standard   : VHDL'08
+-------------------------------------------------------------------------------
+-- Description: This building block contains multiple shiftregister and counters. 
+-- 				 It's required for analysing data-packets and generating baud tick.
+-------------------------------------------------------------------------------
+-- Copyright (c) 2020 
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date:       | Version:   | Author:   | Description:
+-- 2020-04-20  | 1.0      	 | Cyrill    | Created
+-- 2020-05-17  | 1.1        | kneubste  | Project-Contrl. & Beautify.
+-- 2020-05-25  | 1.2			 | lussimat  | auskommentiert & neu strukturiert
+-------------------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
-
+use ieee.numeric_std.all;
 library work;
+
+-------------------------------------------------------------------------------
 
 entity uart_top is
   port
@@ -36,7 +42,37 @@ entity uart_top is
       );
 end uart_top;
 
+-------------------------------------------------------------------------------
+
 architecture bdf_type of uart_top is
+
+  -----------------------------------------------------------------------------
+  -- Internal signal declarations
+  -----------------------------------------------------------------------------
+
+  signal sig_baud_tick           : std_logic;
+  signal sig_bit_count           : std_logic_vector(3 downto 0);
+  signal sig_data_valid          : std_logic;
+  signal sig_falling_puls        : std_logic;
+  signal sig_hex_lsb_out         : std_logic_vector(3 downto 0);
+  signal sig_hex_msb_out         : std_logic_vector(3 downto 0);
+  signal sig_led_blink           : std_logic;
+  signal sig_load_in             : std_logic;
+  signal sig_parallel_data       : std_logic_vector(9 downto 0);
+  signal sig_parallel_in         : std_logic_vector(9 downto 0);
+  signal sig_PIO2_Connected      : std_logic;
+  signal sig_PIO5_status         : std_logic;
+  signal sig_PIO_RF_Status       : std_logic;
+  signal sig_seg_out_1           : std_logic_vector(6 downto 0);
+  signal sig_seg_out_2           : std_logic_vector(6 downto 0);
+  signal sig_serial_data_from_BT : std_logic;
+  signal sig_shift_enable        : std_logic;
+  signal sig_start_bit           : std_logic;
+  signal SYNTHESIZED_WIRE_5      : std_logic;
+
+  -----------------------------------------------------------------------------
+  -- Component declarations
+  -----------------------------------------------------------------------------
 
   component output_register
     generic (width : integer
@@ -112,35 +148,12 @@ architecture bdf_type of uart_top is
          falling_pulse : out std_logic
          );
   end component;
-
-  signal sig_baud_tick           : std_logic;
-  signal sig_bit_count           : std_logic_vector(3 downto 0);
-  signal sig_data_valid          : std_logic;
-  signal sig_falling_puls        : std_logic;
-  signal sig_hex_lsb_out         : std_logic_vector(3 downto 0);
-  signal sig_hex_msb_out         : std_logic_vector(3 downto 0);
-  signal sig_led_blink           : std_logic;
-  signal sig_load_in             : std_logic;
-  signal sig_parallel_data       : std_logic_vector(9 downto 0);
-  signal sig_parallel_in         : std_logic_vector(9 downto 0);
-  signal sig_PIO2_Connected      : std_logic;
-  signal sig_PIO5_status         : std_logic;
-  signal sig_PIO_RF_Status       : std_logic;
-  signal sig_seg_out_1           : std_logic_vector(6 downto 0);
-  signal sig_seg_out_2           : std_logic_vector(6 downto 0);
-  signal sig_serial_data_from_BT : std_logic;
-  signal sig_shift_enable        : std_logic;
-  signal sig_start_bit           : std_logic;
-  signal SYNTHESIZED_WIRE_5      : std_logic;
-
+  
+  -----------------------------------------------------------------------------
+  -- Component instantiations
+  -----------------------------------------------------------------------------
 
 begin
-
-  rx_data         <= sig_parallel_data(8 downto 1);
-  sig_load_in     <= '0';
-  sig_parallel_in <= "0000000000";
-  rx_data_rdy     <= sig_data_valid;
-
 
   b2v_inst : output_register
     generic map(width => 10
@@ -206,6 +219,11 @@ begin
              clk           => clk,
              reset_n       => reset_n,
              falling_pulse => sig_falling_puls);
+				 
 
+  rx_data         <= sig_parallel_data(8 downto 1);
+  sig_load_in     <= '0';
+  sig_parallel_in <= std_logic_vector(to_unsigned(0, 10)); 
+  rx_data_rdy     <= sig_data_valid;
 
 end bdf_type;

@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- Title      : synthi_top
--- Project    : 
+-- Project    : Synthesizer
 -------------------------------------------------------------------------------
 -- File       : synthi_top.vhd
 -- Author     :   <Cyrill@DESKTOP-MRJOR86>
@@ -105,6 +105,7 @@ architecture str of synthi_top is
   signal reg_note_simple      : t_tone_array;
   signal reg_velocity_simple  : t_tone_array;
   signal reg_note_on          : note_on_array;
+  
   -----------------------------------------------------------------------------
   -- Component declarations
   -----------------------------------------------------------------------------
@@ -264,7 +265,8 @@ begin  -- architecture str
   -- Component instantiations
   -----------------------------------------------------------------------------
 
-  --Provisorische Ueberpruefung
+  -- Ueberpruefung: Zahl der eingebenen Note (auf 7-Segment ausgegeben)
+  ----------------------------------------------------------------------
   bus_hex2sevseg1 : bus_hex2sevseg
     port map (
       data_in => note_signal(3 downto 0),
@@ -274,6 +276,7 @@ begin  -- architecture str
     port map (
       data_in => '0' & note_signal(6 downto 4),
       seg_o   => HEX3);
+  ----------------------------------------------------------------------
 
   -- instance "tone_generator"
   tone_generator_1 : tone_generator
@@ -385,6 +388,7 @@ begin  -- architecture str
       reg_note_simple_o     => reg_note_simple,
       reg_velocity_simple_o => reg_velocity_simple);
 
+  -- instance "mode_switch1"
   mode_switch1 : mode_switch
     port map (
       mode                      => SW(5),
@@ -401,6 +405,7 @@ begin  -- architecture str
       velocity_simple           => velocity_signal_mode,
       flag_out                  => flag_mode_sig);
 
+  -- instance "midi_sequenzer1"
   midi_sequenzer1 : midi_sequenzer
     port map (
       clk_12m        => sig_clk_12m,

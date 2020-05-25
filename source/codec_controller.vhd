@@ -1,7 +1,7 @@
 --------------------------------------------------------------------
---
--- Project     : Audio_Synth
---
+-- Title			: codec_controller
+-- Project     : Synthesizer
+--------------------------------------------------------------------
 -- File Name   : codec_controller.vhd
 -- Description : Controller to define Audio Codec Configuration via I2C
 --                                      
@@ -11,11 +11,13 @@
 --                              
 --------------------------------------------------------------------
 -- Change History
+--------------------------------------------------------------------
 -- Date     |Name      |Modification
 ------------|----------|--------------------------------------------
--- 6.03.19 | gelk     | Prepared template for students
--- 9.03.19 | kneubste | Start with project.
--- 2020-05-17  1.2      kneubste   Project-Contrl. & Beautify.
+-- 6.03.19  | gelk     | Prepared template for students
+-- 9.03.19  | kneubste | Start with project.
+-- 17.5.20  | kneubste | Project-Contrl. & Beautify.
+-- 25.5.20  | lussimat | auskommentiert
 --------------------------------------------------------------------
 
 library ieee;
@@ -28,7 +30,7 @@ use work.reg_table_pkg.all;
 entity codec_controller is
 
   port (
-    mode         : in  std_logic_vector(2 downto 0);  -- Inputs to choose Audio_MODE
+    mode         : in  std_logic_vector(2 downto 0);  -- Inputs to choose Audio_MODE (SW0 - SW2)
     write_done_i : in  std_logic;       -- Input from i2c register write_done
     ack_error_i  : in  std_logic;       -- Inputs to check the transmission
     clk          : in  std_logic;
@@ -67,9 +69,9 @@ begin
     end if;
 
   end process flip_flops;
-  --------------------------------------------------
+  ----------------------------------------------------------------------------------------
   -- PROCESS FOR OUTPUT-codec-LOGIC 
-  --------------------------------------------------
+  ----------------------------------------------------------------------------------------
   fsm_state_logic : process (all)
   begin
 
@@ -84,10 +86,10 @@ begin
         write_o        <= '1';
         next_fsm_state <= st_wait_write;
       when st_wait_write =>
-        if write_done_i = '1' and count < 9 then
+        if write_done_i = '1' and count < 9 then -- Packet nicht komplet?
           next_fsm_state <= st_idle;
-          next_count     <= count + 1;
-        elsif (write_done_i = '1' and count >= 9) or ack_error_i = '1' then
+          next_count     <= count + 1; -- inkrementieren
+        elsif (write_done_i = '1' and count >= 9) or ack_error_i = '1' then --Packet komplet?
           next_fsm_state <= st_state_end;
         else null;
         end if;
@@ -97,12 +99,10 @@ begin
   end process fsm_state_logic;
 
 
+------------------------------------------------------------------------------------------
+-- OUTPUT: CODEC-SETTINGS 
+------------------------------------------------------------------------------------------
 
-
--- purpose: oudput data
--- type   : combinational
--- inputs : all
--- outputs: 
   outdata : process (all) is
   begin  -- process outdata
     case mode is
