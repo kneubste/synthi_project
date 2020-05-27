@@ -3,22 +3,22 @@
 -- Project    : 
 -------------------------------------------------------------------------------
 -- File       : tone_generator.vhd
--- Author     :   <Cyrill@DESKTOP-MRJOR86>
+-- Author     : Cyrill Stutz <stutzcyr>
 -- Company    : 
 -- Created    : 2020-04-07
--- Last update: 2020-05-17
+-- Last update: 2020-05-27
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: This block contains the dds's for sythi_project
+-- Description: This block contains the dds's for sythi_project.
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author  Description
--- 2020-04-07  1.0      Cyrill  Created
+-- 2020-04-07  1.0      stutzcyr   Created
 -- 2020-05-11  1.1      lussimat   Changes for 10 DDS.
--- 2020-05-17  1.2      kneubste   Project-Contrl. & Beautify.
+-- 2020-05-27  1.2      kneubste   Project-Contrl. & Beautify.
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -33,7 +33,7 @@ entity tone_generator is
   port (clk_12m     : in  std_logic;
         rst_n       : in  std_logic;
         tone_on_i   : in  note_on_array;
-        step_i      : in  std_logic;    --load von m2s_master
+        step_i      : in  std_logic;    --load from m2s_master
         note_i      : in  t_tone_array;
         instr_sel_i : in  std_logic_vector(3 downto 0);
         velocity_i  : in  t_tone_array;
@@ -73,6 +73,8 @@ begin  -- architecture str
   -- Component instantiations
   -----------------------------------------------------------------------------
 
+  -- For-Loop for automatic instance generation for 10 DDS.
+
   -- instance "10 dds"
   dds_inst_gen : for i in 0 to 9 generate
     inst_dds : dds
@@ -82,8 +84,8 @@ begin  -- architecture str
         step_i      => step_i,
         tone_on_i   => tone_on_i(i),
         instr_sel_i => instr_sel_i,
-        phi_incr_i  => lut_midi2dds(to_integer(unsigned(note_i(i)))),  --Lut wert von note_i
-        attenu_i    => velocity_i(i)(6 downto 4),  --MSBs der velocity_i
+        phi_incr_i  => lut_midi2dds(to_integer(unsigned(note_i(i)))),  --Lut value of note_i
+        attenu_i    => velocity_i(i)(6 downto 4),  --MSBs of velocity_i
         dds_o       => dds_o_array(i));
   end generate dds_inst_gen;
 

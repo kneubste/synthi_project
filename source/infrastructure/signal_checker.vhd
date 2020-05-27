@@ -2,7 +2,7 @@
 -- Block code:  signal_checker.vhd
 -- History:     15.Jan.2017 - 1st version (dqtm)
 --              19.Jan.2017 - further reduction for SEP HS1
---					  3.Sept.2019 - Separate Bit counter from FSM
+--		03.Sep.2019 - Separate Bit counter from FSM
 --                 <date> - <changes>  (<author>)
 -- Function: fsm and registers for UART-RX in DTP1 Mini-project alternative implementation.
 --                      This block is the central piece of the UART-RX, coordinating byte reception and storage of 1 byte.

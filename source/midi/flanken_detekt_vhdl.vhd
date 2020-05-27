@@ -1,7 +1,6 @@
 -------------------------------------------
 -- Block code:  flankenDetekt_v2.vhd
 -- History:     14.Oct.2013 - 1st version (dqtm)
--- 17.05.20| kneubste | Project-Contrl. & Beautify.
 -- Function: template to be edited by students in order 
 --           to describe edge detector with rise & fall outputs. 
 --             

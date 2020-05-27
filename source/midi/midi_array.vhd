@@ -7,19 +7,20 @@
 -- Author     :   <lussimat>
 -- Company    : 
 -- Created    : 2020-04-20
--- Last update: 2020-05-17
+-- Last update: 2020-05-27
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: thie building block assignes velocity, note_on and the note 
---              itself to one of the ten dds
+-- Description: This building block assignes velocity, note_on and the note 
+--              itself to one of the 10 DDS. It is not part of the midi-controller 
+--              for easier oversight and feature addition.
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author  Description
 -- 2020-05-06  1.0      lussimat        Created
--- 2020-05-17  1.1      kneubste | Project-Contrl. & Beautify.
+-- 2020-05-27  1.1      kneubste | Project-Contrl. & Beautify.
 -------------------------------------------------------------------------------
 
 -- Library & Use Statements
@@ -40,7 +41,7 @@ entity midi_array is
         data1_reg             : in  std_logic_vector(6 downto 0);
         data2_reg             : in  std_logic_vector(6 downto 0);
         new_data_flag         : in  std_logic;
-		  rst_flag_i				: in  std_logic;
+        rst_flag_i            : in  std_logic;
         reg_note_on_o         : out note_on_array;
         reg_note_simple_o     : out t_tone_array;
         reg_velocity_simple_o : out t_tone_array
@@ -90,15 +91,15 @@ begin
 
   midi_array_logic : process (all)
 
-    variable note_available : std_logic := '0';  --wenn Ton bereits gespielt wird (dann = 1) => im Array bereits verzeichnet
-    variable note_written   : std_logic := '0';  --wenn Ton gerade eingetragen wurde (dann 1) => verhindert unnoetige loops
+    variable note_available : std_logic := '0';  -- if tone already playing (= 1) then => already written into array
+    variable note_written   : std_logic := '0';  -- if tone just was written (= 1) => prevents unneeded loops.
 
   begin
 
     ------------------------------------------------------
     --default statements
     ------------------------------------------------------
-    if new_data_flag = '1' then  --erhaelt status (etwas wird geloescht oder geschrieben) 
+    if new_data_flag = '1' then         --receives status to write or delete.
       note_available := '0';
       note_written   := '0';
     else
@@ -109,16 +110,16 @@ begin
     next_reg_note_on  <= reg_note_on;
     next_reg_velocity <= reg_velocity;
     next_reg_note     <= reg_note;
-	 
-	 ------------------------------------------------------
-	 -- RESET AFTER SWITCH 5 (PLAY) GOES '0'
-	 ------------------------------------------------------
-	 
-	 if rst_flag_i = '1' then
-		for i in 0 to 9 loop
-			next_reg_note_on(i) <= '0';
-		end loop;
-	 end if;
+
+    ------------------------------------------------------
+    -- RESET AFTER SWITCH 5 (PLAY) GOES '0'
+    ------------------------------------------------------
+
+    if rst_flag_i = '1' then
+      for i in 0 to 9 loop
+        next_reg_note_on(i) <= '0';
+      end loop;
+    end if;
 
     ------------------------------------------------------
     -- CHECK IF NOTE IS ALREADY ENTERED IN MIDI ARRAY

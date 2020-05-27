@@ -1,26 +1,27 @@
 -------------------------------------------------------------------------------
--- Title      : dds Direct Digital Synthesis
+-- Title      : DDS Direct Digital Synthesis
 -- Project    : 
 -------------------------------------------------------------------------------
 -- File       : dds.vhd
--- Author     :   <Cyrill@DESKTOP-MRJOR86>
+-- Author     : Cyrill Stutz <stutzcyr>
 -- Company    : 
 -- Created    : 2020-04-06
--- Last update: 2020-05-17
+-- Last update: 2020-05-27
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: in this block a LUT is run depending on phi_incr. 
---              The resulting value is adjusted with attenu (= how hard was the key pressed?)
+-- Description: In this block a LUT is run depending on phi_incr. 
+--              The resulting value is adjusted with attenu.
+--              Attenu is lowering the output signal strength.
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author  Description
--- 2020-04-06  1.0      Cyrill  Created
+-- 2020-04-06  1.0      stutzcyr   Created
 -- 2020-05-15  1.1      kneubste   Addition of ton_on_i function.
 -- 2020-05-15  1.2      kneubste   Addition of Instrument-Select
--- 2020-05-17  1.3      kneubste   Project-Contrl. & Beautify.
+-- 2020-05-27  1.3      kneubste   Project-Contrl. & Beautify.
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -35,12 +36,12 @@ entity dds is
   port(
     clk_12m     : in  std_logic;
     reset_n     : in  std_logic;
-    step_i      : in  std_logic;
-    tone_on_i   : in  std_logic;
-    instr_sel_i : in  std_logic_vector(3 downto 0);  -- Schalter fuer die Wahl des Instruments ein.
-    phi_incr_i  : in  std_logic_vector(N_CUM-1 downto 0);  -- Zaehler inkrement Schritte --> Freq des Sin
-    attenu_i    : in  std_logic_vector(2 downto 0);
-    dds_o       : out std_logic_vector(15 downto 0)
+    step_i      : in  std_logic; -- Generated from I2S-Master. Increments the modulo counter.
+    tone_on_i   : in  std_logic; -- Has to be on to output.
+    instr_sel_i : in  std_logic_vector(3 downto 0);  -- Switch for instrument selection.
+    phi_incr_i  : in  std_logic_vector(N_CUM-1 downto 0);  -- Counter increment steps. Adjusts the sinus frequenzy.
+    attenu_i    : in  std_logic_vector(2 downto 0); -- Weakens output signal.
+    dds_o       : out std_logic_vector(15 downto 0) -- 16 Bit audio output. 
     );
 
 end entity dds;
@@ -72,7 +73,8 @@ begin  -- architecture str
 
   lut_addr <= to_integer(count(N_CUM-1 downto N_CUM - N_LUT));
 
-  instrument : process(all)  -- Prozess fuer die Auswahl des Instrument-LUTs.
+  instrument : process(all)             -- Process for instrument selection.
+
 
   begin
     if instr_sel_i(0) = '1' then
@@ -85,13 +87,12 @@ begin  -- architecture str
         when "101"  => lut_val <= to_signed(LUT_symetric_a(lut_addr), N_AUDIO);  -- Audio Output accessing LUT_symetric_a
         when "110"  => lut_val <= to_signed(LUT_tannerin_a(lut_addr), N_AUDIO);  -- Audio Output accessing LUT_tannerin_a
         when "111"  => lut_val <= to_signed(LUT_eguitar_a(lut_addr), N_AUDIO);  -- Audio Output accessing LUT_eguitar_a
-		  when others => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO);  -- Audio Output accessing lut_sinus
+        when others => lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO);  -- Audio Output accessing lut_sinus
       end case;
     else
       lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO);  -- Audio Output accessing lut_sinus
     end if;
   end process instrument;
-
 
 
   attenu : process(all)

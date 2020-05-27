@@ -1,10 +1,22 @@
--------------------------------------------
--- Block code:  bit_counter.vhd
--- History:     12.Nov.2013 - 1st version (dqtm)
---              29.11.2019 - changed from count_down.vhd  (kneubste)
--- 17.05.20| kneubste | Project-Contrl. & Beautify.
--------------------------------------------
-
+-------------------------------------------------------------------------------
+-- Title      : bit_counter.vhd
+-- Project    : synthi_project
+-------------------------------------------------------------------------------
+-- File       : midi_controller.vhd
+-- Author     :   <kneubste>
+-- Company    : 
+-- Created    : 2013-11-13 (dqtm)
+-- Last update: 2020-05-27
+-- Platform   : 
+-- Standard   : VHDL'08
+-------------------------------------------------------------------------------
+-- Description: The bit_counter is a modulo counter which counts from 0 to 127. Each run-through from 0 to 127 equals a stereo signal sampling period.
+-------------------------------------------------------------------------------
+-- Revision:
+-- 12.11.13| dqtm     | 1st version
+-- 29.11.19| kneubste | changed from count_down.vhd
+-- 17.05.27| kneubste | Project-Contrl. & Beautify.
+-------------------------------------------------------------------------------
 
 -- Library & Use Statements
 -------------------------------------------
