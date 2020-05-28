@@ -3,22 +3,22 @@
 -- Project    : 
 -------------------------------------------------------------------------------
 -- File       : infrastructure.vhd
--- Author     :   <Cyrill@DESKTOP-MRJOR86>
+-- Author     : Cyrill Stutz <stutzcyr>
 -- Company    : 
 -- Created    : 2020-02-20
--- Last update: 2020-05-17
+-- Last update: 2020-05-28
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
 -- Description: This is the Infrastructure blocke that contains the Modulo
--- divider, clock sync and the signal check.
+--              divider, clock sync and the signal check.
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author  Description
 -- 2020-02-20  1.0      Cyrill  Created
--- 2020-05-17  1.1      kneubste   Project-Contrl. & Beautify.
+-- 2020-05-28  1.1      kneubste   Project-Contrl. & Beautify.
 -------------------------------------------------------------------------------
 
 library ieee;

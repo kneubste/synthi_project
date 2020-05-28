@@ -1,7 +1,7 @@
 --------------------------------------------------------------------
 -- Project     : Audio_Synthesizer
 --
--- File Name   : digital_loop.vhd
+-- File Name   : path_control.vhd
 -- Description : Multiplexer fuer die parallelen Daten des i2s_master.vhd
 --               Bei Digital-Loop werden die Daten des i2s_master direkt
 --               an ihn zurueckgegeben, bei aktivem synthesizer werden die

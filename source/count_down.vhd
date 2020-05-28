@@ -1,9 +1,16 @@
--------------------------------------------
--- Block code:  count_down.vhd
--- History:     12.Nov.2013 - 1st version (dqtm)
--- 2020-05-17  1.1      kneubste   Project-Contrl. & Beautify.
---                 <date> - <changes>  (<author>)
--- Function: down-counter, with start input and count output. 
+-------------------------------------------------------------------------------
+-- Title      : count_down
+-- Project    : Synthesizer
+-------------------------------------------------------------------------------
+-- File       : uart_top.vhd
+-- Author     :   <dqtm>
+-- Company    : 
+-- Created    : 2013-11-12
+-- Last update: 2020-05-28
+-- Platform   : 
+-- Standard   : VHDL'08
+-------------------------------------------------------------------------------
+-- Description:         down-counter, with start input and count output. 
 --                      The input start should be a pulse which causes the 
 --                      counter to load its max-value. When start is off,
 --                      the counter decrements by one every clock cycle till 
@@ -11,8 +18,14 @@
 --                      freezes and wait till next start pulse. 
 --                      Can be used as enable for other blocks where need to 
 --                      count number of iterations.
--------------------------------------------
-
+-------------------------------------------------------------------------------
+-- Copyright (c) 2020 
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date:       | Version:   | Author:   | Description:
+-- 2020-04-20  | 1.0        | dqtm      | 1st version
+-- 2020-05-17  | 1.1        | kneubste  | Project-Contrl. & Beautify.
+-------------------------------------------------------------------------------
 
 -- Library & Use Statements
 -------------------------------------------

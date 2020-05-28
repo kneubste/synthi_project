@@ -1,20 +1,29 @@
---------------------------------------------------------------------
---
--- Project     : Master_I2s
---
--- File Name   : shiftreg_S2P.vhd
--- Description : converts serial signal to parallel signal
---                                      
--- Features:    Ist shift_enable High, wird bei einer steigenden Flanke
---              von clk_12m geschoben.                
---------------------------------------------------------------------
--- Change History
--- Date     |Name      |Modification
-------------|----------|--------------------------------------------
--- 6.03.19 | gelk     | Prepared template for students
--- 21.03.19| lussimat | Start with project.
--- 17.05.20| kneubste | Project-Contrl. & Beautify.
---------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-- Title      : shiftreg_s2p
+-- Project    : Master_I2s
+-------------------------------------------------------------------------------
+-- File       : shiftrep_S2P.vhd
+-- Author     : gelk
+-- Company    : 
+-- Created    : 2019-03-06
+-- Last update: 2020-05-28
+-- Platform   : 
+-- Standard   : VHDL'08
+-------------------------------------------------------------------------------
+-- Description: If shift_enable High, shift from clk_12m with rising flank.
+--		
+-------------------------------------------------------------------------------
+-- Copyright (c) 2020 
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author  Description
+-- 2019.03.06 | gelk     | Prepared template for students
+-- 2020.03.21 | lussimat | Start with project.
+-- 2020.05.28 | kneubste | Project-Contrl. & Beautify.
+-------------------------------------------------------------------------------
+
+
+
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -26,8 +35,8 @@ use work.reg_table_pkg.all;
 entity shiftreg_S2P is
 
   port (
-    en_1      : in  std_logic;          --bclk muss high sein
-    en_2      : in  std_logic;          --shift_l oder shift_r
+    en_1      : in  std_logic;          --bclk has to be high
+    en_2      : in  std_logic;          --shift_l or shift_r
     ser_in    : in  std_logic;
     clk_12m   : in  std_logic;
     rst_n_12m : in  std_logic;

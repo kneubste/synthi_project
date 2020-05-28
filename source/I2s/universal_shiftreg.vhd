@@ -1,21 +1,26 @@
---------------------------------------------------------------------
---
--- Project     : Master_I2s
---
--- File Name   : universal_shiftreg.vhd
--- Description : converts parallel signal to serial signal
---                                      
--- Features:    ist load und bclk high, wird das parallele Signal 
---              in das Schieberegister geladen. Anhand des shift
---              enables und dem Haupttakt clk_12m wird geschoben.                
---------------------------------------------------------------------
--- Change History
--- Date     |Name      |Modification
-------------|----------|--------------------------------------------
--- 6.03.19 | gelk     | Prepared template for students
--- 30.03.19| lussimat | Start with project.
--- 17.05.20| kneubste | Project-Contrl. & Beautify.
---------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-- Title      : universal_shiftreg
+-- Project    : Master_I2s
+-------------------------------------------------------------------------------
+-- File       : universal_shiftreg.vhd
+-- Author     : gelk
+-- Company    : 
+-- Created    : 2019-03-06
+-- Last update: 2020-05-28
+-- Platform   : 
+-- Standard   : VHDL'08
+-------------------------------------------------------------------------------
+-- Description: If shift_enable High, shift from clk_12m with rising flank.
+--		
+-------------------------------------------------------------------------------
+-- Copyright (c) 2020 
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author  Description
+-- 2019.03.06 | gelk     | Prepared template for students
+-- 2020.03.30 | lussimat | Start with project.
+-- 2020.05.28 | kneubste | Project-Contrl. & Beautify.
+-------------------------------------------------------------------------------
 
 library ieee;
 library work;
@@ -28,10 +33,10 @@ entity universal_shiftreg is
 
   port (
     load      : in  std_logic;
-    en_1      : in  std_logic;          --bclk muss high sein
+    en_1      : in  std_logic;          --bclk has to be high 
     en_2      : in  std_logic;
     clk_12m   : in  std_logic;
-    rst_n_12m : in  std_logic;          --shift_l oder shift_r
+    rst_n_12m : in  std_logic;          --shift_l or shift_r
     ser_out   : out std_logic;
     ser_in    : in  std_logic;
     par_in    : in  std_logic_vector(15 downto 0);
@@ -55,11 +60,11 @@ begin
     next_shiftreg_S2P <= shiftreg_S2P;
     next_shiftreg_P2S <= shiftreg_P2S;
 
-    if load = '1' and en_1 = '1' then  --*(wuerde load nicht mit bclk gekoppelt werden, wuerde eine Periode zu frueh geschoben werden)
-      next_shiftreg_P2S <= par_in;      --paralleles signal wird geladen
+    if load = '1' and en_1 = '1' then  --*(If load wasn't linked with bclk, it would shift 1 period early.)
+      next_shiftreg_P2S <= par_in;      --parallel signal load
     elsif en_1 = '1' and en_2 = '1' then
-      next_shiftreg_P2S <= shiftreg_P2S(14 downto 0) & '0';  --schiebe von rechts nach links
-      next_shiftreg_S2P <= shiftreg_S2P(14 downto 0) & ser_in;  --schiebe von links nach rechts
+      next_shiftreg_P2S <= shiftreg_P2S(14 downto 0) & '0';  --shift right to left
+      next_shiftreg_S2P <= shiftreg_S2P(14 downto 0) & ser_in;  --shift left to right
     end if;
   end process comb_shift;
 

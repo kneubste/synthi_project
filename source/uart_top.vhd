@@ -17,9 +17,9 @@
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date:       | Version:   | Author:   | Description:
--- 2020-04-20  | 1.0      	 | Cyrill    | Created
+-- 2020-04-20  | 1.0        | Cyrill    | Created
 -- 2020-05-17  | 1.1        | kneubste  | Project-Contrl. & Beautify.
--- 2020-05-25  | 1.2			 | lussimat  | auskommentiert & neu strukturiert
+-- 2020-05-25  | 1.2        | lussimat  | auskommentiert & neu strukturiert
 -------------------------------------------------------------------------------
 
 library ieee;

@@ -1,13 +1,26 @@
--------------------------------------------
--- Block code:  i2s_frame_generator.vhd
--- History:     24.Maerz 2020 - 1st version (lussimat)
---              30.Maerz 2020 - 2nd version (lussimat) | Fehlersuche und Überarbeitung
--- 17.05.20| kneubste | Project-Contrl. & Beautify.
---
--- Function: Diese entity generiert das load-, shift_left-, shift_right- und das
---           word select (kurz: ws) -Signal.
--------------------------------------------
-
+-------------------------------------------------------------------------------
+-- Title      : framegenerator
+-- Project    : synthi_project
+-------------------------------------------------------------------------------
+-- File       : i2s_frame_generator.vhd
+-- Author     : lussimat
+-- Company    : 
+-- Created    : 2020-03-24
+-- Last update: 2020-05-28
+-- Platform   : 
+-- Standard   : VHDL'08
+-------------------------------------------------------------------------------
+-- Description: This entity generates the load-, shift_left-, 
+--		shift_right-, and the word_select(ws)-Signal.
+-------------------------------------------------------------------------------
+-- Copyright (c) 2020 
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author  Description
+-- 2020-03-24| lussimat | 1st version
+-- 2020-03-30| lussimat | Debugging
+-- 2020-05-28| kneubste | Project-Contrl. & Beautify.
+-------------------------------------------------------------------------------
 -- Library & Use Statements
 -------------------------------------------
 library ieee;

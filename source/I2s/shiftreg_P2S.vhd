@@ -1,21 +1,26 @@
---------------------------------------------------------------------
---
--- Project     : Master_I2s
---
--- File Name   : shiftreg_P2S.vhd
--- Description : converts parallel signal to serial signal
---                                      
--- Features:    ist load und bclk high, wird das parallele Signal 
---              in das Schieberegister geladen. Anhand des shift
---              enables und dem Haupttakt clk_12m wird geschoben.                
---------------------------------------------------------------------
--- Change History
--- Date     |Name      |Modification
-------------|----------|--------------------------------------------
--- 6.03.19 | gelk     | Prepared template for students
--- 25.03.19| lussimat | Start with project.
--- 17.05.20| kneubste | Project-Contrl. & Beautify.
---------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-- Title      : shiftreg_p2s
+-- Project    : Master_I2s
+-------------------------------------------------------------------------------
+-- File       : shiftrep_P2S.vhd
+-- Author     : gelk
+-- Company    : 
+-- Created    : 2019-03-06
+-- Last update: 2020-05-28
+-- Platform   : 
+-- Standard   : VHDL'08
+-------------------------------------------------------------------------------
+-- Description: If load and bclk high: shift parallel signal in shiftreg. 
+--		Shifting with enable and main clock clk_12m.
+-------------------------------------------------------------------------------
+-- Copyright (c) 2020 
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author  Description
+-- 2019.03.06 | gelk     | Prepared template for students
+-- 2020.03.25 | lussimat | Start with project.
+-- 2020.05.28 | kneubste | Project-Contrl. & Beautify.
+-------------------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -28,8 +33,8 @@ entity shiftreg_P2S is
 
   port (
     load      : in  std_logic;
-    en_1      : in  std_logic;          --bclk muss high sein
-    en_2      : in  std_logic;          --shift_l oder shift_r
+    en_1      : in  std_logic;          --bclk has to be high 
+    en_2      : in  std_logic;          --shift_l or shift_r
     ser_out   : out std_logic;
     clk_12m   : in  std_logic;
     rst_n_12m : in  std_logic;
@@ -50,7 +55,7 @@ begin
   comb_shift : process(all)
   begin
 
-    if load = '1' and en_1 = '1' then  --*(wuerde load nicht mit bclk gekoppelt werden, wuerde eine Periode zu frueh geschoben werden)
+    if load = '1' and en_1 = '1' then  --*(If load wasn't linked with bclk, it would shift 1 period early.) 
       next_shiftreg <= par_in;
     elsif shift_enable = '1' then
       next_shiftreg <= shiftreg(14 downto 0) & '0';

@@ -1,14 +1,12 @@
 --------------------------------------------------------------------
--- Title			: codec_controller
--- Project     : Synthesizer
+-- Title	: codec_controller
+-- Project	: Synthesizer
 --------------------------------------------------------------------
 -- File Name   : codec_controller.vhd
 -- Description : Controller to define Audio Codec Configuration via I2C
 --                                      
--- Features:    Der Baustein wartet bis das reset_n signal inaktiv wird.
---              Danach sendet dieser Codec Konfigurierungsdaten an
---              den Baustein i2c_Master
---                              
+-- Features:    This componen waits till reset_n singal is inactive. 
+--		Then it sends codec configuration data to i2c_Master                       
 --------------------------------------------------------------------
 -- Change History
 --------------------------------------------------------------------
@@ -16,8 +14,8 @@
 ------------|----------|--------------------------------------------
 -- 6.03.19  | gelk     | Prepared template for students
 -- 9.03.19  | kneubste | Start with project.
--- 17.5.20  | kneubste | Project-Contrl. & Beautify.
 -- 25.5.20  | lussimat | auskommentiert
+-- 28.5.20  | kneubste | Project-Contrl. & Beautify.
 --------------------------------------------------------------------
 
 library ieee;
@@ -86,10 +84,10 @@ begin
         write_o        <= '1';
         next_fsm_state <= st_wait_write;
       when st_wait_write =>
-        if write_done_i = '1' and count < 9 then -- Packet nicht komplet?
+        if write_done_i = '1' and count < 9 then -- Packet incomplete?
           next_fsm_state <= st_idle;
-          next_count     <= count + 1; -- inkrementieren
-        elsif (write_done_i = '1' and count >= 9) or ack_error_i = '1' then --Packet komplet?
+          next_count     <= count + 1; -- incremented
+        elsif (write_done_i = '1' and count >= 9) or ack_error_i = '1' then --Packet complete?
           next_fsm_state <= st_state_end;
         else null;
         end if;

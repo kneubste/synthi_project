@@ -10,14 +10,14 @@
 -- Platform   : 
 -- Standard   : VHDL'08
 -------------------------------------------------------------------------------
--- Description: It is the decoder block for velocity, note_on and the note itself
+-- Description: this is the decoder block for velocity, note_on and the note itself.
 -------------------------------------------------------------------------------
 -- Copyright (c) 2020 
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author  Description
 -- 2020-04-20  1.0      kneubste   Created
--- 2020-05-17  1.1      kneubste   Project-Contrl. & Beautify.
+-- 2020-05-28  1.1      kneubste   Project-Contrl. & Beautify.
 -------------------------------------------------------------------------------
 
 -- Library & Use Statements
@@ -101,7 +101,7 @@ begin
 
       when st_wait =>
 
-        next_data_flag_sig <= '0';      --keine neue Status-Daten stehen an
+        next_data_flag_sig <= '0';      -- No new status data left
         if rx_data_rdy = '0' then
           next_fsm_state <= st_wait;
         elsif rx_data(7) = '1' then
@@ -123,13 +123,13 @@ begin
         if rx_data_rdy = '0' then
           next_fsm_state <= st_wait_data2;
         else
-          next_data_flag_sig <= '1';    --wird fuer eine clk_period gesetzt
+          next_data_flag_sig <= '1';    -- Flag set for 1 clk_period
           next_fsm_state     <= st_wait;
         end if;
 
       when others =>
         next_fsm_state     <= st_wait;
-        next_data_flag_sig <= '1';      --wird fuer eine clk_period gesetzt
+        next_data_flag_sig <= '1';      -- Flag set for 1 clk_period
     end case;
 
   end process state_logic;
@@ -148,8 +148,8 @@ begin
 
     case fsm_state is
       when st_wait =>
-        if rx_data_rdy = '1' then
-          if rx_data(7 downto 4) = "1001" then
+        if rx_data_rdy = '1' then 
+          if rx_data(7 downto 4) = "1001" then -- identify tone on/off status
             next_note_on_sig <= '1';
           elsif rx_data(7 downto 4) = "1000" then
             next_note_on_sig <= '0';
@@ -172,7 +172,7 @@ begin
   end process fsm_output_logic;
 
   --------------------------------------------------
-  -- Output-Zuweisungen
+  -- Output-Assignement
   --------------------------------------------------
 
   note_on         <= note_on_sig;
