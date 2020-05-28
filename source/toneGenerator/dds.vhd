@@ -58,25 +58,30 @@ architecture str of dds is
 
 
 begin  -- architecture str
---------------------------------------------------
--- PROCESS FOR COMBINATORIAL LOGIC
---------------------------------------------------
+ ------------------------------------------------------------------------------
+ -- PROCESS FOR COMBINATORIAL LOGIC
+ ------------------------------------------------------------------------------
 
   comb_logic : process(all)
   begin
+  
     if step_i = '0' then
       next_count <= count;
     else
-      next_count <= count + unsigned(phi_incr_i);
+      next_count <= count + unsigned(phi_incr_i); --durch den Ton definierten Wert wird mit count addiert
     end if;
+	 
   end process comb_logic;
 
   lut_addr <= to_integer(count(N_CUM-1 downto N_CUM - N_LUT));
+  
+ ------------------------------------------------------------------------------
+ -- PROCESS FOR INSTRUMENT SELECTION
+ ------------------------------------------------------------------------------
 
-  instrument : process(all)             -- Process for instrument selection.
-
-
+  instrument : process(all)  
   begin
+  
     if instr_sel_i(0) = '1' then
       case instr_sel_i(3 downto 1) is
         when "000"  => lut_val <= to_signed(LUT_random_schwingung(lut_addr), N_AUDIO);  -- Audio Output accessing lut_sinus
@@ -92,41 +97,48 @@ begin  -- architecture str
     else
       lut_val <= to_signed(LUT_sinus(lut_addr), N_AUDIO);  -- Audio Output accessing lut_sinus
     end if;
+	 
   end process instrument;
 
+ ------------------------------------------------------------------------------
+ -- PROCESS FOR KEYSTROKE (ADJUSTING VOLUME)
+ ------------------------------------------------------------------------------
 
   attenu : process(all)
   begin
-    atte <= to_integer(unsigned(attenu_i));
+  
+    atte <= to_integer(unsigned(attenu_i)); -- attenue = abschwächung
 
     if tone_on_i = '1' then
       case atte is
-        when 0      => dds_o <= std_logic_vector(lut_val);
-        when 1      => dds_o <= std_logic_vector(shift_right(lut_val, 1));
-        when 2      => dds_o <= std_logic_vector(shift_right(lut_val, 2));
-        when 3      => dds_o <= std_logic_vector(shift_right(lut_val, 3));
-        when 4      => dds_o <= std_logic_vector(shift_right(lut_val, 4));
-        when 5      => dds_o <= std_logic_vector(shift_right(lut_val, 5));
-        when 6      => dds_o <= std_logic_vector(shift_right(lut_val, 6));
-        when 7      => dds_o <= std_logic_vector(shift_right(lut_val, 7));
+        when 0      => dds_o <= std_logic_vector(lut_val); --Pegel wird unverändert ausgegeben
+        when 1      => dds_o <= std_logic_vector(shift_right(lut_val, 1)); -- Der Pegel wird durch 2 geteilt
+		  when 2      => dds_o <= std_logic_vector(shift_right(lut_val, 2)); -- Der Pegel wird durch 4 geteilt
+        when 3      => dds_o <= std_logic_vector(shift_right(lut_val, 3)); -- Der Pegel wird durch 8 geteilt
+        when 4      => dds_o <= std_logic_vector(shift_right(lut_val, 4)); -- Der Pegel wird durch 16 geteilt
+        when 5      => dds_o <= std_logic_vector(shift_right(lut_val, 5)); -- Der Pegel wird durch 32 geteilt
+        when 6      => dds_o <= std_logic_vector(shift_right(lut_val, 6)); -- Der Pegel wird durch 64 geteilt
+        when 7      => dds_o <= std_logic_vector(shift_right(lut_val, 7)); -- Der Pegel wird durch 128 geteilt
         when others => dds_o <= std_logic_vector(lut_val);
       end case;
     else dds_o <= (others => '0');
     end if;
+	 
   end process attenu;
 
-
---------------------------------------------------
+-------------------------------------------------------------------------------
 -- PROCESS FOR Counter
---------------------------------------------------
+-------------------------------------------------------------------------------
 
   counter : process(all)
   begin
+  
     if reset_n = '0' then
       count <= (others => '0');
     elsif rising_edge(clk_12m) then
       count <= next_count;
     end if;
+	 
   end process counter;
 
 

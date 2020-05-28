@@ -28,6 +28,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.reg_table_pkg.all;
 
+--------------------------------------------------------------------------------------------------
 
 entity universal_shiftreg is
 
@@ -44,6 +45,8 @@ entity universal_shiftreg is
     );
 end universal_shiftreg;
 
+--------------------------------------------------------------------------------------------------
+
 architecture rtl of universal_shiftreg is
 
   signal shiftreg_S2P, next_shiftreg_S2P : std_logic_vector(15 downto 0);
@@ -51,9 +54,10 @@ architecture rtl of universal_shiftreg is
 
 begin
 
-  --------------------------------------------------
-  -- PROCESS FOR ALL FLIP-FLOPS
-  --------------------------------------------------
+ ------------------------------------------------------------------------------------------------
+ -- PROCESS FOR SHIFT-COMB-LOGIC
+ ------------------------------------------------------------------------------------------------
+  
   comb_shift : process(all)
   begin
     --default statements
@@ -66,11 +70,16 @@ begin
       next_shiftreg_P2S <= shiftreg_P2S(14 downto 0) & '0';  --shift right to left
       next_shiftreg_S2P <= shiftreg_S2P(14 downto 0) & ser_in;  --shift left to right
     end if;
+	 
   end process comb_shift;
 
+ ------------------------------------------------------------------------------------------------
+ -- PROCESS FOR ALL FLIP-FLOPS
+ ------------------------------------------------------------------------------------------------
 
   shift_dffs : process(all)
   begin
+  
     if rst_n_12m = '0' then
       shiftreg_P2S <= (others => '0');
       shiftreg_S2P <= (others => '0');
@@ -78,7 +87,12 @@ begin
       shiftreg_P2S <= next_shiftreg_P2S;
       shiftreg_S2P <= next_shiftreg_S2P;
     end if;
+	 
   end process shift_dffs;
+
+ ------------------------------------------------------------------------------------------------
+ -- PROCESS OUTPUT
+ ------------------------------------------------------------------------------------------------
 
   par_out <= shiftreg_S2P;
   ser_out <= shiftreg_P2S(15);

@@ -20,7 +20,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity i2s_master is
-  port(clk_12m : in std_logic;  -- 12.5M Clock
+  port(
+		 clk_12m : in std_logic;  -- 12.5M Clock
        reset_n : in std_logic;  -- Reset or init used for re-initialisation
 
        load_o : out std_logic;  -- Pulse once per audio frame 1/48kHz
