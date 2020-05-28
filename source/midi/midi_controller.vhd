@@ -104,9 +104,9 @@ begin
         next_data_flag_sig <= '0';      -- No new status data left
         if rx_data_rdy = '0' then
           next_fsm_state <= st_wait;
-        elsif rx_data(7) = '1' then
+        elsif rx_data(7) = '1' then     -- Status packet
           next_fsm_state <= st_wait_data1;
-        elsif rx_data(7) = '0' then
+        elsif rx_data(7) = '0' then     -- Data packet
           next_fsm_state <= st_wait_data2;
         end if;
 
@@ -149,21 +149,21 @@ begin
     case fsm_state is
       when st_wait =>
         if rx_data_rdy = '1' then 
-          if rx_data(7 downto 4) = "1001" then -- identify tone on/off status
+          if rx_data(7 downto 4) = "1001" then -- identify note on
             next_note_on_sig <= '1';
-          elsif rx_data(7 downto 4) = "1000" then
+          elsif rx_data(7 downto 4) = "1000" then -- identify note off
             next_note_on_sig <= '0';
           else
-            next_note_simple_sig <= rx_data(6 downto 0);
+            next_note_simple_sig <= rx_data(6 downto 0); -- send data packet
           end if;
         end if;
       when st_Wait_data1 =>
         if rx_data_rdy = '1' then
-          next_note_simple_sig <= rx_data(6 downto 0);
+          next_note_simple_sig <= rx_data(6 downto 0); -- send data packet
         end if;
       when st_Wait_data2 =>
         if rx_data_rdy = '1' then
-          next_velocity_simple_sig <= rx_data(6 downto 0);
+          next_velocity_simple_sig <= rx_data(6 downto 0); -- send data packet
         end if;
       when others =>
 

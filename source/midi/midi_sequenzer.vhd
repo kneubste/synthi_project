@@ -17,10 +17,10 @@
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date:       | Version:   | Author:   | Description:
--- 2020-04-20  | 1.0      	 | lussimat  | Created & commented
--- 2020-04-22	| 1.1			 | lussimat  | Verbesserung: inkrementierung counter
--- 2020-05-17  | 1.2			 | lussimat  | Array vergrössert (auf 100 Stellen)
--- 2020-05-17  | 1.3        | kneubste  | Project-Contrl. & Beautify.
+-- 2020-04-20  | 1.0        | lussimat  | Created & commented
+-- 2020-04-22  | 1.1	    | lussimat  | Improvment: incrementation counter
+-- 2020-05-17  | 1.2        | lussimat  | Array increased (to 100)
+-- 2020-05-28  | 1.3        | kneubste  | Project-Contrl. & Beautify.
 -------------------------------------------------------------------------------
 
 -- Library & Use Statements
@@ -38,12 +38,12 @@ entity midi_sequenzer is
         reset_n        : in  std_logic;
         note_i         : in  std_logic_vector(6 downto 0);  --note_signal otput von midi_controller
         velocity_i     : in  std_logic_vector(6 downto 0);  --velocity_Signal output von midi_controller
-        write_enable_i : in  std_logic;  --wie lange wird die note gespielt
-        play_i         : in  std_logic;  --Schalter 5
-        record_i       : in  std_logic;  --Schalter 4
+        write_enable_i : in  std_logic;  -- How long the note plays
+        play_i         : in  std_logic;  --Switch 5
+        record_i       : in  std_logic;  --Switch 4
         note_o         : out std_logic_vector(6 downto 0);
         velocity_o     : out std_logic_vector(6 downto 0);
-        note_pulse     : out std_logic;  --note ein oder aus
+        note_pulse     : out std_logic;  --note on or off
         flag_out       : out std_logic;
 		  reset_o 		  : out std_logic
         );
@@ -61,8 +61,8 @@ architecture rtl of midi_sequenzer is
   signal note_ram, next_note_ram             : NOTE_VELOCITY_RAM_TYPE;
   signal velocity_ram, next_velocity_ram     : NOTE_VELOCITY_RAM_TYPE;
   signal timer_ram, next_timer_ram           : TIMER_RAM_TYPE;
-  signal counter_time, next_counter_time     : unsigned(SEQUENZ-1 downto 0);  --zaehlt Zeit (SEQUENZ: 32)
-  signal counter_row, next_counter_row       : unsigned(SEQUENZ-1 downto 0);  --dient als Spalten-/Zeilen-Index
+  signal counter_time, next_counter_time     : unsigned(SEQUENZ-1 downto 0);  --counts time (SEQUENZ: 32)
+  signal counter_row, next_counter_row       : unsigned(SEQUENZ-1 downto 0);  --serves as column-/row-index
   signal note_sig, next_note_sig             : std_logic_vector(6 downto 0);
   signal velocity_sig, next_velocity_sig     : std_logic_vector(6 downto 0);
   signal note_pulse_sig, next_note_pulse_sig : std_logic;
@@ -172,26 +172,26 @@ begin
 
       when st_wait =>
 
-        --record nach play und umgekehrt sind ueber st_wait verbunden deshalb hier default state
+        --record after play and vice versa are connected over st_wait therefore here defualt state
         next_counter_row  <= to_unsigned(0, SEQUENZ);
         next_counter_time <= to_unsigned(0, SEQUENZ);
 
       when st_record =>
 
-        next_counter_time <= counter_time + 1;  --Zeit beginnt zu zaehlen
+        next_counter_time <= counter_time + 1;  --Time begins to count
 
         if write_enable_i = '1' then
 
-          if (not(to_unsigned(0, SEQUENZ)) > counter_time) then  --32 bit erreicht?
+          if (not(to_unsigned(0, SEQUENZ)) > counter_time) then  --32 bit reached
 
-            next_note_ram(to_integer(counter_row))     <= note_i;  --note wird in Zeile gespeichert
-            next_velocity_ram(to_integer(counter_row)) <= velocity_i;  --dazugehoerige velocity wird in gleicher Zeile (anderes Array) gespeichert
-            next_timer_ram(to_integer(counter_row))    <= std_logic_vector(counter_time);  --die Zeit, bei welcher der Ton spielt oder verstummt wird in gleiche Zeile gespeichert
-            next_counter_row                           <= counter_row + 1;  --Zeilen werden raufgezaehlt
+            next_note_ram(to_integer(counter_row))     <= note_i;  --note gets saved into row
+            next_velocity_ram(to_integer(counter_row)) <= velocity_i;  --corresponding velocity gets saved into same row in another array
+            next_timer_ram(to_integer(counter_row))    <= std_logic_vector(counter_time);  --start or stop time gets saved into same row
+            next_counter_row                           <= counter_row + 1;  -- increasing row count
 
           else
 
-            -- led leuchten lassen oder so
+            -- Possibility of led signal or similar.
 
           end if;
         end if;
@@ -200,15 +200,15 @@ begin
 
         if timer_ram(to_integer(counter_row)) = std_logic_vector(counter_time) then
 
-          next_counter_row  <= counter_row + 1;  --naechste note/Zeile wird im naechste Durchlauf angeschaut 
+          next_counter_row  <= counter_row + 1;  -- next note/ row observed in next run.
           next_flag_sig     <= '1';
-          next_note_sig     <= note_ram(to_integer(counter_row));  --note wird ausgegeben
-          next_velocity_sig <= velocity_ram(to_integer(counter_row));  --dazugehoerige velocity wird mitausgegeben
+          next_note_sig     <= note_ram(to_integer(counter_row));  --output note 
+          next_velocity_sig <= velocity_ram(to_integer(counter_row));  --output velocity
 
-          if next_velocity_sig = std_logic_vector(to_unsigned(0, 7)) then  --ist velocity 0?
+          if next_velocity_sig = std_logic_vector(to_unsigned(0, 7)) then  --velocity 0?
             next_note_pulse_sig <= '0';
           else
-            next_note_pulse_sig <= '1';  --nein: note on status
+            next_note_pulse_sig <= '1';  --if no: note on status
           end if;
 
         else
