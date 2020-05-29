@@ -82,11 +82,11 @@ begin  -- architecture str
         clk_12m     => clk_12m,
         reset_n     => rst_n,
         step_i      => step_i,
-        tone_on_i   => tone_on_i(i), -- tone_on Array wird gefüllt
+        tone_on_i   => tone_on_i(i), -- tone_on Array is filled.
         instr_sel_i => instr_sel_i,
         phi_incr_i  => lut_midi2dds(to_integer(unsigned(note_i(i)))),  --Lut value of note_i
         attenu_i    => velocity_i(i)(6 downto 4),  --MSBs of velocity_i
-        dds_o       => dds_o_array(i)); --Ausgabe pro dds wird in Arraystelle gespeichert
+        dds_o       => dds_o_array(i)); ---Output per dds is stored in array location
   end generate dds_inst_gen;
 
   -----------------------------------------------------------------------------
@@ -98,9 +98,9 @@ begin  -- architecture str
   begin
   
     var_sum := (others => '0'); --default case
-    if step_i = '1' then --load von I2s Master (erst dann, kann sich etwas am Ton ändern)
+    if step_i = '1' then --load from I2s Master (only then, change in tone)
       dds_sum_loop : for i in 0 to 9 loop
-        var_sum := var_sum + signed(dds_o_array(i)); --Alle 10 Pegel werden zusammenaddiert
+        var_sum := var_sum + signed(dds_o_array(i)); --All 10 levels are added together
       end loop dds_sum_loop;
       next_sum_reg <= var_sum;
     else

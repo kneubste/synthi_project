@@ -68,7 +68,7 @@ begin  -- architecture str
     if step_i = '0' then
       next_count <= count;
     else
-      next_count <= count + unsigned(phi_incr_i); --durch den Ton definierten Wert wird mit count addiert
+      next_count <= count + unsigned(phi_incr_i); --The defined tone value is added with the count.
     end if;
 	 
   end process comb_logic;
@@ -111,14 +111,14 @@ begin  -- architecture str
 
     if tone_on_i = '1' then
       case atte is
-        when 0      => dds_o <= std_logic_vector(lut_val); --Pegel wird unverändert ausgegeben
-        when 1      => dds_o <= std_logic_vector(shift_right(lut_val, 1)); -- Der Pegel wird durch 2 geteilt
-		  when 2      => dds_o <= std_logic_vector(shift_right(lut_val, 2)); -- Der Pegel wird durch 4 geteilt
-        when 3      => dds_o <= std_logic_vector(shift_right(lut_val, 3)); -- Der Pegel wird durch 8 geteilt
-        when 4      => dds_o <= std_logic_vector(shift_right(lut_val, 4)); -- Der Pegel wird durch 16 geteilt
-        when 5      => dds_o <= std_logic_vector(shift_right(lut_val, 5)); -- Der Pegel wird durch 32 geteilt
-        when 6      => dds_o <= std_logic_vector(shift_right(lut_val, 6)); -- Der Pegel wird durch 64 geteilt
-        when 7      => dds_o <= std_logic_vector(shift_right(lut_val, 7)); -- Der Pegel wird durch 128 geteilt
+        when 0      => dds_o <= std_logic_vector(lut_val); -- Output level unchanged
+        when 1      => dds_o <= std_logic_vector(shift_right(lut_val, 1)); -- The level is divided by 2.
+		  when 2      => dds_o <= std_logic_vector(shift_right(lut_val, 2)); -- The level is divided by 4.
+        when 3      => dds_o <= std_logic_vector(shift_right(lut_val, 3)); -- The level is divided by 8.
+        when 4      => dds_o <= std_logic_vector(shift_right(lut_val, 4)); -- The level is divided by 16.
+        when 5      => dds_o <= std_logic_vector(shift_right(lut_val, 5)); -- The level is divided by 32.
+        when 6      => dds_o <= std_logic_vector(shift_right(lut_val, 6)); -- The level is divided by 64.
+        when 7      => dds_o <= std_logic_vector(shift_right(lut_val, 7)); -- The level is divided by 128.
         when others => dds_o <= std_logic_vector(lut_val);
       end case;
     else dds_o <= (others => '0');
