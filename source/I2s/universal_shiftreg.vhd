@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- Title      : universal_shiftreg
--- Project    : Master_I2s
+-- Project    : synthi_project
 -------------------------------------------------------------------------------
 -- File       : universal_shiftreg.vhd
 -- Author     : gelk

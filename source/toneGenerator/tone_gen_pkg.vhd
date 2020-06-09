@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
--- Project     : audio_top
+-- Project     : synthi_project
 -- Description : Constants and LUTs for tone generation with DDS
 --
 --

@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- Title      : sevenseg
--- Project    : 
+-- Project    : synthi_project
 -------------------------------------------------------------------------------
 -- File       : bus_sevenseg.vhd
 -- Author     : Hans-Joachim Gelke  <hansgelke@Hans-Joachims-MacBook-Pro.local>

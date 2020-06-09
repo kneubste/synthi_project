@@ -1,5 +1,5 @@
 --------------------------------------------------------------------
--- Project     : Audio_Synthesizer
+-- Project     : synthi_project
 --
 -- File Name   : path_control.vhd
 -- Description : Multiplexer fuer die parallelen Daten des i2s_master.vhd
@@ -14,6 +14,7 @@
 -- 24.03.14 | loosean  | file created
 -- 21.04.14 | loosean  | revised comments
 -- 29.03.17 | dqtm     | adapt to reuse on extended DTP2 project with DAFX
+-- 30.03.20 | lussimat | added mux_logic for synthi_project
 --------------------------------------------------------------------
 
 

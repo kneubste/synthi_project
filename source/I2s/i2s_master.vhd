@@ -1,5 +1,5 @@
 --------------------------------------------------------------------
--- Project     : DTP_Soundmachine
+-- Project     : synthi_project
 --
 -- File Name   : i2s_master.vhd
 -- Description : Konvertiert die seriellen i2s Daten in ein paralleles signal
@@ -13,6 +13,7 @@
 -- 21.04.14 | loosean  | revised comments
 -- 29.03.17 | dqtm     | adapt to reuse on extended DTP2 project 
 --                     | Changes: reuse mod_div, combine bit_cnt & i2s_decoder into frame_decoder)
+-- 30.03.20 | lussimat | changed top level for synthi_project
 --------------------------------------------------------------------
 
 library ieee;
@@ -160,7 +161,7 @@ bclk_o <= bclk_int;
  
  begin
        
-	if ws_int = '1' then --ist word select high (rechts)?
+	if ws_int = '1' then --ist word strobe high (rechts)?
 		dacdat_s_o <= ser_r_out; 
 	else 
 		dacdat_s_o <= ser_l_out;

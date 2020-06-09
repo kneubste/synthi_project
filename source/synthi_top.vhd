@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- Title      : synthi_top
--- Project    : Synthesizer
+-- Project    : synthi_project
 -------------------------------------------------------------------------------
 -- File       : synthi_top.vhd
 -- Author     :   <Cyrill@DESKTOP-MRJOR86>

@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- Title      : DDS Direct Digital Synthesis
--- Project    : 
+-- Project    : synthi_project
 -------------------------------------------------------------------------------
 -- File       : dds.vhd
 -- Author     : Cyrill Stutz <stutzcyr>

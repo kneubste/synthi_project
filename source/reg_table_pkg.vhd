@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
--- Project     : audio_top
+-- Project     : synthi_project
 -- Description : WM8731 Codec Register Values for selected modes
 --
 --

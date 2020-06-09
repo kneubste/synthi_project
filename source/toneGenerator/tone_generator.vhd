@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- Title      : tone generator
--- Project    : 
+-- Project    : synthi_project
 -------------------------------------------------------------------------------
 -- File       : tone_generator.vhd
 -- Author     : Cyrill Stutz <stutzcyr>

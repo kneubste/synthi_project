@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- Title      : midi_sequenzer
--- Project    : Synthesizer
+-- Project    : synthi_project
 -------------------------------------------------------------------------------
 -- File       : midi_sequenzer.vhd
 -- Author     :   <lussimat>

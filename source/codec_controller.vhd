@@ -1,6 +1,6 @@
 --------------------------------------------------------------------
 -- Title	: codec_controller
--- Project	: Synthesizer
+-- Project	: synthi_project
 --------------------------------------------------------------------
 -- File Name   : codec_controller.vhd
 -- Description : Controller to define Audio Codec Configuration via I2C
