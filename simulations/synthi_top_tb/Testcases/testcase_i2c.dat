@@ -21,29 +21,6 @@
 #-- 2020-03-17  1.1      Matthis Lussi   expanded
 #-------------------------------------------------------------------------------
 
-#-------------------------------------------------------------------------------
-#-- Title      : Template for testcases
-#-- Project    : DTP2
-#-------------------------------------------------------------------------------
-#-- File       : testcase.dat
-#-- Author     : Hans-Joachim Gelke
-#-- Company    : 
-#-- Created    : 2018-10-21
-#-- Last update: 2019-2-13
-#-- Platform   : 
-#-- Standard   : VHDL'08
-#-------------------------------------------------------------------------------
-#-- Description: Verschiedene Schalterstellungen/cases (3 Schalter/Bits) fuer den
-#--              Input "SW". Prueft diverse Outputs von i2c_slave_bfm (data_reg's) 
-#-------------------------------------------------------------------------------
-#-- Copyright (c) 2018 - 2019
-#-------------------------------------------------------------------------------
-#-- Revisions  :
-#-- Date        Version  Author          Description
-#-- 2019-02-13  1.0      Hans-Joachim    Created
-#-- 2020-03-17  1.1      Matthis Lussi   expanded
-#-------------------------------------------------------------------------------
-
 #Schalterstellung 000
 rst_sim
 gpi_sim 00 00 00 00
