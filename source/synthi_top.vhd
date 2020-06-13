@@ -58,7 +58,7 @@ entity synthi_top is
         HEX1        : out   std_logic_vector(6 downto 0);  -- output for HEX 1 display
         HEX2        : out   std_logic_vector(6 downto 0);  -- output for HEX 2 display
         HEX3        : out   std_logic_vector(6 downto 0);  -- output for HEX 3 display
-        LEDR_9      : out   std_logic
+        LEDR_6      : out   std_logic
         );
 
 end entity synthi_top;
@@ -424,7 +424,7 @@ begin  -- architecture str
   AUD_DACLRCK <= ws_o_int;
   AUD_ADCLRCK <= ws_o_int;
   AUD_XCK     <= sig_clk_12m;
-  LEDR_9      <= SW(9);
+  LEDR_6      <= SW(6);
 
 end architecture str;
 
